@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+.main-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: auto auto auto;
+  column-gap: 1.5rem;
+  padding: 1.5rem 22.5rem 0rem 22.5rem;
+}
+
+.container {
+  display: grid;
+  width: 43.125rem;
+}
+
+/*Text colors and settings*/
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.txt-primary-200 {
+  color: #DCE6E7;
+}
+
+.txt-primary-400 {
+  color: #004D61;
+}
+
+.txt-primary-600 {
+  color: #013644;
+}
+
+.txt-secondary-200 {
+  color: #E4EDE3;
+}
+
+.txt-secondary-400 {
+  color: #47A138;
+}
+
+.txt-secondary-600 {
+  color: #39862C;
+}
+
+.txt-tertiary-400 {
+  color: #FF5031;
+}
+
+.txt-tertiary-600 {
+  color: #D92C0E;
+}
+
+.txt-gray-200 {
+  color: #F5F5F5;
+}
+
+.txt-gray-400 {
+  color: #CBCBCB;
+}
+
+.txt-gray-600 {
+  color: #8B8B8B;
+}
+
+.txt-black {
+  color: black;
+}
+
+.txt-white {
+  color: white;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+/*Backgrounds colors and settings*/
+
+.bg-primary-200 {
+  background-color: #DCE6E7;
+}
+
+.bg-primary-400 {
+  background-color: #004D61;
+}
+
+.bg-primary-600 {
+  background-color: #013644;
+}
+
+.bg-secondary-200 {
+  background-color: #E4EDE3;
+}
+
+.bg-secondary-400 {
+  background-color: #47A138;
+}
+
+.bg-secondary-600 {
+  background-color: #39862C;
+}
+
+.bg-tertiary-400 {
+  background-color: #FF5031;
+}
+
+.bg-tertiary-600 {
+  background-color: #D92C0E;
+}
+
+.bg-gray-200 {
+  background-color: #F5F5F5;
+}
+
+.bg-gray-400 {
+  background-color: #CBCBCB;
+}
+
+.bg-gray-600 {
+  background-color: #8B8B8B;
+}
+
+/*Border settings*/
+
+.border-round {
+  border-radius: 8px;
+}

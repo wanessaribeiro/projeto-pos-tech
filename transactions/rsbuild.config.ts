@@ -6,17 +6,14 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'federation_consumer',
-      remotes: {
-        federation_provider:
-          'federation_provider@http://localhost:3000/mf-manifest.json',
-        navbar:
-        'navbar@http://localhost:3001/mf-manifest.json',
+      name: 'transactions',
+      exposes: {
+        './invoice': './src/components/Invoice/Invoice.tsx'
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   server: {
-    port: 2000,
+    port: 3002,
   },
 });

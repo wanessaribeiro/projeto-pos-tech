@@ -6,14 +6,14 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'navbar',
+      name: 'account',
       exposes: {
-        './navbar': './src/components/NavBar.tsx',
+        './balancecard': './src/components/BalanceCard/BalanceCard.tsx',
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   server: {
-    port: 3001,
+    port: 3003,
   },
 });

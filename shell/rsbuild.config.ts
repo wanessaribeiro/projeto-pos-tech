@@ -6,14 +6,19 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'navbar',
-      exposes: {
-        './navbar': './src/components/NavBar.tsx',
+      name: 'shell',
+      remotes: {
+        federation_provider:
+          'federation_provider@http://localhost:3000/mf-manifest.json',
+        navbar:
+          'navbar@http://localhost:3001/mf-manifest.json',
+        transactions:
+          'transactions@http://localhost:3002/mf-manifest.json'
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   server: {
-    port: 3001,
+    port: 2000,
   },
 });

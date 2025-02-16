@@ -1,0 +1,9 @@
+.nav-bar-body {
+    width: 11.25rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav-bar-item {
+    padding: 6px;
+}
