@@ -1,11 +1,21 @@
+import EyeButton from '../EyeButton/EyeButton';
+import './BalanceCard.css'
+
 export default function BalnceCard () {
   return (
-    <div className="bg-primary-400 txt-white border-round">
+    <div className="container txt-white border-round balance-body">
       <div>
-        <h1 className="txt-black">Olá, cliente! :D</h1>
+        <h1>Olá, cliente! :D</h1>
+        <small>Quinta-feira, 09/09/2024</small>
       </div>
-      <div className='txt-white'>
-        <h2>Saldo</h2>
+      <div className='balance-number'>
+        <div>
+          <h2 className='font-bold'>Saldo</h2>
+          <EyeButton/>
+        </div>
+        <div className='balance-line'></div>
+        <p>Conta Corrente</p>
+        <p className="balance-text">R$ 2.500,00</p>
       </div>
     </div>
   );

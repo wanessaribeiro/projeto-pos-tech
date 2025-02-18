@@ -13,7 +13,9 @@ export default defineConfig({
         navbar:
           'navbar@http://localhost:3001/mf-manifest.json',
         transactions:
-          'transactions@http://localhost:3002/mf-manifest.json'
+          'transactions@http://localhost:3002/mf-manifest.json',
+        account:
+          'account@http://localhost:3003/mf-manifest.json'
       },
       shared: ['react', 'react-dom'],
     }),

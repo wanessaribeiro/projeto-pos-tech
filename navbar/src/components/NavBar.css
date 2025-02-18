@@ -1,9 +1,19 @@
 .nav-bar-body {
     width: 11.25rem;
-    text-decoration: none;
     text-align: center;
+    color: var(--primary-400);
+    padding: 1rem;
+    background-color: var(--gray-200);
 }
 
 .nav-bar-item {
-    padding: 6px;
+    padding: 0.75rem;
+}
+
+li {
+    border-bottom: 1px solid var(--primary-400); 
+    list-style-type: none;  
+}
+li:last-child {
+    border-bottom: none; 
 }

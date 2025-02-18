@@ -1,0 +1,21 @@
+.balance-body {
+    height: 25rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 1rem 0rem 0rem 1rem;
+    background-color: var(--primary-400);
+}
+
+.balance-number {
+    padding-top: 4rem;
+}
+
+.balance-text {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.balance-line {
+    width: 11.25rem;
+    border-top: 2px solid var(--tertiary-400);
+}

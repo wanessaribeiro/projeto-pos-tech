@@ -10,12 +10,12 @@ export default function NavBar() {
 
     return (
       <>
-      <nav className="bg-gray-200 border-round nav-bar-body">
+      <nav className="border-round nav-bar-body">
         <ul>
         {navItems.map((item, index) => {
           
           return (
-          <li key={index} className='txt-primary-400 nav-bar-item'>
+          <li key={index} className='nav-bar-item'>
             {item.label}
           </li>
           );

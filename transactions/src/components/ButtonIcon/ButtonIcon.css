@@ -1,0 +1,11 @@
+.button-icon {
+    display: flex;
+    height: 2.25rem;
+    width: 2.25rem;
+    background-color: var(--primary-400);
+    border-color: var(--primary-400);
+    border-style: solid;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}

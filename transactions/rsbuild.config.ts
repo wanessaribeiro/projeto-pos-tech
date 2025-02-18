@@ -8,7 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'transactions',
       exposes: {
-        './invoice': './src/components/Invoice/Invoice.tsx'
+        './invoice': './src/components/Invoice/Invoice.tsx',
+        './new-transaction': './src/components/NewTransaction/NewTransaction.tsx'
       },
       shared: ['react', 'react-dom'],
     }),
