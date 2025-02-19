@@ -15,17 +15,23 @@
 
 /*Mobile screen settings*/
 
+.hamburguer-menu {
+    background-color: white;
+    position: absolute;
+}
+
 @media only screen and (max-width: 720px) {
     .header {
         padding-right: 0;
-        padding-left: 7%;
-        gap:65%;
+
+        gap:60%;
         justify-content: stretch;
     }
 
     .hamburguer-icon {
         display: flex;
         height: auto;
+        padding-left: 7%;
         background-color: transparent;
         border: none;
         margin: 0;

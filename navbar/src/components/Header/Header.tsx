@@ -10,7 +10,6 @@ export default function Header () {
   
     const toggleMenu = () => {
       setIsMenuOpen((prev) => !prev);
-      console.log('aaaaaaaaaaaaaaaaaaa')
     };
   
     const closeMenu = () => setIsMenuOpen(false);
@@ -36,8 +35,7 @@ export default function Header () {
         <div className='header'>
             <button onClick={toggleMenu} className='hamburguer-icon'><HamburguerIcon /></button>
             {isMenuOpen && (
-            <div
-              ref={menuRef}>
+            <div ref={menuRef} className='hamburguer-menu'>
               <ContextualMenu isMenuOpen={isMenuOpen} onClose={closeMenu} />
             </div>
             )}

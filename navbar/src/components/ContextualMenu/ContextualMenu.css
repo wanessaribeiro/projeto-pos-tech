@@ -1,0 +1,15 @@
+.menu-body {
+    text-align: center;
+    width: 12.5rem;
+    margin-top: 7.5rem;
+}
+
+.menu-ul {
+    padding: 1.25rem;
+    color: var(--primary-400);
+}
+
+.menu-item {
+    border-bottom: 1px solid var(--tertiary-400);
+    padding: 0.75rem;
+}
