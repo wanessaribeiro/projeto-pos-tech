@@ -4,12 +4,12 @@ import './BalanceCard.css'
 export default function BalnceCard () {
   return (
     <div className="container txt-white border-round balance-body">
-      <div>
+      <div className='inner-div'>
         <h1>Olá, cliente! :D</h1>
         <small>Quinta-feira, 09/09/2024</small>
       </div>
       <div className='balance-number'>
-        <div>
+        <div className='balance-icon'>
           <h2 className='font-bold'>Saldo</h2>
           <EyeButton/>
         </div>

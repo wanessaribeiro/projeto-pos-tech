@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    background-color: var(--primary-400);    
+    justify-content: right;
+    align-items: center;
+    gap: 3.5rem;
+    padding-right: 16%;
+    color: white;
+    height: 6rem;
+}
+
+.hamburguer-icon {
+    display: none;
+}
+
+/*Mobile screen settings*/
+
+@media only screen and (max-width: 720px) {
+    .header {
+        padding-right: 0;
+        padding-left: 7%;
+        gap:65%;
+        justify-content: stretch;
+    }
+
+    .hamburguer-icon {
+        display: flex;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+
+    .header-name {
+        display: none;
+    }
+    
+}

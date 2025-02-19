@@ -10,6 +10,12 @@
     padding-top: 4rem;
 }
 
+.balance-icon {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 .balance-text {
     font-size: 2rem;
     margin-top: 0;
@@ -18,4 +24,14 @@
 .balance-line {
     width: 11.25rem;
     border-top: 2px solid var(--tertiary-400);
+}
+
+@media only screen and (max-width: 720px) {
+    .balance-body {
+        height: 25rem;
+        display: grid;
+        grid-template-columns: auto;
+        padding: 1rem 0rem 0rem 1rem;
+        background-color: var(--primary-400);
+    }
 }

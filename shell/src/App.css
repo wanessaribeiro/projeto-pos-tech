@@ -19,12 +19,14 @@ body {
   background-color: var(--secondary-200);
 }
 
+
 .main-container {
   display: grid;
   height: 100%;
   grid-template-columns: auto auto auto;
   column-gap: 1.5rem;
-  padding: 1.5rem 22.5rem 0rem 22.5rem;
+  justify-content: center;
+  padding: 1.5rem 0rem 0rem 0rem;
 }
 
 .container {
@@ -34,6 +36,11 @@ body {
 
 .items {
   gap: 1.5rem;
+}
+
+.inner-div {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
 }
 
 /*Text colors and settings*/
@@ -89,13 +96,13 @@ input {
   height: 2.75rem;
   border-radius: 8px;
   border: 1px solid var(--primary-400);
-  position: relative;
 }
 
 .dropdown {
-  width: 355px;
+  width: 22rem;
   user-select: none;
   position: relative;
+  padding-top: 0.75rem;
 }
 
 .dropdown .dropdown-btn {
@@ -111,7 +118,7 @@ input {
 }
 
 .dropdown .dropdown-content {
-  width: 355px;
+  width: 22rem;
   position: absolute;
   background: white;
   color: var(--primary-400);
@@ -136,4 +143,33 @@ input {
 .dropdown .dropdown-content .dropdown-item:last-child:hover {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+
+/*Mobile screen settings*/
+
+@media only screen and (max-width: 720px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: auto;
+    height: 100%;
+    gap: 1.5rem;
+  }
+
+  .container {
+    display: grid;
+    width: 19.5rem;
+  }
+
+  .items {
+    gap: 1.5rem;
+  }
+
+  .dropdown {
+    width: 14rem;
+  }
+
+  .dropdown .dropdown-content {
+    width: 14rem;
+  }
+  
 }

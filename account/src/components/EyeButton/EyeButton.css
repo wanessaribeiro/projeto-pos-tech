@@ -1,0 +1,8 @@
+.eye-button {
+    background-color: transparent;
+    border-color: transparent;
+    border-style: solid;
+    border-radius: 50%;
+    outline: none;
+    height: 1.25rem;
+}

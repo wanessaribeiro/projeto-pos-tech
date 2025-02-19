@@ -1,16 +1,15 @@
 type EyeIconProps = {
-    className?: string;
+    color?: string;
   };
   
-  export function EyeIcon({ className = "text-primary-100" }: EyeIconProps) {
+  export function EyeIcon({ color = "#FF5031" }: EyeIconProps) {
     return (
       <svg
         width="20"
-        height="14"
-        viewBox="0 0 20 14"
-        fill="none"
+        height="16"
+        viewBox="0 0 20 16"
+        fill={color}
         xmlns="http://www.w3.org/2000/svg"
-        className={`transition-colors duration-300 ease-in-out ${className}`}
       >
         <path
           className="fill-current"

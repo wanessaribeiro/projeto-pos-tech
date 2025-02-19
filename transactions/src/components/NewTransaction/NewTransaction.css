@@ -9,6 +9,10 @@
     padding: 1rem 0 0 1rem;
 }
 
+.transaction-value {
+    padding: 1rem 0 2rem 0;
+}
+
 .transaction-button{
     color: white;
     background-color: var(--primary-400);

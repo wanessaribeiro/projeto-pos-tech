@@ -17,3 +17,11 @@ li {
 li:last-child {
     border-bottom: none; 
 }
+
+@media only screen and (max-width: 720px) {
+
+    .nav-bar-body {
+        display: none;
+    }
+    
+}

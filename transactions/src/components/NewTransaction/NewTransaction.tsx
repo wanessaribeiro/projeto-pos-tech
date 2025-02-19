@@ -12,7 +12,7 @@ export default function NewTransaction() {
       
     return (
         <div className="transaction-body container border-round">
-            <div>
+            <div className='inner-div'>
                 <h1>Nova Transação</h1>
                 <form>
                     <TransactionDropdown
@@ -21,17 +21,19 @@ export default function NewTransaction() {
                     options={["Depósito", "Saque", "Transferência"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
-                    <p className='font-bold'>Valor</p>
-                    <input
-                    id="transaction-value"
-                    name="transaction-value"
-                    type="numeric"
-                    step="0.01"
-                    className="peer block w-[184px] h-[48px] cursor-pointer rounded-md border border-primary-400 py-2 pl-2 text-p text-center outline-2 text-primary-400"
-                    placeholder="0"
-                    value={newInvoice.value}
-                    onChange={()=>{}}
-                    />
+                    <div className='transaction-value'>
+                        <p className='font-bold'>Valor</p>
+                        <input
+                        id="transaction-value"
+                        name="transaction-value"
+                        type="numeric"
+                        step="0.01"
+                        className="peer block w-[184px] h-[48px] cursor-pointer rounded-md border border-primary-400 py-2 pl-2 text-p text-center outline-2 text-primary-400"
+                        placeholder="0"
+                        value={newInvoice.value}
+                        onChange={()=>{}}
+                        />
+                    </div>
                     <button className='transaction-button'>Concluir Transação</button>
                 </form>
             </div>
