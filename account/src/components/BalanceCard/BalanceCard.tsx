@@ -1,9 +1,15 @@
 import EyeButton from '../EyeButton/EyeButton';
+import pixels1 from '../../images/Pixels1.png'
+import pixels2 from '../../images/Pixels2.png'
+import piggyBank from '../../images/PiggyBank.png'
 import './BalanceCard.css'
 
-export default function BalnceCard () {
+export default function BalanceCard () {
   return (
     <div className="container txt-white border-round balance-body">
+      <img src={pixels1} className='img-1'/>
+      <img src={pixels2} className='img-2'/>
+      <img src={piggyBank} className='img-piggy-bank'/>
       <div className='inner-div'>
         <h1>Olá, cliente! :D</h1>
         <small>Quinta-feira, 09/09/2024</small>

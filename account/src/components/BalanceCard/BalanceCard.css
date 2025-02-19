@@ -4,7 +4,33 @@
     grid-template-columns: auto auto;
     padding: 1rem 0rem 0rem 1rem;
     background-color: var(--primary-400);
+    position: relative;
 }
+
+.img-1 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.img-2 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.img-piggy-bank {
+    width: 18.625rem;
+    height: 15.625rem;
+    position: absolute;
+    bottom: 1.8rem;
+    left: 2.8rem;
+}
+
 
 .balance-number {
     padding-top: 4rem;
@@ -34,4 +60,9 @@
         padding: 1rem 0rem 0rem 1rem;
         background-color: var(--primary-400);
     }
+
+    .img-piggy-bank {
+        display: none;
+    }
+    
 }

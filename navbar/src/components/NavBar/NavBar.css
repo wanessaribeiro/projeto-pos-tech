@@ -11,7 +11,7 @@
 }
 
 li {
-    border-bottom: 1px solid var(--primary-400); 
+    border-bottom: 1px solid var(--tertiary-400); 
     list-style-type: none;  
 }
 li:last-child {

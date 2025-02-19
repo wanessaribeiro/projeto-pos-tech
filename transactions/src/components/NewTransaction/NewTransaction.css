@@ -1,13 +1,40 @@
 .transaction-body {
     display: grid;
     grid-template-columns: auto auto;
-    height: 30rem;
+    height: 28rem;
     background-color: var(--gray-400);
     color: var(--primary-400);
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     padding: 1rem 0 0 1rem;
+    position: relative;
 }
+
+.img-1 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.img-2 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.img-person-with-card {
+    width: 20.438rem;
+    height: 14.5rem;
+    position: absolute;
+    bottom: 1.8rem;
+    right: 1.8rem;
+}
+
+
 
 .transaction-value {
     padding: 1rem 0 2rem 0;
@@ -18,4 +45,12 @@
     background-color: var(--primary-400);
     border: 2px solid var(--primary-400);
     width: 15.6rem;
+}
+
+@media only screen and (max-width: 720px) {
+
+    .img-person-with-card {
+        display: none;
+    }
+    
 }

@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import './NewTransaction.css'
+import pixels3 from '../../images/Pixels3.png'
+import pixels4 from '../../images/Pixels4.png'
+import personWithCard from '../../images/PersonWithCard.png'
 import TransactionDropdown from '../TransactionDropdown/TransactionDropdown';
 
 export default function NewTransaction() {
@@ -12,6 +15,9 @@ export default function NewTransaction() {
       
     return (
         <div className="transaction-body container border-round">
+            <img src={pixels3} className='img-1'/>
+            <img src={pixels4} className='img-2'/>
+            <img src={personWithCard} className='img-person-with-card' />
             <div className='inner-div'>
                 <h1>Nova Transação</h1>
                 <form>
