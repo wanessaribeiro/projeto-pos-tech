@@ -1,11 +1,13 @@
+import { InvoiceType } from '../../libs/types';
 import InvoiceItem from '../InvoiceItem/InvoiceItem';
 import './Invoice.css'
 
-export default function Invoice () {
-  const invoices = [
-    { id: "1111", type: 'deposito', value: 500, date: '12/06/1999'},
-    { id: "1111", type: 'deposito', value: 500, date: '12/06/1999'},
-  ];
+interface InvoiceProps{
+  invoices: InvoiceType;
+}
+
+
+export default function Invoice ({invoices}: InvoiceProps) {
   return (
     <div className="border-round invoice-body">
       <div>

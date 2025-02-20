@@ -1,13 +1,13 @@
 import { createContext, useContext, useState } from "react";
 
-export interface Invoice {
+export interface InvoiceType {
   id: string;
   type: string;
   value: number;
   date: Date;
 }
 
-const invoicesMock: Invoice[] = [
+const invoicesMock: InvoiceType[] = [
   {
     id: "4",
     type: "Saque",
@@ -43,10 +43,10 @@ const invoicesMock: Invoice[] = [
 ];
 
 const InvoiceContext = createContext<{
-  invoices: Invoice[],
-  useGetInvoice: (id: string) => Invoice | undefined,
-  usePostInvoice: (invoice: Invoice) => void,
-  usePatchInvoice: (invoice: Invoice) => void,
+  invoices: InvoiceType[],
+  useGetInvoice: (id: string) => InvoiceType | undefined,
+  usePostInvoice: (invoice: InvoiceType) => void,
+  usePatchInvoice: (invoice: InvoiceType) => void,
   useDeleteInvoice: (id: string) => void,
     } | undefined>(undefined);
     
@@ -61,11 +61,11 @@ export function InvoiceProvider({
     return invoice;
   };
 
-  const usePostInvoice = (invoice: Invoice) => {
+  const usePostInvoice = (invoice: InvoiceType) => {
     invoicesMock.unshift(invoice);
   };
 
-  const usePatchInvoice = (invoice: Invoice) => {
+  const usePatchInvoice = (invoice: InvoiceType) => {
     setInvoices((prev) => {
       const editInvoice = prev.find((i) => i.id === invoice.id);
       if (editInvoice) Object.assign(editInvoice, invoice);

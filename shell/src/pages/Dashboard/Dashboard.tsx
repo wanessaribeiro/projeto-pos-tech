@@ -4,9 +4,12 @@ import Invoice from 'transactions/invoice'
 import BalanceCard from 'account/balance-card'
 import Content from '../../components/Content';
 import { useNavProvider } from '../../context/NavContext';
+import { useInvoiceProvider } from '../../context/InvoiceContext';
 
 export default function Dashboard () {
       const {setCurrentState} = useNavProvider();
+      const invoiceContext = useInvoiceProvider()
+      const invoices = invoiceContext?.invoices
       
     return (
         <div>
@@ -17,7 +20,7 @@ export default function Dashboard () {
             <BalanceCard/>
             <Content/>
           </div>
-          <Invoice/>
+          <Invoice invoices={invoices}/>
         </div>
       </div>
     )
