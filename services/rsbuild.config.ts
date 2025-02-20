@@ -9,6 +9,7 @@ export default defineConfig({
       name: 'services',
       exposes: {
         './button': './src/button.tsx',
+        './services-menu': './src/components/ServicesMenu/ServicesMenu.tsx',
       },
       shared: ['react', 'react-dom'],
     }),

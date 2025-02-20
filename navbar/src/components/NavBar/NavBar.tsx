@@ -13,7 +13,6 @@ export default function NavBar({setPage}:NavBarProps) {
   ];
 
     return (
-      <>
       <nav className="border-round nav-bar-body">
         <ul>
         {navItems.map((item, index) => {
@@ -26,6 +25,5 @@ export default function NavBar({setPage}:NavBarProps) {
         })}
         </ul>
       </nav>
-      </>
     );
   }
