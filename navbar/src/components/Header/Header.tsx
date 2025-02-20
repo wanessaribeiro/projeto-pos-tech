@@ -35,12 +35,12 @@ export default function Header () {
         <div className='header'>
             <button onClick={toggleMenu} className='hamburguer-icon'><HamburguerIcon /></button>
             {isMenuOpen && (
-            <div ref={menuRef} className='hamburguer-menu'>
+            <div ref={menuRef}>
               <ContextualMenu isMenuOpen={isMenuOpen} onClose={closeMenu} />
             </div>
             )}
             <small className='font-bold header-name'>Dinheirolson da Silva</small>
-            <UserIcon size={40} />
+            <div className='user-icon'><UserIcon size={40} /></div>
         </div>
     )
 }

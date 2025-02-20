@@ -1,23 +1,18 @@
 import './App.css';
-import NavBar from 'navbar/navbar'
-import Header from 'navbar/header'
-import Invoice from 'transactions/invoice'
-import BalanceCard from 'account/balance-card'
-import NewTransaction from 'transactions/new-transaction'
+import Dashboard from './pages/Dashboard/Dashboard';
+import { InvoiceProvider } from './context/InvoiceContext';
+import { NavProvider } from './context/NavContext';
+
 
 const App = () => {
+
+
   return (
-    <div>
-      <Header/>
-      <div className="main-container">
-        <NavBar/>
-        <div className='items'>
-          <BalanceCard/>
-          <NewTransaction/>
-        </div>
-        <Invoice/>
-      </div>
-    </div>
+    <InvoiceProvider>
+      <NavProvider>
+        <Dashboard/>
+      </NavProvider>
+    </InvoiceProvider>
   );
 };
 

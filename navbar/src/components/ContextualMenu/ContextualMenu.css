@@ -1,7 +1,11 @@
 .menu-body {
+    position: absolute;
     text-align: center;
+    background-color: white;
     width: 12.5rem;
-    margin-top: 7.5rem;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .menu-ul {

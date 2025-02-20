@@ -7,18 +7,18 @@
     padding-right: 16%;
     color: white;
     height: 6rem;
+    position: relative;
 }
 
 .hamburguer-icon {
     display: none;
 }
 
-/*Mobile screen settings*/
-
-.hamburguer-menu {
-    background-color: white;
-    position: absolute;
+.user-icon {
+    margin: 0;
 }
+
+/*Mobile screen settings*/
 
 @media only screen and (max-width: 720px) {
     .header {

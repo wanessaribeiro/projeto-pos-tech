@@ -1,11 +1,15 @@
 import './NavBar.css'
 
-export default function NavBar() {
+interface NavBarProps{
+  setPage: (page: string) => void;
+}
+
+export default function NavBar({setPage}:NavBarProps) {
   const navItems = [
-    { href: "/dashboard", label: "Início" },
-    { href: "/dashboard/exchanges", label: "Transferências" },
-    { href: "/dashboard/investments", label: "Investimentos" },
-    { href: "/dashboard/other-services", label: "Outros Serviços" },
+    { value: "Home", label: "Início" },
+    { value: "Transactions", label: "Transferências" },
+    { value: "Investments", label: "Investimentos" },
+    { value: "Other", label: "Outros Serviços" },
   ];
 
     return (
@@ -15,7 +19,7 @@ export default function NavBar() {
         {navItems.map((item, index) => {
           
           return (
-          <li key={index} className='nav-bar-item'>
+          <li key={index} className='nav-bar-item' onClick={() => setPage(item.value)}>
             {item.label}
           </li>
           );
