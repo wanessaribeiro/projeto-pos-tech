@@ -1,4 +1,5 @@
 import NewTransaction from 'transactions/new-transaction'
+import InvestmentsMenu from 'investments/investments-menu'
 import ServicesMenu from 'services/services-menu'
 import { useNavProvider } from '../context/NavContext'
 
@@ -13,13 +14,13 @@ export default function Content(){
 
     if(currentState === 'Transactions'){
         return (
-            <p>Transferencias</p>
+            <p>Investimentos</p>
         )
     }
 
     if(currentState === 'Investments'){
         return (
-            <p>Investimentos</p>
+            <InvestmentsMenu/>
         )
     }
 

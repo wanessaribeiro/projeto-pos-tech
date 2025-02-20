@@ -15,7 +15,9 @@ export default defineConfig({
         transactions:
           'transactions@http://localhost:3002/mf-manifest.json',
         account:
-          'account@http://localhost:3003/mf-manifest.json'
+          'account@http://localhost:3003/mf-manifest.json',
+        investments:
+          'investments@http://localhost:3004/mf-manifest.json'
       },
       shared: ['react', 'react-dom'],
     }),

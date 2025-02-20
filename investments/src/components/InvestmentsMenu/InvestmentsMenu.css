@@ -1,0 +1,52 @@
+.investments-body {
+    height: 30rem;
+    background-color: var(--gray-400);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 0 0 1rem;
+    position: relative;
+}
+
+.img-1 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.img-2 {
+    width: 11.25rem;
+    height: 11.125rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.investments-text {
+    font-size: 2rem;
+    color: var(--primary-400);
+}
+
+.investments-section {
+    background-color: var(--primary-400);
+    place-content: center;
+    place-items: center;
+    color: white;
+    padding: 0.5rem;
+}
+
+.mini-section {
+    height: 5rem;
+    width: 18rem;
+}
+
+.income-section {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.graph-section {
+    height: 9rem;
+    width: 39rem;
+}

@@ -41,6 +41,7 @@ body {
 .inner-div {
   margin-left: 1rem;
   margin-top: 0.25rem;
+  z-index: 20;
 }
 
 /*Text colors and settings*/
