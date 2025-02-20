@@ -8,8 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'shell',
       remotes: {
-        federation_provider:
-          'federation_provider@http://localhost:3000/mf-manifest.json',
+        services:
+          'services@http://localhost:3000/mf-manifest.json',
         navbar:
           'navbar@http://localhost:3001/mf-manifest.json',
         transactions:
