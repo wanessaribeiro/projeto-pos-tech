@@ -9,7 +9,8 @@ export default defineConfig({
       name: 'transactions',
       exposes: {
         './invoice': './src/components/Invoice/Invoice.tsx',
-        './new-transaction': './src/components/NewTransaction/NewTransaction.tsx'
+        './new-transaction': './src/components/NewTransaction/NewTransaction.tsx',
+        './transferences': './src/components/Transferences/Transferences.tsx'
       },
       shared: ['react', 'react-dom'],
     }),
