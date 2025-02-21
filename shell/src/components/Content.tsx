@@ -14,7 +14,7 @@ export default function Content(){
         'Transactions': <Transferences/>,
         'Investments':  <InvestmentsMenu/>,
         'Other': <ServicesMenu/>,
-        'Edit': <EditTransaction selectedTransaction={selectedInvoice} patchInvoice={usePatchInvoice} setPage={setCurrentState}/>
+        'Edit': <EditTransaction selectedTransaction={selectedInvoice} patchInvoice={usePatchInvoice} setPage={setCurrentState} />
     }
 
     return stateMap[currentState]

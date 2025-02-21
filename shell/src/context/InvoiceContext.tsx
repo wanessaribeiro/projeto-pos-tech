@@ -76,9 +76,14 @@ export function InvoiceProvider({
     });
   };
 
+  //rerender
   const useDeleteInvoice = (id: string) => {
-    const index = invoicesMock.findIndex((i) => i.id === id);
-    if (index >= 0) invoicesMock.splice(index, 1);
+    setInvoices((prev) => {
+      const updatedInvoices = [...prev]
+      const deleteInvoice = updatedInvoices.findIndex((i) => i.id === id);
+      if (deleteInvoice >= 0) updatedInvoices.splice(deleteInvoice, 1);
+      return updatedInvoices;
+    });
   };
 
   return (

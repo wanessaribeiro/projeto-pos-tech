@@ -8,8 +8,7 @@ import { useInvoiceProvider } from '../../context/InvoiceContext';
 
 export default function Dashboard () {
       const {setCurrentState} = useNavProvider();
-      const invoiceContext = useInvoiceProvider()
-      const invoices = invoiceContext?.invoices
+      const {invoices, setSelectedInvoice, useDeleteInvoice} = useInvoiceProvider()
       
     return (
         <div>
@@ -20,7 +19,7 @@ export default function Dashboard () {
             <BalanceCard/>
             <Content/>
           </div>
-          <Invoice invoices={invoices} setPage={setCurrentState} setSelectedTransaction={invoiceContext.setSelectedInvoice}/>
+          <Invoice invoices={invoices} setPage={setCurrentState} setSelectedTransaction={setSelectedInvoice} deleteTransaction={useDeleteInvoice}/>
         </div>
       </div>
     )

@@ -6,12 +6,17 @@ interface InvoiceProps{
   invoices: InvoiceType[];
   setPage: (page: string) => void;
   setSelectedTransaction: (invoice: InvoiceType) => void;
+  deleteTransaction: (id: string) => void;
 }
 
 
-export default function Invoice ({invoices, setPage, setSelectedTransaction}: InvoiceProps) {
+export default function Invoice ({invoices, setPage, setSelectedTransaction, deleteTransaction}: InvoiceProps) {
 
-  const EditInvoice = (invoice: InvoiceType) => {
+  const deleteInvoice = (id: string) => {
+    deleteTransaction(id)
+  }
+
+  const editInvoice = (invoice: InvoiceType) => {
     setSelectedTransaction(invoice)
     setPage('Edit')
   }
@@ -24,7 +29,7 @@ export default function Invoice ({invoices, setPage, setSelectedTransaction}: In
       <ul>
         {invoices?.map((invoice) => (
           <li className='invoice-li' key={invoice.id}>
-            <InvoiceItem key={invoice.id} id={invoice.id} type={invoice.type} value={invoice.value} date={invoice.date} onClickDelete={()=>{}} onClickEdit={() => EditInvoice(invoice)}/>
+            <InvoiceItem key={invoice.id} id={invoice.id} type={invoice.type} value={invoice.value} date={invoice.date} onClickDelete={()=> deleteInvoice(invoice.id)} onClickEdit={() => editInvoice(invoice)}/>
           </li>
         ))}
       </ul>
