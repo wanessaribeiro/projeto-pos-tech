@@ -4,37 +4,18 @@ import Transferences from 'transactions/transferences'
 import InvestmentsMenu from 'investments/investments-menu'
 import ServicesMenu from 'services/services-menu'
 import { useNavProvider } from '../context/NavContext'
+import { useInvoiceProvider } from '../context/InvoiceContext'
 
 export default function Content(){
-    const {currentState} = useNavProvider();
-    
-    if(currentState === 'Home'){
-        return (
-            <NewTransaction/>
-        )
+    const {currentState, setCurrentState} = useNavProvider();
+    const {selectedInvoice, usePatchInvoice} = useInvoiceProvider();
+    const stateMap: {[key: string]: React.JSX.Element} = {
+        'Home': <NewTransaction/>,
+        'Transactions': <Transferences/>,
+        'Investments':  <InvestmentsMenu/>,
+        'Other': <ServicesMenu/>,
+        'Edit': <EditTransaction selectedTransaction={selectedInvoice} patchInvoice={usePatchInvoice} setPage={setCurrentState}/>
     }
 
-    if(currentState === 'Transactions'){
-        return (
-            <Transferences/>
-        )
-    }
-
-    if(currentState === 'Investments'){
-        return (
-            <InvestmentsMenu/>
-        )
-    }
-
-    if(currentState === 'Other'){
-        return (
-            <ServicesMenu/>
-        )
-    }
-
-    if(currentState === 'Edit'){
-        return (
-            <EditTransaction />
-        )
-    }
+    return stateMap[currentState]
 }

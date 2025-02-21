@@ -5,14 +5,15 @@ import './Invoice.css'
 interface InvoiceProps{
   invoices: InvoiceType;
   setPage: (page: string) => void;
+  setSelectedTransaction: (invoice: InvoiceType) => void;
 }
 
 
-export default function Invoice ({invoices, setPage}: InvoiceProps) {
+export default function Invoice ({invoices, setPage, setSelectedTransaction}: InvoiceProps) {
 
-  const EditInvoice = (id: string) => {
+  const EditInvoice = (invoice: InvoiceType) => {
+    setSelectedTransaction(invoice)
     setPage('Edit')
-    console.log(id)
   }
 
   return (
@@ -23,7 +24,7 @@ export default function Invoice ({invoices, setPage}: InvoiceProps) {
       <ul>
         {invoices?.map((invoice) => (
           <li className='invoice-li' key={invoice.id}>
-            <InvoiceItem key={invoice.id} id={invoice.id} type={invoice.type} value={invoice.value} date={invoice.date} onClickDelete={()=>{}} onClickEdit={() => EditInvoice(invoice.id)}/>
+            <InvoiceItem key={invoice.id} id={invoice.id} type={invoice.type} value={invoice.value} date={invoice.date} onClickDelete={()=>{}} onClickEdit={() => EditInvoice(invoice)}/>
           </li>
         ))}
       </ul>

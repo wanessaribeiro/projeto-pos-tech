@@ -3,12 +3,43 @@ import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import personWithCard from '../../images/PersonWithCard.png'
 import TransactionDropdown from "../TransactionDropdown/TransactionDropdown"
+import { InvoiceType } from '../../libs/types'
+import { useEffect, useState } from 'react'
 
 export type EditTransactionProps = {
-    id: string
+    setPage: (page: string) => void;
+    selectedTransaction: InvoiceType;
+    patchInvoice: (invoice: InvoiceType) => void;
 }
 
-export default function EditTransaction(){
+export default function EditTransaction({setPage, selectedTransaction, patchInvoice}: EditTransactionProps){
+    const [editInvoice, setEditInvoice] = useState(selectedTransaction)
+
+    useEffect(() => {
+        setEditInvoice(selectedTransaction)
+    }, [selectedTransaction])
+
+    const onChangeType = (value: string) => {
+        setEditInvoice((prev) => ({ ...prev, type: value }));
+      };
+    
+      const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        if (!isNaN(Number(value))) {
+          setEditInvoice((prev) => ({ ...prev, value: Number(value) }));
+        }
+      };
+    
+      const updateInvoice = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (!editInvoice.type || editInvoice.value === 0) {
+          alert("Por favor, preencha todos os campos corretamente.");
+          return;
+        }
+        patchInvoice(editInvoice);
+        setPage('Home')
+      };
+    
     return (
         <div className="transaction-body container border-round">
             <img src={pixels3} className='img-3'/>
@@ -16,10 +47,10 @@ export default function EditTransaction(){
             <img src={personWithCard} className='img-person-with-card' />
             <div className='inner-div'>
                 <h1>Editar Transação</h1>
-                <form>
+                <form onSubmit={updateInvoice}>
                     <TransactionDropdown
-                    selected='{}'
-                    setSelected={()=>{}}
+                    selected={editInvoice.type}
+                    setSelected={onChangeType}
                     options={["Depósito", "Saque", "Transferência"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
@@ -31,11 +62,11 @@ export default function EditTransaction(){
                         type="numeric"
                         step="0.01"
                         placeholder="0"
-                        value=''
-                        onChange={()=>{}}
+                        value={editInvoice.value}
+                        onChange={onChangeValue}
                         />
                     </div>
-                    <button className='transaction-button'>Concluir Edição</button>
+                    <button type='submit' className='transaction-button'>Concluir Edição</button>
                 </form>
             </div>
         </div>
