@@ -12,8 +12,8 @@ import ServicesButton from '../ServicesButton/ServicesButton'
 export default function ServicesMenu(){
     return (
         <div className="services-body container border-round">
-            <img src={pixels3} className='img-1'/>
-            <img src={pixels4} className='img-2'/>
+            <img src={pixels3} className='img-3'/>
+            <img src={pixels4} className='img-4'/>
             <div className='inner-div'>
                 <h1>Confira os serviços disponíveis</h1>
             <div className='services'>

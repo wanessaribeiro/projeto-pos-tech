@@ -9,19 +9,3 @@
     padding: 1rem 0 0 1rem;
     position: relative;
 }
-
-.img-1 {
-    width: 11.25rem;
-    height: 11.125rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.img-2 {
-    width: 11.25rem;
-    height: 11.125rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}

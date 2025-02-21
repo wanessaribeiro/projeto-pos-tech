@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
 
 export interface InvoiceType {
   id: string;
@@ -44,6 +44,8 @@ const invoicesMock: InvoiceType[] = [
 
 const InvoiceContext = createContext<{
   invoices: InvoiceType[],
+  selectedInvoice: InvoiceType | undefined,
+  setSelectedInvoice: Dispatch<SetStateAction<InvoiceType>>,
   useGetInvoice: (id: string) => InvoiceType | undefined,
   usePostInvoice: (invoice: InvoiceType) => void,
   usePatchInvoice: (invoice: InvoiceType) => void,
@@ -55,6 +57,7 @@ export function InvoiceProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [invoices, setInvoices] = useState(invoicesMock);
+  const [selectedInvoice, setSelectedInvoice] = useState({id: "", type: "Saque", value: 0, date: new Date()});
 
   const useGetInvoice = (id: string) => {
     const invoice = invoicesMock.find((i) => i.id === id);
@@ -81,6 +84,8 @@ export function InvoiceProvider({
   return (
     <InvoiceContext.Provider
       value={{
+        selectedInvoice,
+        setSelectedInvoice,
         useGetInvoice,
         usePostInvoice,
         usePatchInvoice,

@@ -10,17 +10,20 @@ export type InvoiceItemProps = {
   type: string;
   value: number;
   date: Date;
+  onClickEdit: () => void,
+  onClickDelete: () => void
 };
 
 
-export default function InvoiceItem ({id, type, value, date}: InvoiceItemProps) {
+export default function InvoiceItem ({id, type, value, date, onClickEdit, onClickDelete}: InvoiceItemProps) {
+
     return (
       <div>
         <small className="invoice-month font-bold">{months[date.getMonth()]}</small>
         <div className='invoice-info'>
           <p className='invoice-p'>{type}</p>
           <div className='invoice-buttons'>
-            <ButtonIcon Icon={EditIcon}/>
+            <ButtonIcon Icon={EditIcon} onClickIcon={onClickEdit}/>
             <ButtonIcon Icon={TrashIcon}/>
           </div>
         </div>

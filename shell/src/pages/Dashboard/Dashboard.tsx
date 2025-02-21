@@ -20,7 +20,7 @@ export default function Dashboard () {
             <BalanceCard/>
             <Content/>
           </div>
-          <Invoice invoices={invoices}/>
+          <Invoice invoices={invoices} setPage={setCurrentState}/>
         </div>
       </div>
     )
