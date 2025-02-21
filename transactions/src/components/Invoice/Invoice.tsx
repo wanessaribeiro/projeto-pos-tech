@@ -3,7 +3,7 @@ import InvoiceItem from '../InvoiceItem/InvoiceItem';
 import './Invoice.css'
 
 interface InvoiceProps{
-  invoices: InvoiceType;
+  invoices: InvoiceType[];
   setPage: (page: string) => void;
   setSelectedTransaction: (invoice: InvoiceType) => void;
 }

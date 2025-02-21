@@ -1,17 +1,49 @@
 import { useState } from 'react';
 import './NewTransaction.css'
+import { v4 as uuidv4 } from "uuid";
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import personWithCard from '../../images/PersonWithCard.png'
 import TransactionDropdown from '../TransactionDropdown/TransactionDropdown';
+import { InvoiceType } from '../../libs/types';
 
-export default function NewTransaction() {
+interface InvoiceProps{
+  postInvoice: (invoice: InvoiceType) => void;
+}
+
+export default function NewTransaction({postInvoice}:InvoiceProps) {
     const [newInvoice, setNewInvoice] = useState({
-        id: 1,
+      id: uuidv4(),
+      type: "",
+      value: 0,
+      date: new Date(),
+    });
+  
+    const onChangeType = (value: string) => {
+      setNewInvoice((prev) => ({ ...prev, type: value }));
+    };
+  
+    const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      if (!isNaN(Number(value))) {
+        setNewInvoice((prev) => ({ ...prev, value: Number(value) }));
+      }
+    };
+  
+    const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      if (!newInvoice.type || newInvoice.value === 0) {
+        alert("Por favor, preencha todos os campos corretamente.");
+        return;
+      }
+      postInvoice(newInvoice);
+      setNewInvoice({
+        id: uuidv4(),
         type: "",
         value: 0,
         date: new Date(),
-      });
+      })
+    };
       
     return (
         <div className="transaction-body container border-round">
@@ -20,10 +52,10 @@ export default function NewTransaction() {
             <img src={personWithCard} className='img-person-with-card' />
             <div className='inner-div'>
                 <h1>Nova Transação</h1>
-                <form>
+                <form onSubmit={createInvoice}>
                     <TransactionDropdown
                     selected={newInvoice.type}
-                    setSelected={()=>{}}
+                    setSelected={onChangeType}
                     options={["Depósito", "Saque", "Transferência"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
@@ -36,10 +68,10 @@ export default function NewTransaction() {
                         step="0.01"
                         placeholder="0"
                         value={newInvoice.value}
-                        onChange={()=>{}}
+                        onChange={onChangeValue}
                         />
                     </div>
-                    <button className='transaction-button'>Concluir Transação</button>
+                    <button type='submit' className='transaction-button'>Concluir Transação</button>
                 </form>
             </div>
         </div>

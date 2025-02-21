@@ -56,7 +56,7 @@ const InvoiceContext = createContext<{
 export function InvoiceProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [invoices, setInvoices] = useState(invoicesMock);
+  const [invoices, setInvoices] = useState([...invoicesMock]);
   const [selectedInvoice, setSelectedInvoice] = useState({id: "", type: "Saque", value: 0, date: new Date()});
 
   const useGetInvoice = (id: string) => {
@@ -65,7 +65,7 @@ export function InvoiceProvider({
   };
 
   const usePostInvoice = (invoice: InvoiceType) => {
-    invoicesMock.unshift(invoice);
+    setInvoices((prev) => [invoice, ...prev]);
   };
 
   const usePatchInvoice = (invoice: InvoiceType) => {

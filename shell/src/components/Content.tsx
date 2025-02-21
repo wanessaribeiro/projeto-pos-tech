@@ -8,9 +8,9 @@ import { useInvoiceProvider } from '../context/InvoiceContext'
 
 export default function Content(){
     const {currentState, setCurrentState} = useNavProvider();
-    const {selectedInvoice, usePatchInvoice} = useInvoiceProvider();
+    const {selectedInvoice, usePatchInvoice, usePostInvoice} = useInvoiceProvider();
     const stateMap: {[key: string]: React.JSX.Element} = {
-        'Home': <NewTransaction/>,
+        'Home': <NewTransaction postInvoice={usePostInvoice}/>,
         'Transactions': <Transferences/>,
         'Investments':  <InvestmentsMenu/>,
         'Other': <ServicesMenu/>,
