@@ -76,7 +76,6 @@ export function InvoiceProvider({
     });
   };
 
-  //rerender
   const useDeleteInvoice = (id: string) => {
     setInvoices((prev) => {
       const updatedInvoices = [...prev]
