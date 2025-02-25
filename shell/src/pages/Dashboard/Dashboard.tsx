@@ -5,18 +5,20 @@ import BalanceCard from 'account/balance-card'
 import Content from '../../components/Content';
 import { useNavProvider } from '../../context/NavContext';
 import { useInvoiceProvider } from '../../context/InvoiceContext';
+import { useAccountProvider } from '../../context/AccountContext';
 
 export default function Dashboard () {
       const {setCurrentState} = useNavProvider();
-      const {invoices, setSelectedInvoice, useDeleteInvoice} = useInvoiceProvider()
+      const {account, balance} = useAccountProvider();
+      const {invoices, setSelectedInvoice, useDeleteInvoice} = useInvoiceProvider();
       
     return (
         <div>
-        <Header/>
+        <Header account={account}/>
         <div className="main-container">
           <NavBar setPage={setCurrentState}/>
           <div className='items'>
-            <BalanceCard/>
+            <BalanceCard account={account} balance={balance}/>
             <Content/>
           </div>
           <Invoice invoices={invoices} setPage={setCurrentState} setSelectedTransaction={setSelectedInvoice} deleteTransaction={useDeleteInvoice}/>

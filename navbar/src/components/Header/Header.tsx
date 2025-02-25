@@ -3,8 +3,13 @@ import { HamburguerIcon } from '../../icons/HamburguerIcon'
 import { UserIcon } from '../../icons/UserIcon'
 import './Header.css'
 import { ContextualMenu } from '../ContextualMenu/ContextualMenu';
+import { AccountType } from '../../libs/types';
 
-export default function Header () {
+type HeaderProps = {
+  account: AccountType;
+}
+
+export default function Header ({account} : HeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
   
@@ -39,7 +44,7 @@ export default function Header () {
               <ContextualMenu isMenuOpen={isMenuOpen} onClose={closeMenu} />
             </div>
             )}
-            <small className='font-bold header-name'>Dinheirolson da Silva</small>
+            <small className='font-bold header-name'>{account.name}</small>
             <div className='user-icon'><UserIcon size={40} /></div>
         </div>
     )

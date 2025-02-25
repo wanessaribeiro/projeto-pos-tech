@@ -9,9 +9,11 @@ import { InvoiceType } from '../../libs/types';
 
 interface InvoiceProps{
   postInvoice: (invoice: InvoiceType) => void;
+  balance: number;
+  setBalance: (balance: number) => void;
 }
 
-export default function NewTransaction({postInvoice}:InvoiceProps) {
+export default function NewTransaction({postInvoice, balance, setBalance}:InvoiceProps) {
     const [newInvoice, setNewInvoice] = useState({
       id: uuidv4(),
       type: "",
@@ -29,6 +31,13 @@ export default function NewTransaction({postInvoice}:InvoiceProps) {
         setNewInvoice((prev) => ({ ...prev, value: Number(value) }));
       }
     };
+
+    const setNewBalance = (invoice: InvoiceType) => {
+      const currentBalance = balance;
+      
+      if (invoice.type === "Depósito") setBalance(currentBalance + invoice.value)
+      else if (invoice.type === "Saque" || invoice.type === "Transferência") setBalance(currentBalance + invoice.value);
+    };
   
     const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -37,6 +46,7 @@ export default function NewTransaction({postInvoice}:InvoiceProps) {
         return;
       }
       postInvoice(newInvoice);
+      setNewBalance(newInvoice);
       setNewInvoice({
         id: uuidv4(),
         type: "",

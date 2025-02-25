@@ -1,9 +1,13 @@
 import './EyeButton.css'
 import { EyeIcon } from "../../icons/EyeIcon";
 
-export default function EyeButton() {
+type EyeButtonProps = {
+    onClick: () => void;
+}
+
+export default function EyeButton({onClick} : EyeButtonProps) {
     return (
-        <button onClick={()=>{}} className="eye-button">
+        <button onClick={onClick} className="eye-button">
             <EyeIcon/>
         </button>
     )
