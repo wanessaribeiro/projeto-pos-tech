@@ -36,7 +36,7 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
       const currentBalance = balance;
       
       if (invoice.type === "Depósito") setBalance(currentBalance + invoice.value)
-      else if (invoice.type === "Saque" || invoice.type === "Transferência") setBalance(currentBalance + invoice.value);
+      else if (invoice.type === "Saque" || invoice.type === "Transferência") setBalance(currentBalance - invoice.value);
     };
   
     const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
