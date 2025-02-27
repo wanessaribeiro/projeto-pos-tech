@@ -1,7 +1,11 @@
 import './Header.css'
 import imgLogo from '../../images/Logo.png'
 
-export default function Header () {
+type HeaderProps = {
+    onClickLogin: () => void;
+}
+
+export default function Header ({onClickLogin}: HeaderProps) {
     return (
         <div className='header'>
             <div className='header-text'>
@@ -11,7 +15,7 @@ export default function Header () {
             </div>
             <div className='header-buttons'>
                 <button className='button-green'>Abrir minha conta</button>
-                <button className='button-black'>Já tenho conta</button>
+                <button onClick={onClickLogin} className='button-black'>Já tenho conta</button>
             </div>
         </div>
     )

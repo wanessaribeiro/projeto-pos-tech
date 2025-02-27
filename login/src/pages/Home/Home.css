@@ -1,20 +1,25 @@
 .home-body {
     align-items: center;
-    justify-content: center;
     background-image: linear-gradient(var(--primary-400), var(--primary-200));
+    position: relative;
+}
+
+.home-content {
+    justify-items: center;
 }
 
 .home-banner {
     display: grid;
     grid-template-columns: auto auto;
     width: 75rem;
-    margin: 3rem;
+    margin: 1.5rem;
 }
 
 .home-text {
     text-align: justify;
     align-self: center;
-    width: 27rem;
+    width: 25rem;
+    padding: 1rem;
 }
 
 .home-img {
@@ -26,7 +31,7 @@
     align-items: center;
     text-align: center;
     width: 75rem;
-    margin: 3rem;
+    margin: 1.5rem;
 }
 
 .home-features {

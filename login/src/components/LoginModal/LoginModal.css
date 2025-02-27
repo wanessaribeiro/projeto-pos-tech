@@ -1,0 +1,42 @@
+.login-body {
+    width: 49.5rem;
+    height: 100%;
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    justify-items: center;
+    border: none;
+}
+
+.login-img {
+    width: 20.8rem;
+    height: 17rem;
+    margin-top: 1.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+}
+
+.login-input {
+    width: 35.75rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.login-link {
+    color: var(--secondary-400);
+    text-decoration: underline;
+    margin: 0.5rem 0rem 1.5rem;
+}
+
+.login-button {
+    align-self: center;
+    background-color: var(--secondary-400);
+    color: white;
+    border-style: solid;
+    border-color: var(--secondary-400);
+    width: 9rem;
+}
