@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { InvoiceType } from '../../libs/types';
 import InvoiceItem from '../InvoiceItem/InvoiceItem';
 import './Invoice.css'
@@ -7,19 +8,40 @@ interface InvoiceProps{
   setPage: (page: string) => void;
   setSelectedTransaction: (invoice: InvoiceType) => void;
   deleteTransaction: (id: string) => void;
+  balance: number;
+  setBalance: (balance: number) => void;
 }
 
 
-export default function Invoice ({invoices, setPage, setSelectedTransaction, deleteTransaction}: InvoiceProps) {
+export default function Invoice ({invoices, setPage, setSelectedTransaction, deleteTransaction, balance, setBalance}: InvoiceProps) {
 
   const deleteInvoice = (id: string) => {
     deleteTransaction(id)
+    setBalance(getTotalInvoices())
   }
 
   const editInvoice = (invoice: InvoiceType) => {
     setSelectedTransaction(invoice)
+    setBalance(getTotalInvoices())
     setPage('Edit')
   }
+
+  const getTotalInvoices = () => {
+    const total = invoices.reduce((acc, invoice) => {
+      if (invoice.type === "Depósito") {
+        return acc + invoice.value;
+      } else if (invoice.type === "Saque" || invoice.type === "Transferência") {
+        return acc - invoice.value;
+      }
+      return acc;
+    }, 0);
+    const currentBalance = balance;
+    return currentBalance + total;
+  };
+
+  useEffect(() => {
+    setBalance(getTotalInvoices())
+  }, [])
 
   return (
     <div className="border-round invoice-body">
