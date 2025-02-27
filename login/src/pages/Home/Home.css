@@ -1,0 +1,35 @@
+.home-body {
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(var(--primary-400), var(--primary-200));
+}
+
+.home-banner {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 75rem;
+    margin: 3rem;
+}
+
+.home-text {
+    text-align: justify;
+    align-self: center;
+    width: 27rem;
+}
+
+.home-img {
+    width: 41.313rem;
+    height: 25.75rem;
+}
+
+.features-div {
+    align-items: center;
+    text-align: center;
+    width: 75rem;
+    margin: 3rem;
+}
+
+.home-features {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}

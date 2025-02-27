@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    background-color: black;    
+    justify-content: center;
+    align-items: center;
+    gap: 30rem;
+    color: var(--secondary-400);
+    height: 6rem;
+    position: relative;
+}
+
+.header-img {
+    width: 9.125rem;
+    height: 2rem;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.button-green {
+    background-color: var(--secondary-400);
+    color: white;
+    border-style: solid;
+    border-color: var(--secondary-400);
+    width: 11.25rem;
+}
+
+.button-black {
+    background-color: black;
+    color: var(--secondary-400);
+    border-style: solid;
+    border-color: var(--secondary-400);
+    width: 11.25rem;
+}

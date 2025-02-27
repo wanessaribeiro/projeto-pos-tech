@@ -1,0 +1,18 @@
+.footer-body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color: white;
+    padding: 1.5rem 22.4rem 2rem;
+    gap: 3rem;
+    justify-content: space-between;
+}
+
+.footer-section {
+    margin: 2rem;
+}
+
+li {
+    list-style-type: none; 
+    margin-bottom: 1rem;
+}
