@@ -1,0 +1,53 @@
+.account-body {
+    width: 49.5rem;
+    height: 100%;
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    justify-items: center;
+    border: none;
+}
+
+.account-img {
+    width: 22rem;
+    height: 17rem;
+    margin-top: 1.5rem;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+}
+
+.account-input {
+    width: 35.75rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.account-terms {
+    display: grid;
+    grid-template-columns: 3rem auto;
+    color: var(--secondary-400);
+    margin: 0.75rem 0rem 1.5rem;
+    width: 36.8rem;
+}
+
+.account-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: var(--secondary-400);
+}
+
+.account-button {
+    align-self: center;
+    background-color: var(--tertiary-400);
+    color: white;
+    border-style: solid;
+    border-color: var(--tertiary-400);
+    width: 9rem;
+}

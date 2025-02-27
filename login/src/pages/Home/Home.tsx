@@ -9,18 +9,24 @@ import FeatureCard from '../../components/FeatureCard/FeatureCard'
 import Footer from '../../components/Footer/Footer'
 import LoginModal from '../../components/LoginModal/LoginModal'
 import { useState } from 'react'
+import CreateAccountModal from '../../components/CreateAccountModal/CreateAccountModal'
 
 export default function Home() {
     const [loginOpen, setLoginOpen] = useState(false)
+    const [accountOpen, setAccountOpen] = useState(false)
 
     const onClickLogin = () => {
         setLoginOpen(true)
     }
 
+    const onClickCreateAccount = () => {
+        setAccountOpen(true)
+    }
+
     return(
         <>
         <div className='home-body'>
-            <Header onClickLogin={onClickLogin}/>
+            <Header onClickLogin={onClickLogin} onClickAccount={onClickCreateAccount}/>
             <div className='home-content'>
                 <div className="home-banner">
                     <h1 className='home-text'>Experimente mais liberdade no controle da sua vida financeira. Crie sua conta com a gente!</h1>
@@ -40,6 +46,7 @@ export default function Home() {
         </div>
         
         <LoginModal isOpen={loginOpen} onClickLogin={() => setLoginOpen(false)}/>
+        <CreateAccountModal isOpen={accountOpen} onClickCreateAccount={() => setAccountOpen(false)}/>
         </>
     )
 }
