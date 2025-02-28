@@ -1,14 +1,17 @@
 import './LoginModal.css'
+import closeIcon from '../../images/CloseIcon.png'
 import loginImg from '../../images/LoginImg.png'
 
 type LoginModalProps = {
     isOpen: boolean;
     onClickLogin: () => void;
+    onClose: () => void;
 }
 
-export default function LoginModal({isOpen, onClickLogin}: LoginModalProps) {
+export default function LoginModal({isOpen, onClickLogin, onClose}: LoginModalProps) {
     return (
         <dialog open={isOpen} className="login-body">
+            <button onClick={onClose} className='close'><img src={closeIcon} className='close'/></button>
             <img src={loginImg} className='login-img'/>
             <h1 className='font-bold'>Login</h1>
             <form method="dialog" className='login-form'>

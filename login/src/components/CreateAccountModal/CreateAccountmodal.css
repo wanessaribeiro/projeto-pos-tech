@@ -1,11 +1,22 @@
 .account-body {
-    width: 49.5rem;
+    width: 40%;
     height: 100%;
     position: absolute;
     top: 0rem;
     left: 0;
     justify-items: center;
     border: none;
+}
+
+.close {
+    position: absolute;
+    width: 1.25em;
+    height: 1.25rem;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0;
 }
 
 .account-img {

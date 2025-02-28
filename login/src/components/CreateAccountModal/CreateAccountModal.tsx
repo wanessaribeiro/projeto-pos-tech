@@ -1,14 +1,17 @@
 import './CreateAccountModal.css'
+import closeIcon from '../../images/CloseIcon.png'
 import accountImg from '../../images/CreateAccountImg.png'
 
 type CreateAccountModalProps = {
     isOpen: boolean;
     onClickCreateAccount: () => void;
+    onClose: () => void;
 }
 
-export default function CreateAccountModal({isOpen, onClickCreateAccount}: CreateAccountModalProps) {
+export default function CreateAccountModal({isOpen, onClickCreateAccount, onClose}: CreateAccountModalProps) {
     return (
         <dialog open={isOpen} className="account-body">
+            <button onClick={onClose} className='close'><img src={closeIcon} className='close'/></button>
             <img src={accountImg} className='account-img'/>
             <h1 className='font-bold'>Preencha os campos abaixo para criar sua conta corrente!</h1>
             <form method="dialog" className='account-form'>

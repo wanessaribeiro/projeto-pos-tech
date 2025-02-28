@@ -49,8 +49,8 @@ export default function Home() {
             <Footer/>
         </div>
         
-        <LoginModal isOpen={loginOpen} onClickLogin={() => setLoginOpen(false)}/>
-        <CreateAccountModal isOpen={accountOpen} onClickCreateAccount={() => setAccountOpen(false)}/>
+        <LoginModal isOpen={loginOpen} onClickLogin={() => setLoginOpen(false)} onClose={() => setLoginOpen(false)}/>
+        <CreateAccountModal isOpen={accountOpen} onClickCreateAccount={() => setAccountOpen(false)} onClose={() => setAccountOpen(false)}/>
         </>
     )
 }
