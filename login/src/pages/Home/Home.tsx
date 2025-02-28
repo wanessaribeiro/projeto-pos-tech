@@ -31,6 +31,10 @@ export default function Home() {
                 <div className="home-banner">
                     <h1 className='home-text'>Experimente mais liberdade no controle da sua vida financeira. Crie sua conta com a gente!</h1>
                     <img src={bannerImg} className='home-img'/>
+                    <div className='home-buttons'>
+                    <button onClick={onClickCreateAccount} className='button-home-black'>Abrir conta</button>
+                    <button onClick={onClickLogin} className='button-home-transparent'>Já tenho conta</button>
+            </div>
                 </div>
                 <div className='features-div'>
                     <h2>Vantagens do nosso banco:</h2>

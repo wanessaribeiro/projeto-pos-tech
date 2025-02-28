@@ -14,6 +14,10 @@
     height: 2rem;
 }
 
+.hamburguer-icon {
+    display: none;
+}
+
 .header-text {
     display: flex;
     flex-direction: row;
@@ -41,4 +45,31 @@
     border-style: solid;
     border-color: var(--secondary-400);
     width: 11.25rem;
+}
+
+@media only screen and (max-width: 720px) {
+    .header {
+        width: 24rem;
+        gap:10%;
+        justify-content: stretch;
+    }
+
+    .header-text {
+        display: none;
+    }
+
+    .header-buttons {
+        display: none;
+    }
+
+    .hamburguer-icon {
+        display: flex;
+        height: 2rem;
+        width: 2rem;
+        padding-left: 7%;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+    
 }

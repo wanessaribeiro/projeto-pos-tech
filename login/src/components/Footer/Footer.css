@@ -16,3 +16,29 @@ li {
     list-style-type: none; 
     margin-bottom: 1rem;
 }
+
+@media only screen and (max-width: 720px) {
+    .footer-body {
+        display: grid;
+        grid-template-columns: auto;
+        padding: 0.25rem;
+        gap:0%;
+        justify-content: stretch;
+        margin-bottom: 0;
+    }
+
+    .hamburguer-icon {
+        display: flex;
+        height: auto;
+        padding-left: 7%;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+
+    li {
+        list-style-type: none; 
+        margin-bottom: 0.5rem;
+    }
+    
+}

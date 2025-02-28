@@ -1,0 +1,19 @@
+.menu-body {
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    width: 12.5rem;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.menu-ul {
+    padding: 1.25rem;
+    color: var(--secondary-400);
+}
+
+.menu-item {
+    border-bottom: 1px solid var(--secondary-400);
+    padding: 0.75rem;
+}
