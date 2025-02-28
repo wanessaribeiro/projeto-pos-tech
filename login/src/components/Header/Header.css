@@ -49,7 +49,7 @@
 
 @media only screen and (max-width: 720px) {
     .header {
-        width: 24rem;
+        width: auto;
         gap:10%;
         justify-content: stretch;
     }

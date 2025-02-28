@@ -47,9 +47,9 @@
     .home-body {
       display: grid;
       grid-template-columns: auto;
-      width: 24rem;
+      width: 23.5rem;
       height: 100%;
-      gap: 1rem;
+      
     }
 
     .home-img {
@@ -67,7 +67,7 @@
         text-align: center;
         align-self: center;
         width: 19.5rem;
-        padding: 1rem;
+
     }
 
     .features-div {
