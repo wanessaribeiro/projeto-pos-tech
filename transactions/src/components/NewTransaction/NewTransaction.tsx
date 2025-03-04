@@ -66,7 +66,7 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
                     <TransactionDropdown
                     selected={newInvoice.type}
                     setSelected={onChangeType}
-                    options={["Depósito", "Saque", "Transferência"]}
+                    options={["Depósito", "Saque", "Transferência, Investimento"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
                     <div className='transaction-value'>

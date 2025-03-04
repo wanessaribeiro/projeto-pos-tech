@@ -9,6 +9,19 @@ export default function Transferences () {
             <img src={pixels4} className='img-4'/>
             <div className='inner-div'>
                 <h1>Transferências</h1>
+                 <form >
+                 <input
+                    id="search-value"
+                    name="search-value"
+                    placeholder="Pesquise aqui"
+                    value={''}                        
+                    onChange={() => {}}
+                    />
+                     <button type='submit' className='transaction-button'>Pesquisar</button>
+                 </form>
+                <div>
+                    transferencias
+                </div>    
             </div>
         </div>
     )

@@ -51,7 +51,7 @@ export default function EditTransaction({setPage, selectedTransaction, patchInvo
                     <TransactionDropdown
                     selected={editInvoice.type}
                     setSelected={onChangeType}
-                    options={["Depósito", "Saque", "Transferência"]}
+                    options={["Depósito", "Saque", "Transferência, Investimento"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
                     <div className='transaction-value'>
