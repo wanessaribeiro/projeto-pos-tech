@@ -36,7 +36,7 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
       const currentBalance = balance;
       
       if (invoice.type === "Depósito") setBalance(currentBalance + invoice.value)
-      else if (invoice.type === "Saque" || invoice.type === "Transferência") setBalance(currentBalance - invoice.value);
+      else if (invoice.type === "Saque" || invoice.type === "DOC/TED" || invoice.type === "Pix") setBalance(currentBalance - invoice.value);
     };
   
     const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
@@ -66,7 +66,7 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
                     <TransactionDropdown
                     selected={newInvoice.type}
                     setSelected={onChangeType}
-                    options={["Depósito", "Saque", "Transferência, Investimento"]}
+                    options={["Depósito", "Saque", "DOC/TED", "Pix"]}
                     placeholder="Selecione o tipo de transação"
                     ></TransactionDropdown>
                     <div className='transaction-value'>

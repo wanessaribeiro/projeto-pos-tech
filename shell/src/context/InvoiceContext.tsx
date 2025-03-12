@@ -18,7 +18,7 @@ const invoicesMock: InvoiceType[] = [
   },
   {
     id: "3",
-    type: "Depósito",
+    type: "Pix",
     value: 250.0,
     date: new Date(
       "Sat Jun 01 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
@@ -26,7 +26,7 @@ const invoicesMock: InvoiceType[] = [
   },
   {
     id: "2",
-    type: "Saque",
+    type: "DOC/TED",
     value: 300.0,
     date: new Date(
       "Mon Apr 08 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"

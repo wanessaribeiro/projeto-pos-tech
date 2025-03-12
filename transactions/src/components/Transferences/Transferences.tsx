@@ -1,6 +1,7 @@
 import './Transferences.css'
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
+import TransferenceItem from '../TransferenceItem/TransferenceItem'
 
 export default function Transferences () {
     return (
@@ -16,12 +17,20 @@ export default function Transferences () {
                     placeholder="Pesquise aqui"
                     value={''}                        
                     onChange={() => {}}
+                    className='transferences-input'
                     />
-                     <button type='submit' className='transaction-button'>Pesquisar</button>
+                     <button type='submit' className='transferences-button'>Pesquisar</button>
                  </form>
-                <div>
-                    transferencias
-                </div>    
+                <table className='transferences-table'>
+                    <tr>
+                        <th>Recebedor</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                    <TransferenceItem/>
+                    <TransferenceItem/>
+                </table>
             </div>
         </div>
     )
