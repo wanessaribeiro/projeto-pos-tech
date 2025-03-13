@@ -1,13 +1,8 @@
 import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
+import { InvoiceType } from "../lib/Types";
 
-export interface TransferenceType {
-  id: string;
-  type: string;
-  value: number;
-  date: Date;
-}
 
-const transferencesMock: TransferenceType[] = [
+const transferencesMock: InvoiceType[] = [
   {
     id: "3",
     type: "Pix",
@@ -27,8 +22,11 @@ const transferencesMock: TransferenceType[] = [
 ];
 
 const TransferenceContext = createContext<{
-  transferences: TransferenceType[],
-  setTransferences: Dispatch<SetStateAction<TransferenceType[]>>,
+  transferences: InvoiceType[],
+  setTransferences: Dispatch<SetStateAction<InvoiceType[]>>,
+  usePostTransference: (transference: InvoiceType) => void,
+  usePatchTransference: (transference: InvoiceType) => void,
+  useDeleteTransference: (id: string) => void,
     } | undefined>(undefined);
     
 
@@ -37,10 +35,34 @@ export function TransferenceProvider({
 }: Readonly<{ children: React.ReactNode }>) {
   const [transferences, setTransferences] = useState([...transferencesMock]);
 
+  const usePostTransference = (transference: InvoiceType) => {
+    setTransferences((prev) => [transference, ...prev]);
+  }
+
+  const usePatchTransference = (transference: InvoiceType) => {
+    setTransferences((prev) => {
+      const editTransference = prev.find((i) => i.id === transference.id);
+      if (editTransference) Object.assign(editTransference, transference);
+      return prev;
+    });
+  };
+
+  const useDeleteTransference = (id: string) => {
+    setTransferences((prev) => {
+      const updatedTransference = [...prev]
+      const deleteTransference = updatedTransference.findIndex((i) => i.id === id);
+      if (deleteTransference >= 0) updatedTransference.splice(deleteTransference, 1);
+      return updatedTransference;
+    });
+  };
+
 
   return (
     <TransferenceContext.Provider
       value={{
+        usePostTransference,
+        usePatchTransference,
+        useDeleteTransference,
         setTransferences,
         transferences,
       }}

@@ -8,6 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'login',
       exposes: {
+        './error': './src/pages/ErrorScreen/ErrorScreen.tsx',
+        './home': './src/pages/Home/Home.tsx',
       },
       shared: ['react', 'react-dom'],
     }),

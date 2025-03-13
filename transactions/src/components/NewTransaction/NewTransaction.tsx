@@ -9,11 +9,12 @@ import { InvoiceType } from '../../libs/types';
 
 interface InvoiceProps{
   postInvoice: (invoice: InvoiceType) => void;
+  postTransference: (transference: InvoiceType) => void;
   balance: number;
   setBalance: (balance: number) => void;
 }
 
-export default function NewTransaction({postInvoice, balance, setBalance}:InvoiceProps) {
+export default function NewTransaction({postInvoice, postTransference, balance, setBalance}:InvoiceProps) {
     const [newInvoice, setNewInvoice] = useState({
       id: uuidv4(),
       type: "",
@@ -36,7 +37,7 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
       const currentBalance = balance;
       
       if (invoice.type === "Depósito") setBalance(currentBalance + invoice.value)
-      else if (invoice.type === "Saque" || invoice.type === "DOC/TED" || invoice.type === "Pix") setBalance(currentBalance - invoice.value);
+      else if (invoice.type === "Saque" || newInvoice.type === "DOC/TED" || newInvoice.type === "Pix") setBalance(currentBalance - invoice.value);
     };
   
     const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
@@ -44,6 +45,9 @@ export default function NewTransaction({postInvoice, balance, setBalance}:Invoic
       if (!newInvoice.type || newInvoice.value === 0) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
+      }
+      if (newInvoice.type === "DOC/TED" || newInvoice.type === "Pix") {
+        postTransference(newInvoice);
       }
       postInvoice(newInvoice);
       setNewBalance(newInvoice);

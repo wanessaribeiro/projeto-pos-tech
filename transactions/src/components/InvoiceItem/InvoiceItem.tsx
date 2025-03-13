@@ -6,7 +6,6 @@ import { ButtonIcon } from '../ButtonIcon/ButtonIcon';
 import './InvoiceItem.css'
 
 export type InvoiceItemProps = {
-  id: string;
   type: string;
   value: number;
   date: Date;
@@ -15,7 +14,7 @@ export type InvoiceItemProps = {
 };
 
 
-export default function InvoiceItem ({id, type, value, date, onClickEdit, onClickDelete}: InvoiceItemProps) {
+export default function InvoiceItem ({type, value, date, onClickEdit, onClickDelete}: InvoiceItemProps) {
 
     return (
       <div>

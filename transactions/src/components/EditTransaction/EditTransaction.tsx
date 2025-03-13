@@ -10,9 +10,10 @@ export type EditTransactionProps = {
     setPage: (page: string) => void;
     selectedTransaction: InvoiceType;
     patchInvoice: (invoice: InvoiceType) => void;
+    patchTransference: (transference: InvoiceType) => void;
 }
 
-export default function EditTransaction({setPage, selectedTransaction, patchInvoice}: EditTransactionProps){
+export default function EditTransaction({setPage, selectedTransaction, patchInvoice, patchTransference}: EditTransactionProps){
     const [editInvoice, setEditInvoice] = useState(selectedTransaction)
 
     useEffect(() => {
@@ -36,6 +37,7 @@ export default function EditTransaction({setPage, selectedTransaction, patchInvo
           alert("Por favor, preencha todos os campos corretamente.");
           return;
         }
+        patchTransference(editInvoice);
         patchInvoice(editInvoice);
         setPage('Home')
       };

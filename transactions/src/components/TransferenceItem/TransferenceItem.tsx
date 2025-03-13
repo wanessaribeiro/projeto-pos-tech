@@ -1,10 +1,17 @@
-export default function TransferenceItem () {
+import { formatDate } from "../../libs/shared-functions"
+
+export type TransferenceItemProps = {
+    transferenceType: string,
+    value: number,
+    date: Date,
+}
+
+export default function TransferenceItem ({transferenceType, value, date}: TransferenceItemProps) {
     return (
         <tr>
-            <td>Glep</td>
-            <td>DOC/TED</td>
-            <td>R$500</td>
-            <td>21/08/2024</td>
+            <td>{transferenceType}</td>
+            <td>R${value}</td>
+            <td>{formatDate(date)}</td>
         </tr>
     )
 }

@@ -9,6 +9,7 @@ export default defineConfig({
       name: 'investments',
       exposes: {
         './investments-menu': './src/components/InvestmentsMenu/InvestmentsMenu.tsx',
+        './new-investment': './src/components/NewInvestment/NewInvestment.tsx'
       },
       shared: ['react', 'react-dom'],
     }),

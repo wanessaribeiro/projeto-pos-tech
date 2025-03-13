@@ -2,8 +2,13 @@ import './Transferences.css'
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import TransferenceItem from '../TransferenceItem/TransferenceItem'
+import { InvoiceType } from '../../libs/types';
 
-export default function Transferences () {
+interface TransferencesProps{
+  transferences: InvoiceType[];
+}
+
+export default function Transferences ({transferences}: TransferencesProps) {
     return (
         <div className="transferences-body container border-round">
             <img src={pixels3} className='img-3'/>
@@ -22,14 +27,18 @@ export default function Transferences () {
                      <button type='submit' className='transferences-button'>Pesquisar</button>
                  </form>
                 <table className='transferences-table'>
-                    <tr>
-                        <th>Recebedor</th>
-                        <th>Tipo</th>
-                        <th>Valor</th>
-                        <th>Data</th>
-                    </tr>
-                    <TransferenceItem/>
-                    <TransferenceItem/>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {transferences?.map((transference) => (
+                        <TransferenceItem key={transference.id} transferenceType={transference.type} value={transference.value} date={transference.date}/>
+                    ))}
+                    </tbody>
                 </table>
             </div>
         </div>

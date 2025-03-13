@@ -33,7 +33,7 @@ export default function InvestmentsMenu () {
       };
 
     return (
-        <div className="investments-body container border-round">
+      <div className="investments-body container border-round">
         <img src={pixels3} className='img-3'/>
         <img src={pixels4} className='img-4'/>
         <div className='inner-div'>

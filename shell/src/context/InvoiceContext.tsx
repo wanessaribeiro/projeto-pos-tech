@@ -1,11 +1,5 @@
 import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
-
-export interface InvoiceType {
-  id: string;
-  type: string;
-  value: number;
-  date: Date;
-}
+import { InvoiceType } from "../lib/Types";
 
 const invoicesMock: InvoiceType[] = [
   {

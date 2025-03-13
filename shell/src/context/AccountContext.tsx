@@ -30,7 +30,7 @@ export function AccountProvider({
 
   useEffect(() => {
     setAccount({...account, balance: balance})
-  }, [balance, account])
+  }, [balance])
 
   return (
     <AccountContext.Provider
