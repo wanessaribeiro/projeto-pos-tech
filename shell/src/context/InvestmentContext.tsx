@@ -16,10 +16,8 @@ const investmentsMock: InvestmentType = {
 
 const InvestmentContext = createContext<{
   investments: InvestmentType,
-  newInvestmentFunds: (newInvestment: number) => void,
-  newTreasure: (newInvestment: number) => void,
-  newPrivatePrevidence: (newInvestment: number) => void,
-  newStocks: (newInvestment: number) => void,
+  newInvestment: (type: string, newInvestment: number) => void,
+  totalInvestment: number,
   setInvestments: Dispatch<SetStateAction<InvestmentType>>,
     } | undefined>(undefined);
     
@@ -28,6 +26,7 @@ export function InvestmentProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [investments, setInvestments] = useState(investmentsMock);
+  const [totalInvestment, setTotalInvestment] = useState(investments.investmentFunds + investments.privatePrevidence + investments.stocks + investments.treasure)
 
   const newInvestmentFunds = (newInvestment: number) => {
     const newTotalInvestment = newInvestment + investments.investmentFunds
@@ -49,15 +48,23 @@ export function InvestmentProvider({
     setInvestments({...investments, stocks: newTotalInvestment})
   }
 
+  const newInvestment = (type: string, newInvestment: number) => {
+    if(type === 'Fundos de investimento') newInvestmentFunds(newInvestment);
+      else if (type === 'Tesouro direto') newTreasure(newInvestment);
+      else if (type === 'Previdência privada') newPrivatePrevidence(newInvestment);
+      else if (type === 'Bolsa de valores') newStocks(newInvestment);
+
+    const total = totalInvestment + newInvestment;
+    setTotalInvestment(total);
+  }
+
   return (
     <InvestmentContext.Provider
       value={{
         investments,
         setInvestments,
-        newInvestmentFunds,
-        newTreasure,
-        newPrivatePrevidence,
-        newStocks
+        newInvestment,
+        totalInvestment
       }}
     >
       {children}

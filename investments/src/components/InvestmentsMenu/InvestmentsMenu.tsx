@@ -6,15 +6,23 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
+import { InvestmentType } from '../../lib/Types';
+import { percentageValue } from '../../lib/SharedFunctions';
 
-export default function InvestmentsMenu () {
+export type InvestmentMenuProps = {
+  investments: InvestmentType;
+  setPage: (page: string) => void;
+  total: number;
+}
+
+export default function InvestmentsMenu ({investments, setPage, total}: InvestmentMenuProps) {
 
     const data = {
         labels: ['Fundos de investimento', 'Tesouro direto', 'Previdêndia privada', 'Bolsa de valores'],
         datasets: [
           {
             label: 'Valor Investido',
-            data: [120, 500, 321, 50],
+            data: [investments.investmentFunds, investments.treasure, investments.privatePrevidence, investments.stocks],
             backgroundColor: [
               '#FF5031',
               '#013644',
@@ -39,18 +47,18 @@ export default function InvestmentsMenu () {
         <div className='inner-div'>
             <h1>Investimentos</h1>
             <div className='invest-section'>
-            <p className="investments-text font-bold">Total: R$ 50.000.000</p>
-            <button className='invest-button'>Investir</button>
+            <p className="investments-text font-bold">Total: R$ {percentageValue(153, total)}</p>
+            <button className='invest-button' onClick={() => setPage('New-Investment')}>Investir</button>
             </div>
             <div className='income-section'>
                 <div className='investments-section mini-section border-round'>
                     <p>Renda Fixa</p>
-                    <p>R$ 36,000.00</p>
+                    <p>R$ {percentageValue(132, total)}</p>
                 </div>
 
                 <div className='investments-section mini-section border-round'>
                     <p>Renda Variável</p>
-                    <p>R$ 14,000.00</p>
+                    <p>R$ {percentageValue(21, total)}</p>
                 </div>
             </div>
             <h2>Estatísticas</h2>

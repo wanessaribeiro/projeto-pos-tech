@@ -27,8 +27,8 @@
 }
 
 .invest-section {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto 12rem;
     gap: 25%;
     margin: 2rem 0 1rem;
 }

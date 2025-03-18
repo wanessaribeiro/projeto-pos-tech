@@ -4,6 +4,7 @@ import { InvoiceProvider } from './context/InvoiceContext';
 import { NavProvider } from './context/NavContext';
 import { AccountProvider } from './context/AccountContext';
 import { TransferenceProvider } from './context/TransferencesContext';
+import { InvestmentProvider } from './context/InvestmentContext';
 
 
 const App = () => {
@@ -13,9 +14,11 @@ const App = () => {
     <AccountProvider>
       <InvoiceProvider>
         <TransferenceProvider>
-          <NavProvider>
-            <Dashboard/>
-          </NavProvider>
+          <InvestmentProvider>
+            <NavProvider>
+              <Dashboard/>
+            </NavProvider>
+          </InvestmentProvider>
         </TransferenceProvider> 
       </InvoiceProvider>
     </AccountProvider>
