@@ -19,6 +19,54 @@ const transferencesMock: InvoiceType[] = [
       "Mon Apr 08 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
     ),
   },
+  {
+    id: "5",
+    type: "Pix",
+    value: 250.0,
+    date: new Date(
+      "Sat Jun 01 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
+  {
+    id: "6",
+    type: "DOC/TED",
+    value: 300.0,
+    date: new Date(
+      "Mon Apr 08 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
+  {
+    id: "1",
+    type: "Pix",
+    value: 250.0,
+    date: new Date(
+      "Sat Jun 01 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
+  {
+    id: "4",
+    type: "DOC/TED",
+    value: 300.0,
+    date: new Date(
+      "Mon Apr 08 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
+  {
+    id: "9",
+    type: "Pix",
+    value: 250.0,
+    date: new Date(
+      "Sat Jun 01 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
+  {
+    id: "20",
+    type: "DOC/TED",
+    value: 300.0,
+    date: new Date(
+      "Mon Apr 08 2024 16:24:42 GMT-0300 (Hora padrão de Brasília)"
+    ),
+  },
 ];
 
 const TransferenceContext = createContext<{

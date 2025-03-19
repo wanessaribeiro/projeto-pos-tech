@@ -1,7 +1,7 @@
 .transferences-body {
     display: grid;
     grid-template-columns: auto auto;
-    height: 28rem;
+    min-height: 28rem;
     background-color: var(--gray-400);
     color: var(--primary-400);
     margin-top: 1.5rem;

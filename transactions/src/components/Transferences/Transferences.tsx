@@ -3,12 +3,35 @@ import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import TransferenceItem from '../TransferenceItem/TransferenceItem'
 import { InvoiceType } from '../../libs/types';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useEffect, useState } from 'react';
 
 interface TransferencesProps{
   transferences: InvoiceType[];
 }
 
 export default function Transferences ({transferences}: TransferencesProps) {
+    const [page, setPage] = useState(0)
+    const [currentContent, setCurrentContent] = useState<InvoiceType[]>([])
+
+    useEffect(() => {
+        setCurrentContent((prev) => {
+            const take = 6;
+            const initPosition = page * take;
+            const endPosition = (page * take) + take
+            
+            const contentPiece = transferences.slice(initPosition, endPosition);
+            return [...prev, ...contentPiece]
+        })
+    }, [page, transferences])
+
+    const handleLoadMoreData = () => {
+      setPage((prevPage) => {
+        const nextPage = prevPage + 1;
+        return nextPage;
+      });
+    };
+    
     return (
         <div className="transferences-body container border-round">
             <img src={pixels3} className='img-3'/>
@@ -26,6 +49,13 @@ export default function Transferences ({transferences}: TransferencesProps) {
                     />
                      <button type='submit' className='transferences-button'>Pesquisar</button>
                  </form>
+                <InfiniteScroll
+                        dataLength={transferences.length}
+                        next={handleLoadMoreData}
+                        hasMore={currentContent.length < transferences.length}
+                        loader={<p>Carregando...</p>}
+                        endMessage={<p>Sem mais transferências para mostrar.</p>}
+                    >
                 <table className='transferences-table'>
                     <thead>
                         <tr>
@@ -40,7 +70,9 @@ export default function Transferences ({transferences}: TransferencesProps) {
                     ))}
                     </tbody>
                 </table>
+                </InfiniteScroll>
             </div>
         </div>
+
     )
 }
