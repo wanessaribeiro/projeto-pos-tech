@@ -21,7 +21,7 @@ export default defineConfig({
         login:
           'login@http://localhost:3005/mf-manifest.json'
       },
-      shared: ['react', 'react-dom'],
+      shared: {'react': {singleton: true}, 'react-dom': { singleton: true}, 'react-router': {singleton: true}},
     }),
   ],
   server: {

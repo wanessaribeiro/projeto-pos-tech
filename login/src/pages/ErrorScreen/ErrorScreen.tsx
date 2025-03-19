@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import './ErrorScreen.css'
 import { useState } from "react";
 import errorImg from '../../images/404Img.png';
@@ -7,6 +8,7 @@ import CreateAccountModal from "../../components/CreateAccountModal/CreateAccoun
 import LoginModal from "../../components/LoginModal/LoginModal";
 
 export default function ErrorScreen() {
+    const navigate = useNavigate();
     const [loginOpen, setLoginOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
     
@@ -26,7 +28,7 @@ export default function ErrorScreen() {
                 <h1>Ops! Não encontramos a página...</h1>
                 <p className='error-text'>E olha que exploramos o universo procurando por ela!</p>
                 <p className='error-text'>Que tal voltar e tentar novamente?</p>
-                <button className='error-button'>Voltar ao início</button>
+                <button className='error-button' onClick={() => navigate('/')}>Voltar ao início</button>
                 <img src={errorImg} className='img-error'/>
             </div>
             <Footer/>

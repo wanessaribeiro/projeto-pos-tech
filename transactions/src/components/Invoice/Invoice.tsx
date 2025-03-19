@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { useEffect } from 'react';
 import { InvoiceType } from '../../libs/types';
 import InvoiceItem from '../InvoiceItem/InvoiceItem';
@@ -5,7 +6,6 @@ import './Invoice.css'
 
 interface InvoiceProps{
   invoices: InvoiceType[];
-  setPage: (page: string) => void;
   setSelectedTransaction: (invoice: InvoiceType) => void;
   deleteTransaction: (id: string) => void;
   deleteTransference: (id: string) => void;
@@ -14,8 +14,8 @@ interface InvoiceProps{
 }
 
 
-export default function Invoice ({invoices, setPage, setSelectedTransaction, deleteTransaction, deleteTransference, balance, setBalance}: InvoiceProps) {
-
+export default function Invoice ({invoices, setSelectedTransaction, deleteTransaction, deleteTransference, balance, setBalance}: InvoiceProps) {
+  const navigate = useNavigate();
   const deleteInvoice = (id: string) => {
     deleteTransference(id)
     deleteTransaction(id)
@@ -25,7 +25,7 @@ export default function Invoice ({invoices, setPage, setSelectedTransaction, del
   const editInvoice = (invoice: InvoiceType) => {
     setSelectedTransaction(invoice)
     setBalance(getTotalInvoices())
-    setPage('Edit')
+    navigate('/dashboard/edit')
   }
 
   const getTotalInvoices = () => {

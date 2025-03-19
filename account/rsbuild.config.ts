@@ -10,7 +10,7 @@ export default defineConfig({
       exposes: {
         './balance-card': './src/components/BalanceCard/BalanceCard.tsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: {'react': {singleton: true}, 'react-dom': { singleton: true}, 'react-router': {singleton: true}},
     }),
   ],
   server: {

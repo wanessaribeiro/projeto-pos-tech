@@ -11,7 +11,7 @@ export default defineConfig({
         './navbar': './src/components/NavBar/NavBar.tsx',
         './header': './src/components/Header/Header.tsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router'],
     }),
   ],
   server: {

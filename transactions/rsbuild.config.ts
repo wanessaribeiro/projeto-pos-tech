@@ -13,7 +13,7 @@ export default defineConfig({
         './edit-transaction': './src/components/EditTransaction/EditTransaction.tsx',
         './transferences': './src/components/Transferences/Transferences.tsx'
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router'],
     }),
   ],
   server: {

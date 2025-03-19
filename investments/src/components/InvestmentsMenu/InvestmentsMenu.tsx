@@ -1,4 +1,5 @@
 import './InvestmentsMenu.css'
+import { useNavigate } from "react-router";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
@@ -11,11 +12,11 @@ import { percentageValue } from '../../lib/SharedFunctions';
 
 export type InvestmentMenuProps = {
   investments: InvestmentType;
-  setPage: (page: string) => void;
   total: number;
 }
 
-export default function InvestmentsMenu ({investments, setPage, total}: InvestmentMenuProps) {
+export default function InvestmentsMenu ({investments, total}: InvestmentMenuProps) {
+  const navigate = useNavigate();
 
     const data = {
         labels: ['Fundos de investimento', 'Tesouro direto', 'Previdêndia privada', 'Bolsa de valores'],
@@ -48,7 +49,7 @@ export default function InvestmentsMenu ({investments, setPage, total}: Investme
             <h1>Investimentos</h1>
             <div className='invest-section'>
             <p className="investments-text font-bold">Total: R$ {percentageValue(153, total)}</p>
-            <button className='invest-button' onClick={() => setPage('New-Investment')}>Investir</button>
+            <button className='invest-button' onClick={() => navigate('/dashboard/new-investment')}>Investir</button>
             </div>
             <div className='income-section'>
                 <div className='investments-section mini-section border-round'>

@@ -11,7 +11,7 @@ export default defineConfig({
         './error': './src/pages/ErrorScreen/ErrorScreen.tsx',
         './home': './src/pages/Home/Home.tsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router'],
     }),
   ],
   server: {

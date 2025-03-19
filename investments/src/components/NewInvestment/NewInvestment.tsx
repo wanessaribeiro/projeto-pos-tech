@@ -1,4 +1,5 @@
 import './NewInvestment.css'
+import { useNavigate } from "react-router";
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import graphImg from '../../images/GraphImg.png'
@@ -7,10 +8,10 @@ import { useState } from 'react'
 
 export type NewInvestmentProps = {
   newInvestments: (type: string, newInvestment: number) => void;
-  setPage: (page: string) => void;
 }
 
-export default function NewInvestment({newInvestments, setPage}: NewInvestmentProps) {
+export default function NewInvestment({newInvestments}: NewInvestmentProps) {
+    const navigate = useNavigate()
     const [newInvestment, setNewInvestment] = useState({
         type: '',
         value: 0
@@ -34,7 +35,7 @@ export default function NewInvestment({newInvestments, setPage}: NewInvestmentPr
           return;
         }
         newInvestments(newInvestment.type, newInvestment.value)
-        setPage('Investments')
+        navigate('/dahsboard/investments')
       };
       
     return (

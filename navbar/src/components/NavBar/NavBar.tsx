@@ -1,15 +1,13 @@
+import { useNavigate } from "react-router";
 import './NavBar.css'
 
-interface NavBarProps{
-  setPage: (page: string) => void;
-}
-
-export default function NavBar({setPage}:NavBarProps) {
+export default function NavBar() {
+  const navigate = useNavigate();
   const navItems = [
-    { value: "Home", label: "Início" },
-    { value: "Transactions", label: "Transferências" },
-    { value: "Investments", label: "Investimentos" },
-    { value: "Other", label: "Outros Serviços" },
+    { value: "", label: "Início" },
+    { value: "/transactions", label: "Transferências" },
+    { value: "/investments", label: "Investimentos" },
+    { value: "/services", label: "Outros Serviços" },
   ];
 
     return (
@@ -18,7 +16,7 @@ export default function NavBar({setPage}:NavBarProps) {
         {navItems.map((item, index) => {
           
           return (
-          <li key={index} className='nav-bar-item' onClick={() => setPage(item.value)}>
+          <li key={index} className='nav-bar-item' onClick={() => navigate("/dashboard" + item.value)}>
             {item.label}
           </li>
           );

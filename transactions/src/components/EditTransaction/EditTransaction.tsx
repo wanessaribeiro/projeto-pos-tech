@@ -1,4 +1,5 @@
 import './EditTransaction.css'
+import { useNavigate } from "react-router";
 import pixels3 from '../../images/Pixels3.png'
 import pixels4 from '../../images/Pixels4.png'
 import personWithCard from '../../images/PersonWithCard.png'
@@ -7,13 +8,13 @@ import { InvoiceType } from '../../libs/types'
 import { useEffect, useState } from 'react'
 
 export type EditTransactionProps = {
-    setPage: (page: string) => void;
     selectedTransaction: InvoiceType;
     patchInvoice: (invoice: InvoiceType) => void;
     patchTransference: (transference: InvoiceType) => void;
 }
 
-export default function EditTransaction({setPage, selectedTransaction, patchInvoice, patchTransference}: EditTransactionProps){
+export default function EditTransaction({selectedTransaction, patchInvoice, patchTransference}: EditTransactionProps){
+    const navigate = useNavigate();
     const [editInvoice, setEditInvoice] = useState(selectedTransaction)
 
     useEffect(() => {
@@ -39,7 +40,7 @@ export default function EditTransaction({setPage, selectedTransaction, patchInvo
         }
         patchTransference(editInvoice);
         patchInvoice(editInvoice);
-        setPage('Home')
+        navigate('/dashboard')
       };
     
     return (
