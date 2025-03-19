@@ -1,7 +1,7 @@
-import Transferences from 'transactions/transferences'
+import Transferences from 'transactions/transferences';
 import { useTransferenceProvider } from '../../../context/TransferencesContext';
 
-export default function TransactionsPage () {
+export default function TransferencesPage () {
     const {transferences} = useTransferenceProvider();
 
   return (

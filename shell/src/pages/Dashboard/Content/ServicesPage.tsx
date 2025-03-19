@@ -1,4 +1,4 @@
-import ServicesMenu from 'services/services-menu'
+import ServicesMenu from 'services/services-menu';
 
 export default function ServicePage () {
     

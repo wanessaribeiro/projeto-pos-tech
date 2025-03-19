@@ -9,7 +9,7 @@ import EditTransactionPage from './pages/Dashboard/Content/EditTransactionPage';
 import ServicesPage from './pages/Dashboard/Content/ServicesPage';
 import NewInvestmentPage from './pages/Dashboard/Content/NewInvestmentPage';
 import NewTransactionPage from './pages/Dashboard/Content/NewTransactionPage';
-import TransactionsPage from './pages/Dashboard/Content/TransactionsPage';
+import TransferencesPage from './pages/Dashboard/Content/TrasferencesPage';
 
 const App = () => {
 
@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path="dashboard" element={<Dashboard />}>
             <Route index element={<NewTransactionPage />}></Route>
-            <Route path='transactions' element={<TransactionsPage/>} />
+            <Route path='transactions' element={<TransferencesPage/>} />
             <Route path='investments' element={<InvestmentsPage/>} />
             <Route path='edit' element={<EditTransactionPage/>} />
             <Route path='services' element={<ServicesPage/>} />
