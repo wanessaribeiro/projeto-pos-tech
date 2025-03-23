@@ -14,7 +14,22 @@
     display: none;
 }
 
+.icons {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1.5rem;
+}
+
 .user-icon {
+    margin: 0;
+}
+
+.logout-icon {
+    display: flex;
+    height: auto;
+    padding-left: 7%;
+    background-color: transparent;
+    border: none;
     margin: 0;
 }
 

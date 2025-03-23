@@ -4,12 +4,14 @@ import { UserIcon } from '../../icons/UserIcon'
 import './Header.css'
 import { ContextualMenu } from '../ContextualMenu/ContextualMenu';
 import { AccountType } from '../../libs/types';
+import { LogoutIcon } from '../../icons/LogoutIcon';
 
 type HeaderProps = {
   account: AccountType;
+  logout: () => void;
 }
 
-export default function Header ({account} : HeaderProps) {
+export default function Header ({account, logout} : HeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
   
@@ -18,7 +20,7 @@ export default function Header ({account} : HeaderProps) {
     };
   
     const closeMenu = () => setIsMenuOpen(false);
-  
+
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
@@ -45,7 +47,10 @@ export default function Header ({account} : HeaderProps) {
             </div>
             )}
             <small className='font-bold header-name'>{account.name}</small>
-            <div className='user-icon'><UserIcon size={40} /></div>
+            <div className='icons'>
+              <div className='user-icon'><UserIcon size={40} /> </div>
+              <button onClick={logout} className='logout-icon'><LogoutIcon size={40}/></button>
+            </div>
         </div>
     )
 }

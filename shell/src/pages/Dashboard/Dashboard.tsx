@@ -6,15 +6,17 @@ import { useInvoiceProvider } from '../../context/InvoiceContext';
 import { useAccountProvider } from '../../context/AccountContext';
 import { useTransferenceProvider } from '../../context/TransferencesContext';
 import { Outlet } from 'react-router';
+import { useAuthProvider } from '../../context/AuthContext';
 
 export default function Dashboard () {
       const {account, balance, setBalance} = useAccountProvider();
       const {invoices, setSelectedInvoice, useDeleteInvoice} = useInvoiceProvider();
       const {useDeleteTransference} = useTransferenceProvider();
+      const {logOut} = useAuthProvider()
       
     return (
         <div>
-        <Header account={account}/>
+        <Header account={account} logout={logOut}/>
         <div className="main-container">
           <NavBar/>
           <div className='items'>

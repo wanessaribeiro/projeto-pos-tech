@@ -4,17 +4,22 @@ import accountImg from '../../images/CreateAccountImg.png'
 
 type CreateAccountModalProps = {
     isOpen: boolean;
-    onClickCreateAccount: () => void;
+    onCreateAccount: () => void;
     onClose: () => void;
 }
 
-export default function CreateAccountModal({isOpen, onClickCreateAccount, onClose}: CreateAccountModalProps) {
+export default function CreateAccountModal({isOpen, onCreateAccount, onClose}: CreateAccountModalProps) {
+
+    const onSubmitCreateAccount = () => {
+        onCreateAccount();
+      };
+
     return (
         <dialog open={isOpen} className="account-body">
             <button onClick={onClose} className='close'><img src={closeIcon} className='close'/></button>
             <img src={accountImg} className='account-img'/>
             <h1 className='font-bold'>Preencha os campos abaixo para criar sua conta corrente!</h1>
-            <form method="dialog" className='account-form'>
+            <form method="dialog" className='account-form' onSubmit={onSubmitCreateAccount}>
                 <p className='font-bold'>Nome</p>
                 <input
                     id="account-name"
@@ -41,7 +46,7 @@ export default function CreateAccountModal({isOpen, onClickCreateAccount, onClos
                     <input type="checkbox" className='account-checkbox'/>
                     <small>Li e estou ciente quanto às condições de tratamento dos meus dados conforme descrito na Política de Privacidade do banco.</small>
                 </div>
-                <button onClick={onClickCreateAccount} className='account-button'>Criar conta</button>
+                <button type='submit' className='account-button'>Criar conta</button>
             </form>
         </dialog>
     )

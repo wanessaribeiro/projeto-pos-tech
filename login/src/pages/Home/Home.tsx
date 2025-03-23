@@ -11,29 +11,33 @@ import LoginModal from '../../components/LoginModal/LoginModal'
 import { useState } from 'react'
 import CreateAccountModal from '../../components/CreateAccountModal/CreateAccountModal'
 
-export default function Home() {
+type HomeProps = {
+    onLogin: () => void;
+  }
+
+export default function Home({onLogin}: HomeProps) {
     const [loginOpen, setLoginOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
 
-    const onClickLogin = () => {
+    const onClickLoginButton = () => {
         setLoginOpen(true)
     }
 
-    const onClickCreateAccount = () => {
+    const onClickCreateAccountButton = () => {
         setAccountOpen(true)
     }
 
     return(
         <>
         <div className='home-body'>
-            <Header onClickLogin={onClickLogin} onClickAccount={onClickCreateAccount}/>
+            <Header onClickLogin={onClickLoginButton} onClickAccount={onClickCreateAccountButton}/>
             <div className='home-content'>
                 <div className="home-banner">
                     <h1 className='home-text'>Experimente mais liberdade no controle da sua vida financeira. Crie sua conta com a gente!</h1>
                     <img src={bannerImg} className='home-img'/>
                     <div className='home-buttons'>
-                    <button onClick={onClickCreateAccount} className='button-home-black'>Abrir conta</button>
-                    <button onClick={onClickLogin} className='button-home-transparent'>Já tenho conta</button>
+                    <button onClick={onClickCreateAccountButton} className='button-home-black'>Abrir conta</button>
+                    <button onClick={onClickLoginButton} className='button-home-transparent'>Já tenho conta</button>
             </div>
                 </div>
                 <div className='features-div'>
@@ -49,8 +53,8 @@ export default function Home() {
             <Footer/>
         </div>
         
-        <LoginModal isOpen={loginOpen} onClickLogin={() => setLoginOpen(false)} onClose={() => setLoginOpen(false)}/>
-        <CreateAccountModal isOpen={accountOpen} onClickCreateAccount={() => setAccountOpen(false)} onClose={() => setAccountOpen(false)}/>
+        <LoginModal isOpen={loginOpen} onLogin={onLogin} onClose={() => setLoginOpen(false)}/>
+        <CreateAccountModal isOpen={accountOpen} onCreateAccount={onLogin} onClose={() => setAccountOpen(false)}/>
         </>
     )
 }

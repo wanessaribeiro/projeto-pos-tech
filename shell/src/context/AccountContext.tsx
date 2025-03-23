@@ -2,13 +2,17 @@ import { createContext, Dispatch, SetStateAction, useContext, useEffect, useStat
 
 export interface AccountType {
   id: string;
+  email: string;
+  password: string;
   type: string;
   name: string;
   balance: number;
 }
 
-const accountMock: AccountType ={
+export const accountMock: AccountType ={
     id: '1010',
+    email: "joananaves@email.com",
+    password: "3231rabanete",
     type: 'Conta Corrente',
     name: 'Joana Naves',
     balance: 2500,
