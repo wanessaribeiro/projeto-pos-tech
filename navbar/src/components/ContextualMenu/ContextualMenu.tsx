@@ -11,7 +11,7 @@ export function ContextualMenu({ isMenuOpen, onClose }: ContextualMenuProps) {
     { href: "/dashboard", label: "Início" },
     { href: "/dashboard/exchanges", label: "Transferências" },
     { href: "/dashboard/investments", label: "Investimentos" },
-    { href: "/dashboard/other-services", label: "Outros Serviços" },
+    { href: "/dashboard/services", label: "Outros Serviços" },
   ];
 
   return (

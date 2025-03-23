@@ -39,3 +39,25 @@ td, th {
 tr:nth-child(even) {
     background-color: var(--gray-200);
 }
+
+@media only screen and (max-width: 720px) {
+    .transferences-body {
+        min-height: 25rem;
+        display: grid;
+        grid-template-columns: auto;
+        padding: 1rem 0rem 0rem 1rem;
+    }
+
+    .transferences-input {
+        width: auto;
+        text-align: left;
+        padding-left: 1rem;
+    }
+
+    .transferences-table {
+        margin: 1rem 0 1rem;
+        width: auto;
+        max-width: 720px;
+    }
+    
+}
