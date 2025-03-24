@@ -20,3 +20,16 @@
     display: grid;
     gap: 2rem;
 }
+
+@media only screen and (max-width: 720px) {
+    .services-body {
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .services {
+        display: grid;
+        grid-template-columns: auto ;
+        height: auto;
+    }
+    
+}
