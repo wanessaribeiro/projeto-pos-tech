@@ -40,7 +40,7 @@ export default function Header ({account, logout} : HeaderProps) {
     
     return (
         <div className='header'>
-            <button onClick={toggleMenu} className='hamburguer-icon'><HamburguerIcon /></button>
+            <button onClick={toggleMenu} className='hamburguer-button'><HamburguerIcon /></button>
             {isMenuOpen && (
             <div ref={menuRef}>
               <ContextualMenu isMenuOpen={isMenuOpen} onClose={closeMenu} />

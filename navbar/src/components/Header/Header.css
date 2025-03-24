@@ -10,9 +10,10 @@
     position: relative;
 }
 
-.hamburguer-icon {
+.hamburguer-button {
     display: none;
 }
+
 
 .icons {
     display: grid;
@@ -43,11 +44,12 @@
         justify-content: stretch;
     }
 
-    .hamburguer-icon {
+    .hamburguer-button {
         display: flex;
-        height: auto;
+        height: 2rem;
         padding-left: 7%;
         background-color: transparent;
+        color: black;
         border: none;
         margin: 0;
     }

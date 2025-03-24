@@ -43,6 +43,7 @@
         grid-template-columns: auto;
         padding: 1rem 0rem 0rem 1rem;
         background-color: var(--primary-400);
+        z-index: 0;
     }
 
     .img-piggy-bank {

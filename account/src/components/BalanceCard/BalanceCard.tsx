@@ -15,7 +15,7 @@ export type BalanceCardProps = {
 
 export default function BalanceCard ({account, balance}: BalanceCardProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const dayWeek = daysOfTheWeek[new Date().getDay() - 1];
+  const dayWeek = daysOfTheWeek[new Date().getDay()];
   const todaysDate = formatDate(new Date());
 
   const toggleVisibility = () => {

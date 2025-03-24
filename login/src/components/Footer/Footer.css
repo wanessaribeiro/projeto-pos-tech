@@ -27,15 +27,6 @@ li {
         margin-bottom: 0;
     }
 
-    .hamburguer-icon {
-        display: flex;
-        height: auto;
-        padding-left: 7%;
-        background-color: transparent;
-        border: none;
-        margin: 0;
-    }
-
     li {
         list-style-type: none; 
         margin-bottom: 0.5rem;

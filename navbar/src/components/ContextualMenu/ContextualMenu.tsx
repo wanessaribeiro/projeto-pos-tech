@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import './ContextualMenu.css'
 
 type ContextualMenuProps = {
@@ -6,13 +7,18 @@ type ContextualMenuProps = {
 };
 
 export function ContextualMenu({ isMenuOpen, onClose }: ContextualMenuProps) {
-
+  const navigate = useNavigate();
   const navItems = [
-    { href: "/dashboard", label: "Início" },
-    { href: "/dashboard/exchanges", label: "Transferências" },
-    { href: "/dashboard/investments", label: "Investimentos" },
-    { href: "/dashboard/services", label: "Outros Serviços" },
+    { value: "", label: "Início" },
+    { value: "/transactions", label: "Transferências" },
+    { value: "/investments", label: "Investimentos" },
+    { value: "/services", label: "Outros Serviços" },
   ];
+
+  const onClickMenu = (value: string) => {
+     navigate("/dashboard" + value);
+     onClose();
+  }
 
   return (
     <div className="menu-body">
@@ -25,7 +31,7 @@ export function ContextualMenu({ isMenuOpen, onClose }: ContextualMenuProps) {
             return (
               <li
                 key={index}
-                onClick={onClose}
+                onClick={() => onClickMenu(item.value)}
                 className="menu-item"
               >
                   {item.label}
