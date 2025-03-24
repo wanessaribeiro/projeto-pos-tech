@@ -37,7 +37,7 @@ export default function Header ({onClickLogin, onClickAccount}: HeaderProps) {
     }, [isMenuOpen]);
 
     return (
-        <div className='header'>
+        <div className='header-home'>
             <button onClick={toggleMenu} className='hamburguer-icon'><img src={hamburguerIcon} className='hamburguer-icon'/></button>
             {isMenuOpen && (
             <div ref={menuRef}>

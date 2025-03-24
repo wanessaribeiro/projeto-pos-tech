@@ -12,8 +12,9 @@
     margin: 2rem;
 }
 
-li {
+.li-footer {
     list-style-type: none; 
+    border: none;
     margin-bottom: 1rem;
 }
 
@@ -27,8 +28,9 @@ li {
         margin-bottom: 0;
     }
 
-    li {
+    .li-footer {
         list-style-type: none; 
+        border: none;
         margin-bottom: 0.5rem;
     }
     
