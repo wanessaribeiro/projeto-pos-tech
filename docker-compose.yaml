@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  account: 
+    image: 'wanessar/tech-challenge-account'
+    build: './account'
+    ports: 
+      - "3003:3003"
+  investments:
+    image: 'wanessar/tech-challenge-investments'
+    build: './investments'
+    ports: 
+      - "3004:3004"
+  login:
+    image: 'wanessar/tech-challenge-login'
+    build: './login'
+    ports: 
+      - "3005:3005"
+  navbar:
+    image: 'wanessar/tech-challenge-navbar'
+    build: './navbar'
+    ports: 
+      - "3001:3001"
+  services:
+    image: 'wanessar/tech-challenge-services'
+    build: './services'
+    ports: 
+      - "3000:3000"
+  transactions:
+    image: 'wanessar/tech-challenge-transactions'
+    build: './transactions'
+    ports: 
+      - "3002:3002"
+  shell:
+    image: 'wanessar/tech-challenge-shell'
+    build: './shell'
+    depends_on:
+      - account
+      - investments
+      - login
+      - navbar
+      - services
+      - transactions
+    ports: 
+      - "2000:2000"

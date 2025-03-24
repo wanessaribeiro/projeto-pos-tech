@@ -5,14 +5,20 @@ import BalanceCard from 'account/balance-card'
 import { useInvoiceProvider } from '../../context/InvoiceContext';
 import { useAccountProvider } from '../../context/AccountContext';
 import { useTransferenceProvider } from '../../context/TransferencesContext';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import { useAuthProvider } from '../../context/AuthContext';
+import { useEffect } from 'react';
 
 export default function Dashboard () {
       const {account, balance, setBalance} = useAccountProvider();
       const {invoices, setSelectedInvoice, useDeleteInvoice} = useInvoiceProvider();
       const {useDeleteTransference} = useTransferenceProvider();
-      const {logOut} = useAuthProvider()
+      const {logOut, token} = useAuthProvider();
+      const navigate = useNavigate()
+
+      useEffect(() => {
+        if(!token) navigate('/login')
+      }, [token, navigate])
       
     return (
         <div>

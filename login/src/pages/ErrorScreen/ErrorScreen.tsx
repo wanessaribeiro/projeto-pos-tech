@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router";
 import './ErrorScreen.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import errorImg from '../../images/404Img.png';
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 
-export default function ErrorScreen() {
+type ErrorScreenProps = {
+    onLogin: () => void;
+    token: string;
+  }
+
+export default function ErrorScreen({onLogin, token}:ErrorScreenProps) {
     const navigate = useNavigate();
     const [loginOpen, setLoginOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
@@ -19,6 +24,10 @@ export default function ErrorScreen() {
     const onClickCreateAccount = () => {
         setAccountOpen(true)
     }
+
+    useEffect(() => {
+        if(token) navigate("/dashboard")
+    }, [token, navigate])
     
     return (
         <>
@@ -33,8 +42,8 @@ export default function ErrorScreen() {
             </div>
             <Footer/>
         </div>
-        <LoginModal isOpen={loginOpen} onClickLogin={() => setLoginOpen(false)} onClose={() => setLoginOpen(false)}/>
-        <CreateAccountModal isOpen={accountOpen} onClickCreateAccount={() => setAccountOpen(false)} onClose={() => setAccountOpen(false)}/>
+        <LoginModal isOpen={loginOpen} onLogin={onLogin} onClose={() => setLoginOpen(false)}/>
+        <CreateAccountModal isOpen={accountOpen} onCreateAccount={onLogin} onClose={() => setAccountOpen(false)}/>
         </>
     )
 }

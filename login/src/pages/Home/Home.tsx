@@ -8,14 +8,17 @@ import Header from "../../components/Header/Header"
 import FeatureCard from '../../components/FeatureCard/FeatureCard'
 import Footer from '../../components/Footer/Footer'
 import LoginModal from '../../components/LoginModal/LoginModal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router";
 import CreateAccountModal from '../../components/CreateAccountModal/CreateAccountModal'
 
 type HomeProps = {
     onLogin: () => void;
+    token: string;
   }
 
-export default function Home({onLogin}: HomeProps) {
+export default function Home({onLogin, token}: HomeProps) {
+    const navigate = useNavigate()
     const [loginOpen, setLoginOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
 
@@ -26,6 +29,10 @@ export default function Home({onLogin}: HomeProps) {
     const onClickCreateAccountButton = () => {
         setAccountOpen(true)
     }
+
+    useEffect(() => {
+        if(token) navigate("/dashboard")
+    }, [token, navigate])
 
     return(
         <>

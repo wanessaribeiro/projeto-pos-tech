@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import ErrorScreen from 'login/error'
+
 import Dashboard from './pages/Dashboard/Dashboard';
 import Contexts from './components/Contexts';
 import InvestmentsPage from './pages/Dashboard/Content/InvestmentsPage';
@@ -10,7 +10,7 @@ import NewInvestmentPage from './pages/Dashboard/Content/NewInvestmentPage';
 import NewTransactionPage from './pages/Dashboard/Content/NewTransactionPage';
 import TransferencesPage from './pages/Dashboard/Content/TrasferencesPage';
 import HomePage from './pages/Home/HomePage';
-import PrivateRoute from './components/PrivateRoute';
+import ErrorPage from './pages/Home/ErrorPage';
 
 const App = () => {
 
@@ -20,7 +20,6 @@ const App = () => {
           <Routes>
           <Route path='/' element={<HomePage />}/>
             <Route path='/login' element={<HomePage />}/>
-            <Route element={<PrivateRoute />}>
               <Route path="dashboard" element={<Dashboard />}>
                 <Route index element={<NewTransactionPage />}></Route>
                 <Route path='transactions' element={<TransferencesPage/>} />
@@ -29,8 +28,7 @@ const App = () => {
                 <Route path='services' element={<ServicesPage/>} />
                 <Route path='new-investment' element={<NewInvestmentPage/>} />
               </Route>
-            </Route>
-            <Route path='*' element={<ErrorScreen />}/>
+            <Route path='*' element={<ErrorPage />}/>
           </Routes>
         </Contexts>
       </BrowserRouter>

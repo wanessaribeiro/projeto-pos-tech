@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router";
 import { accountMock, AccountType } from "./AccountContext";
 
 export interface AuthType {
@@ -27,14 +26,13 @@ export function AuthProvider ({
         balance: 0,
     });
     const [token, setToken] = useState(localStorage.getItem("biteBankId") || "");
-    const navigate = useNavigate();
     
-    const loginAction = async () => {
-
+    const loginAction =  () => {
         const response = accountMock;
-
         localStorage.setItem("biteBankId", response.id);
-        navigate("/dashboard");
+        
+        setUser(response)
+        setToken(response.id)
         return;
     };
   
@@ -49,7 +47,6 @@ export function AuthProvider ({
     });
       setToken("");
       localStorage.removeItem("biteBankId");
-      navigate("/login");
     };
   
     return (
