@@ -1,25 +1,25 @@
 .invoice-month {
-    color: var(--secondary-400)
+  color: var(--secondary-400);
 }
 
 .invoice-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
 }
 
 .invoice-buttons {
-    display: flex;
-    gap: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
 }
 
-.invoice-date{
-    color: var(--gray-600)
+.invoice-date {
+  color: var(--gray-600);
 }
 
 .invoice-p {
-    margin: 0;
-    margin-top: 0.25rem;
+  margin: 0;
+  margin-top: 0.25rem;
 }

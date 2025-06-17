@@ -9,9 +9,11 @@ export default defineConfig({
       name: 'transactions',
       exposes: {
         './invoice': './src/components/Invoice/Invoice.tsx',
-        './new-transaction': './src/components/NewTransaction/NewTransaction.tsx',
-        './edit-transaction': './src/components/EditTransaction/EditTransaction.tsx',
-        './transferences': './src/components/Transferences/Transferences.tsx'
+        './new-transaction':
+          './src/components/NewTransaction/NewTransaction.tsx',
+        './edit-transaction':
+          './src/components/EditTransaction/EditTransaction.tsx',
+        './transferences': './src/components/Transferences/Transferences.tsx',
       },
       shared: ['react', 'react-dom', 'react-router'],
     }),

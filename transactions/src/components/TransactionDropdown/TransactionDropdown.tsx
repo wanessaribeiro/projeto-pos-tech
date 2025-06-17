@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { ArrowDownIcon } from "../../icons/ArrowDownIcon";
+import { useEffect, useRef, useState } from 'react';
+import { ArrowDownIcon } from '../../icons/ArrowDownIcon';
 
 export type TransactionDropdownProps = {
   selected: string;
@@ -27,16 +27,16 @@ export default function TransactionDropdown({
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
   return (
     <div className="dropdown" ref={dropdownRef}>
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
-        {selected === "" ? placeholder : selected}
+        {selected === '' ? placeholder : selected}
         <ArrowDownIcon />
       </div>
       {isActive && (

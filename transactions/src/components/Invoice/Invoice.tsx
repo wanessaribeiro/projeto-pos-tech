@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { InvoiceType } from '../../libs/types';
 import InvoiceItem from '../InvoiceItem/InvoiceItem';
-import './Invoice.css'
+import './Invoice.css';
 
-interface InvoiceProps{
+interface InvoiceProps {
   invoices: InvoiceType[];
   setSelectedTransaction: (invoice: InvoiceType) => void;
   deleteTransaction: (id: string) => void;
@@ -13,26 +13,32 @@ interface InvoiceProps{
   setBalance: (balance: number) => void;
 }
 
-
-export default function Invoice ({invoices, setSelectedTransaction, deleteTransaction, deleteTransference, balance, setBalance}: InvoiceProps) {
+export default function Invoice({
+  invoices,
+  setSelectedTransaction,
+  deleteTransaction,
+  deleteTransference,
+  balance,
+  setBalance,
+}: InvoiceProps) {
   const navigate = useNavigate();
   const deleteInvoice = (id: string) => {
-    deleteTransference(id)
-    deleteTransaction(id)
-    setBalance(getTotalInvoices())
-  }
+    deleteTransference(id);
+    deleteTransaction(id);
+    setBalance(getTotalInvoices());
+  };
 
   const editInvoice = (invoice: InvoiceType) => {
-    setSelectedTransaction(invoice)
-    setBalance(getTotalInvoices())
-    navigate('/dashboard/edit')
-  }
+    setSelectedTransaction(invoice);
+    setBalance(getTotalInvoices());
+    navigate('/dashboard/edit');
+  };
 
   const getTotalInvoices = () => {
     const total = invoices.reduce((acc, invoice) => {
-      if (invoice.type === "Depósito") {
+      if (invoice.type === 'Depósito') {
         return acc + invoice.value;
-      } else if (invoice.type === "Saque" || invoice.type === "Transferência") {
+      } else if (invoice.type === 'Saque' || invoice.type === 'Transferência') {
         return acc - invoice.value;
       }
       return acc;
@@ -42,8 +48,8 @@ export default function Invoice ({invoices, setSelectedTransaction, deleteTransa
   };
 
   useEffect(() => {
-    setBalance(getTotalInvoices())
-  }, [])
+    setBalance(getTotalInvoices());
+  }, []);
 
   return (
     <div className="border-round invoice-body">
@@ -52,12 +58,18 @@ export default function Invoice ({invoices, setSelectedTransaction, deleteTransa
       </div>
       <ul>
         {invoices?.map((invoice) => (
-          <li className='invoice-li' key={invoice.id}>
-            <InvoiceItem key={invoice.id} type={invoice.type} value={invoice.value} date={invoice.date} onClickDelete={()=> deleteInvoice(invoice.id)} onClickEdit={() => editInvoice(invoice)}/>
+          <li className="invoice-li" key={invoice.id}>
+            <InvoiceItem
+              key={invoice.id}
+              type={invoice.type}
+              value={invoice.value}
+              date={invoice.date}
+              onClickDelete={() => deleteInvoice(invoice.id)}
+              onClickEdit={() => editInvoice(invoice)}
+            />
           </li>
         ))}
       </ul>
     </div>
   );
-};
-
+}
