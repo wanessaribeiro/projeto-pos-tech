@@ -1,25 +1,24 @@
-.services-button{
-    display: flex;
-    place-items: center;
-    place-content: center;
-    flex-direction: column;
-    width: 12rem;
-    height: 10rem;
-    border: none;
-    background-color: white;
+.services-button {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  flex-direction: column;
+  width: 12rem;
+  height: 10rem;
+  border: none;
+  background-color: white;
 }
 
 .button-img {
-    width: 3.75rem;
-    height: 3.75rem;
-    margin-bottom: 0.25rem;
-    margin-top: 0.5rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 @media only screen and (max-width: 720px) {
-    .services-button{
-        width: 16rem;
-        height: 8rem;
-    }
-    
+  .services-button {
+    width: 16rem;
+    height: 8rem;
+  }
 }
