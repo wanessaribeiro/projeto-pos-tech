@@ -1,38 +1,36 @@
 .investment-body {
-    display: grid;
-    grid-template-columns: auto auto;
-    height: 28rem;
-    background-color: var(--gray-400);
-    color: var(--primary-400);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    padding: 1rem 0 0 1rem;
-    position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 28rem;
+  background-color: var(--gray-400);
+  color: var(--primary-400);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0 0 1rem;
+  position: relative;
 }
 
 .img-graph {
-    width: 22rem;
-    height: 22rem;
-    position: absolute;
-    bottom: 2.5rem;
-    right: 2.5rem;
+  width: 22rem;
+  height: 22rem;
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
 }
 
 .investment-value {
-    padding: 1rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
 }
 
-.investment-button{
-    color: white;
-    background-color: var(--primary-400);
-    border: 2px solid var(--primary-400);
-    width: 10.6rem;
+.investment-button {
+  color: white;
+  background-color: var(--primary-400);
+  border: 2px solid var(--primary-400);
+  width: 10.6rem;
 }
 
 @media only screen and (max-width: 720px) {
-
-    .img-graph {
-        display: none;
-    }
-    
+  .img-graph {
+    display: none;
+  }
 }

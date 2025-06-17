@@ -1,3 +1,3 @@
 export function percentageValue(percentage: number, totalValue: number) {
-    return (totalValue * percentage) / 100;
- } 
+  return (totalValue * percentage) / 100;
+}
