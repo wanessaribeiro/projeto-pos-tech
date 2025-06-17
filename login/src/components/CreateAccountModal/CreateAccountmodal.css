@@ -1,92 +1,92 @@
 .account-body {
-    width: 40%;
-    height: 100%;
-    position: absolute;
-    top: 0rem;
-    left: 0;
-    justify-items: center;
-    border: none;
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  justify-items: center;
+  border: none;
 }
 
 .close {
-    position: absolute;
-    width: 1.25em;
-    height: 1.25rem;
-    top: 1rem;
-    right: 1rem;
-    background-color: transparent;
-    border: none;
-    margin: 0;
+  position: absolute;
+  width: 1.25em;
+  height: 1.25rem;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  margin: 0;
 }
 
 .account-img {
-    width: 22rem;
-    height: 17rem;
-    margin-top: 1.5rem;
+  width: 22rem;
+  height: 17rem;
+  margin-top: 1.5rem;
 }
 
 .account-form {
-    display: flex;
-    flex-direction: column;
-    justify-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
 }
 
 .account-input {
-    width: 35.75rem;
-    text-align: left;
-    padding-left: 1rem;
+  width: 35.75rem;
+  text-align: left;
+  padding-left: 1rem;
 }
 
 .account-terms {
-    display: grid;
-    grid-template-columns: 3rem auto;
-    color: var(--secondary-400);
-    margin: 0.75rem 0rem 1.5rem;
-    width: 36.8rem;
+  display: grid;
+  grid-template-columns: 3rem auto;
+  color: var(--secondary-400);
+  margin: 0.75rem 0rem 1.5rem;
+  width: 36.8rem;
 }
 
 .account-checkbox {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-input[type="checkbox"]:checked {
-    accent-color: var(--secondary-400);
+input[type='checkbox']:checked {
+  accent-color: var(--secondary-400);
 }
 
 .account-button {
-    align-self: center;
-    background-color: var(--tertiary-400);
-    color: white;
-    border-style: solid;
-    border-color: var(--tertiary-400);
-    width: 9rem;
+  align-self: center;
+  background-color: var(--tertiary-400);
+  color: white;
+  border-style: solid;
+  border-color: var(--tertiary-400);
+  width: 9rem;
 }
 
 @media only screen and (max-width: 720px) {
-    .account-body {
-        width: auto;
-        height: auto;
-        margin: 0 1.25rem 0;
-    }
+  .account-body {
+    width: auto;
+    height: auto;
+    margin: 0 1.25rem 0;
+  }
 
-    .account-img {
-        width: auto;
-        height: 13.5rem;
-        margin-top: 1.5rem;
-    }
+  .account-img {
+    width: auto;
+    height: 13.5rem;
+    margin-top: 1.5rem;
+  }
 
-    .account-input {
-        width: auto;
-        text-align: left;
-        padding-left: 1rem;
-    }
+  .account-input {
+    width: auto;
+    text-align: left;
+    padding-left: 1rem;
+  }
 
-    .account-terms {
-        width: auto;
-    }
+  .account-terms {
+    width: auto;
+  }
 
-    .account-button {
-        margin-bottom: 3rem;
-    }
+  .account-button {
+    margin-bottom: 3rem;
+  }
 }

@@ -1,104 +1,100 @@
 .home-body {
-    align-items: center;
-    background-image: linear-gradient(var(--primary-400), var(--primary-200));
-    position: relative;
+  align-items: center;
+  background-image: linear-gradient(var(--primary-400), var(--primary-200));
+  position: relative;
 }
 
 .home-content {
-    justify-items: center;
+  justify-items: center;
 }
 
 .home-banner {
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 75rem;
-    margin: 1.5rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 75rem;
+  margin: 1.5rem;
 }
 
 .home-text {
-    text-align: justify;
-    align-self: center;
-    width: 25rem;
-    padding: 1rem;
+  text-align: justify;
+  align-self: center;
+  width: 25rem;
+  padding: 1rem;
 }
 
 .home-img {
-    width: 41.313rem;
-    height: 25.75rem;
+  width: 41.313rem;
+  height: 25.75rem;
 }
 
 .features-div {
-    align-items: center;
-    text-align: center;
-    width: 75rem;
-    margin: 1.5rem;
+  align-items: center;
+  text-align: center;
+  width: 75rem;
+  margin: 1.5rem;
 }
 
 .home-features {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 .home-buttons {
-    display: none;
+  display: none;
 }
 
 @media only screen and (max-width: 720px) {
-    .home-body {
-      display: grid;
-      grid-template-columns: auto;
-      width: 23.5rem;
-      height: 100%;
-      
-    }
+  .home-body {
+    display: grid;
+    grid-template-columns: auto;
+    width: 23.5rem;
+    height: 100%;
+  }
 
-    .home-img {
-        width: 19.5rem;
-        height: 12.25rem;
-    }
+  .home-img {
+    width: 19.5rem;
+    height: 12.25rem;
+  }
 
-    .home-banner{
-        display: grid;
-        grid-template-columns: auto;
-        width: 19.5rem;
-    }
+  .home-banner {
+    display: grid;
+    grid-template-columns: auto;
+    width: 19.5rem;
+  }
 
-    .home-text {
-        text-align: center;
-        align-self: center;
-        width: 19.5rem;
+  .home-text {
+    text-align: center;
+    align-self: center;
+    width: 19.5rem;
+  }
 
-    }
+  .features-div {
+    width: 19.5rem;
+  }
 
-    .features-div {
-        width: 19.5rem;
-    }
-    
- 
-    .home-features {
-        display: grid;
-        grid-template-columns: auto;
-    }
+  .home-features {
+    display: grid;
+    grid-template-columns: auto;
+  }
 
-    .home-buttons {
-        display: flex;
-        gap: 0.75rem;
-    }
-    
-    .button-home-transparent {
-        background-color: transparent;
-        color: black;
-        border-style: solid;
-        border-color: black;
-        width: 9rem;
-    }
-    
-    .button-home-black {
-        background-color: black;
-        color: white;
-        border-style: solid;
-        border-color: black;
-        width: 9rem;
-    }
+  .home-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .button-home-transparent {
+    background-color: transparent;
+    color: black;
+    border-style: solid;
+    border-color: black;
+    width: 9rem;
+  }
+
+  .button-home-black {
+    background-color: black;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    width: 9rem;
+  }
 }
-    

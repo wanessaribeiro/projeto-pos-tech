@@ -1,31 +1,31 @@
 .error-body {
-    align-items: center;
-    background-image: linear-gradient(var(--primary-400), var(--primary-200));
-    position: relative;
+  align-items: center;
+  background-image: linear-gradient(var(--primary-400), var(--primary-200));
+  position: relative;
 }
 
 .error-content {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
 }
 
 .error-text {
-    margin: 0.25rem;
+  margin: 0.25rem;
 }
 
 .error-button {
-    margin: 1.5rem;
-    width: 9rem;
-    color: white;
-    border: none;
-    background-color: var(--tertiary-400);
+  margin: 1.5rem;
+  width: 9rem;
+  color: white;
+  border: none;
+  background-color: var(--tertiary-400);
 }
 
 .img-error {
-    width: 29.3rem;
-    height: 22rem;
-    margin: 3rem;
-    margin-bottom: 13rem;
+  width: 29.3rem;
+  height: 22rem;
+  margin: 3rem;
+  margin-bottom: 13rem;
 }

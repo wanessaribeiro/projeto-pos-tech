@@ -1,75 +1,74 @@
 .header-home {
-    display: flex;
-    background-color: black;    
-    justify-content: center;
-    align-items: center;
-    gap: 30rem;
-    color: var(--secondary-400);
-    height: 6rem;
-    position: relative;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  gap: 30rem;
+  color: var(--secondary-400);
+  height: 6rem;
+  position: relative;
 }
 
 .header-img {
-    width: 9.125rem;
-    height: 2rem;
+  width: 9.125rem;
+  height: 2rem;
 }
 
 .hamburguer-icon {
-    display: none;
+  display: none;
 }
 
 .header-text {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }
 
 .header-buttons {
-    display: flex;
-    gap: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
 }
 
 .button-green {
-    background-color: var(--secondary-400);
-    color: white;
-    border-style: solid;
-    border-color: var(--secondary-400);
-    width: 11.25rem;
+  background-color: var(--secondary-400);
+  color: white;
+  border-style: solid;
+  border-color: var(--secondary-400);
+  width: 11.25rem;
 }
 
 .button-black {
-    background-color: black;
-    color: var(--secondary-400);
-    border-style: solid;
-    border-color: var(--secondary-400);
-    width: 11.25rem;
+  background-color: black;
+  color: var(--secondary-400);
+  border-style: solid;
+  border-color: var(--secondary-400);
+  width: 11.25rem;
 }
 
 @media only screen and (max-width: 720px) {
-    .header {
-        width: auto;
-        gap:10%;
-        justify-content: stretch;
-    }
+  .header {
+    width: auto;
+    gap: 10%;
+    justify-content: stretch;
+  }
 
-    .header-text {
-        display: none;
-    }
+  .header-text {
+    display: none;
+  }
 
-    .header-buttons {
-        display: none;
-    }
+  .header-buttons {
+    display: none;
+  }
 
-    .hamburguer-icon {
-        display: flex;
-        height: 2rem;
-        width: 2rem;
-        padding-left: 7%;
-        background-color: transparent;
-        border: none;
-        margin: 0;
-    }
-    
+  .hamburguer-icon {
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    padding-left: 7%;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+  }
 }
