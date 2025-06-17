@@ -13,25 +13,24 @@ import HomePage from './pages/Home/HomePage';
 import ErrorPage from './pages/Home/ErrorPage';
 
 const App = () => {
-
   return (
-      <BrowserRouter>
-        <Contexts>
-          <Routes>
-          <Route path='/' element={<HomePage />}/>
-            <Route path='/login' element={<HomePage />}/>
-              <Route path="dashboard" element={<Dashboard />}>
-                <Route index element={<NewTransactionPage />}></Route>
-                <Route path='transactions' element={<TransferencesPage/>} />
-                <Route path='investments' element={<InvestmentsPage/>} />
-                <Route path='edit' element={<EditTransactionPage/>} />
-                <Route path='services' element={<ServicesPage/>} />
-                <Route path='new-investment' element={<NewInvestmentPage/>} />
-              </Route>
-            <Route path='*' element={<ErrorPage />}/>
-          </Routes>
-        </Contexts>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Contexts>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<HomePage />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element={<NewTransactionPage />}></Route>
+            <Route path="transactions" element={<TransferencesPage />} />
+            <Route path="investments" element={<InvestmentsPage />} />
+            <Route path="edit" element={<EditTransactionPage />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="new-investment" element={<NewInvestmentPage />} />
+          </Route>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Contexts>
+    </BrowserRouter>
   );
 };
 

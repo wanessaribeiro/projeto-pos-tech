@@ -1,10 +1,8 @@
-import ErrorScreen from 'login/error'
-import { useAuthProvider } from '../../context/AuthContext'
+import ErrorScreen from 'login/error';
+import { useAuthProvider } from '../../context/AuthContext';
 
-export default function ErrorPage () {
-    const {loginAction, token} = useAuthProvider();
+export default function ErrorPage() {
+  const { loginAction, token } = useAuthProvider();
 
-    return (
-        <ErrorScreen onLogin={loginAction} token={token}/>
-    )
+  return <ErrorScreen onLogin={loginAction} token={token} />;
 }

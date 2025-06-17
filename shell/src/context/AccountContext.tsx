@@ -1,4 +1,11 @@
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 export interface AccountType {
   id: string;
@@ -9,22 +16,23 @@ export interface AccountType {
   balance: number;
 }
 
-export const accountMock: AccountType ={
-    id: '1010',
-    email: "joananaves@email.com",
-    password: "3231rabanete",
-    type: 'Conta Corrente',
-    name: 'Joana Naves',
-    balance: 2500,
-}
+export const accountMock: AccountType = {
+  id: '1010',
+  email: 'joananaves@email.com',
+  password: '3231rabanete',
+  type: 'Conta Corrente',
+  name: 'Joana Naves',
+  balance: 2500,
+};
 
-
-const AccountContext = createContext<{
-  account: AccountType,
-  balance: number | undefined,
-  setBalance: Dispatch<SetStateAction<number>>,
-} | undefined>(undefined);
-    
+const AccountContext = createContext<
+  | {
+      account: AccountType;
+      balance: number | undefined;
+      setBalance: Dispatch<SetStateAction<number>>;
+    }
+  | undefined
+>(undefined);
 
 export function AccountProvider({
   children,
@@ -33,8 +41,8 @@ export function AccountProvider({
   const [balance, setBalance] = useState(accountMock.balance);
 
   useEffect(() => {
-    setAccount({...account, balance: balance})
-  }, [balance])
+    setAccount({ ...account, balance: balance });
+  }, [balance]);
 
   return (
     <AccountContext.Provider
@@ -51,6 +59,6 @@ export function AccountProvider({
 
 export function useAccountProvider() {
   const context = useContext(AccountContext);
-  if (!context) throw new Error("Invalid AccountContext");
+  if (!context) throw new Error('Invalid AccountContext');
   return context;
 }
