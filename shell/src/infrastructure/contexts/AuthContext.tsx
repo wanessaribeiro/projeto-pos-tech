@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from 'react';
-import { accountMock, AccountType } from './AccountContext';
+import { accountMock } from './AccountContext';
+import { UserEntity } from '../domain/entities/user.entity';
 
+//TODO: alterar
 export interface AuthType {
   email: string;
   password: string;
@@ -9,7 +11,7 @@ export interface AuthType {
 const AuthContext = createContext<
   | {
       token: string;
-      user: AccountType;
+      user: UserEntity;
       loginAction: () => void;
       logOut: () => void;
     }
@@ -19,7 +21,7 @@ const AuthContext = createContext<
 export function AuthProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [user, setUser] = useState<AccountType>({
+  const [user, setUser] = useState<UserEntity>({
     id: '',
     email: '',
     password: '',

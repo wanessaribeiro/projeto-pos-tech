@@ -1,16 +1,16 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router';
-
-import Dashboard from './pages/Dashboard/Dashboard';
 import Contexts from './components/Contexts';
-import InvestmentsPage from './pages/Dashboard/Content/InvestmentsPage';
 import EditTransactionPage from './pages/Dashboard/Content/EditTransactionPage';
-import ServicesPage from './pages/Dashboard/Content/ServicesPage';
+import InvestmentsPage from './pages/Dashboard/Content/InvestmentsPage';
 import NewInvestmentPage from './pages/Dashboard/Content/NewInvestmentPage';
 import NewTransactionPage from './pages/Dashboard/Content/NewTransactionPage';
+import ServicesPage from './pages/Dashboard/Content/ServicesPage';
 import TransferencesPage from './pages/Dashboard/Content/TrasferencesPage';
-import HomePage from './pages/Home/HomePage';
+import Dashboard from './pages/Dashboard/Dashboard';
 import ErrorPage from './pages/Home/ErrorPage';
+import HomePage from './pages/Home/HomePage';
 
 const App = () => {
   return (

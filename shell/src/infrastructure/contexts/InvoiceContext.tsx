@@ -5,9 +5,9 @@ import {
   useContext,
   useState,
 } from 'react';
-import { InvoiceType } from '../lib/Types';
+import { InvoiceEntity } from '../domain/entities/invoice.entity';
 
-const invoicesMock: InvoiceType[] = [
+const invoicesMock: InvoiceEntity[] = [
   {
     id: '4',
     type: 'Saque',
@@ -44,12 +44,12 @@ const invoicesMock: InvoiceType[] = [
 
 const InvoiceContext = createContext<
   | {
-      invoices: InvoiceType[];
-      selectedInvoice: InvoiceType | undefined;
-      setSelectedInvoice: Dispatch<SetStateAction<InvoiceType>>;
-      useGetInvoice: (id: string) => InvoiceType | undefined;
-      usePostInvoice: (invoice: InvoiceType) => void;
-      usePatchInvoice: (invoice: InvoiceType) => void;
+      invoices: InvoiceEntity[];
+      selectedInvoice: InvoiceEntity | undefined;
+      setSelectedInvoice: Dispatch<SetStateAction<InvoiceEntity>>;
+      useGetInvoice: (id: string) => InvoiceEntity | undefined;
+      usePostInvoice: (invoice: InvoiceEntity) => void;
+      usePatchInvoice: (invoice: InvoiceEntity) => void;
       useDeleteInvoice: (id: string) => void;
     }
   | undefined
@@ -71,11 +71,11 @@ export function InvoiceProvider({
     return invoice;
   };
 
-  const usePostInvoice = (invoice: InvoiceType) => {
+  const usePostInvoice = (invoice: InvoiceEntity) => {
     setInvoices((prev) => [invoice, ...prev]);
   };
 
-  const usePatchInvoice = (invoice: InvoiceType) => {
+  const usePatchInvoice = (invoice: InvoiceEntity) => {
     setInvoices((prev) => {
       const editInvoice = prev.find((i) => i.id === invoice.id);
       if (editInvoice) Object.assign(editInvoice, invoice);

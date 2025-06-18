@@ -1,4 +1,4 @@
-export interface InvoiceType {
+export interface InvoiceEntity {
   id: string;
   type: string;
   value: number;

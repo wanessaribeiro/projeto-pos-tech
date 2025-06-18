@@ -1,20 +1,21 @@
+import React from 'react';
 import NavBar from 'navbar/navbar';
 import Header from 'navbar/header';
 import Invoice from 'transactions/invoice';
 import BalanceCard from 'account/balance-card';
-import { useInvoiceProvider } from '../../context/InvoiceContext';
-import { useAccountProvider } from '../../context/AccountContext';
-import { useTransferenceProvider } from '../../context/TransferencesContext';
 import { Outlet, useNavigate } from 'react-router';
-import { useAuthProvider } from '../../context/AuthContext';
 import { useEffect } from 'react';
+import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
+import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
+import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
+import { useTransferenceProvider } from '../../../infrastructure/contexts/TransferencesContext';
 
 export default function Dashboard() {
   const { account, balance, setBalance } = useAccountProvider();
   const { invoices, setSelectedInvoice, useDeleteInvoice } =
     useInvoiceProvider();
   const { useDeleteTransference } = useTransferenceProvider();
-  const { logOut, token } = useAuthProvider();
+  const { token } = useAuthProvider();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Header account={account} logout={logOut} />
+      <Header account={account} />
       <div className="main-container">
         <NavBar />
         <div className="items">

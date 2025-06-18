@@ -5,9 +5,10 @@ import {
   useContext,
   useState,
 } from 'react';
-import { InvoiceType } from '../lib/Types';
+import { InvoiceEntity } from '../domain/entities/invoice.entity';
 
-const transferencesMock: InvoiceType[] = [
+//TODO: criar service falso para pegar isso
+const transferencesMock: InvoiceEntity[] = [
   {
     id: '3',
     type: 'Pix',
@@ -76,10 +77,10 @@ const transferencesMock: InvoiceType[] = [
 
 const TransferenceContext = createContext<
   | {
-      transferences: InvoiceType[];
-      setTransferences: Dispatch<SetStateAction<InvoiceType[]>>;
-      usePostTransference: (transference: InvoiceType) => void;
-      usePatchTransference: (transference: InvoiceType) => void;
+      transferences: InvoiceEntity[];
+      setTransferences: Dispatch<SetStateAction<InvoiceEntity[]>>;
+      usePostTransference: (transference: InvoiceEntity) => void;
+      usePatchTransference: (transference: InvoiceEntity) => void;
       useDeleteTransference: (id: string) => void;
     }
   | undefined
@@ -90,11 +91,11 @@ export function TransferenceProvider({
 }: Readonly<{ children: React.ReactNode }>) {
   const [transferences, setTransferences] = useState([...transferencesMock]);
 
-  const usePostTransference = (transference: InvoiceType) => {
+  const usePostTransference = (transference: InvoiceEntity) => {
     setTransferences((prev) => [transference, ...prev]);
   };
 
-  const usePatchTransference = (transference: InvoiceType) => {
+  const usePatchTransference = (transference: InvoiceEntity) => {
     setTransferences((prev) => {
       const editTransference = prev.find((i) => i.id === transference.id);
       if (editTransference) Object.assign(editTransference, transference);

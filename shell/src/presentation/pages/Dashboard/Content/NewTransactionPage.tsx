@@ -1,7 +1,8 @@
+import React from 'react';
 import NewTransaction from 'transactions/new-transaction';
-import { useInvoiceProvider } from '../../../context/InvoiceContext';
-import { useAccountProvider } from '../../../context/AccountContext';
-import { useTransferenceProvider } from '../../../context/TransferencesContext';
+import { useTransferenceProvider } from '../../../../infrastructure/contexts/TransferencesContext';
+import { useAccountProvider } from '../../../../infrastructure/contexts/AccountContext';
+import { useInvoiceProvider } from '../../../../infrastructure/contexts/InvoiceContext';
 
 export default function NewTransactionPage() {
   const { usePostInvoice } = useInvoiceProvider();

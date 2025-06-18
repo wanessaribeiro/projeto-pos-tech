@@ -6,17 +6,9 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { UserEntity } from '../domain/entities/user.entity';
 
-export interface AccountType {
-  id: string;
-  email: string;
-  password: string;
-  type: string;
-  name: string;
-  balance: number;
-}
-
-export const accountMock: AccountType = {
+export const accountMock: UserEntity = {
   id: '1010',
   email: 'joananaves@email.com',
   password: '3231rabanete',
@@ -27,7 +19,7 @@ export const accountMock: AccountType = {
 
 const AccountContext = createContext<
   | {
-      account: AccountType;
+      account: UserEntity;
       balance: number | undefined;
       setBalance: Dispatch<SetStateAction<number>>;
     }
@@ -37,11 +29,11 @@ const AccountContext = createContext<
 export function AccountProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [account, setAccount] = useState(accountMock);
+  const [account, setUser] = useState(accountMock);
   const [balance, setBalance] = useState(accountMock.balance);
 
   useEffect(() => {
-    setAccount({ ...account, balance: balance });
+    setUser({ ...account, balance: balance });
   }, [balance]);
 
   return (

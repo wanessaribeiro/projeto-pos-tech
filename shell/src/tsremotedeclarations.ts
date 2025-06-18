@@ -6,3 +6,4 @@ declare module 'services/services-menu';
 declare module 'transactions/transferences';
 declare module 'transactions/edit-transaction';
 declare module 'transactions/new-transaction';
+declare module 'transactions/invoice';

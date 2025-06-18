@@ -1,5 +1,6 @@
+import React from 'react';
 import Home from 'login/home';
-import { useAuthProvider } from '../../context/AuthContext';
+import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 
 export default function HomePage() {
   const { loginAction, token } = useAuthProvider();

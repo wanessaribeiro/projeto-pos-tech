@@ -5,15 +5,9 @@ import {
   useContext,
   useState,
 } from 'react';
+import { InvestmentEntity } from '../domain/entities/investment.entity';
 
-export interface InvestmentType {
-  investmentFunds: number;
-  treasure: number;
-  privatePrevidence: number;
-  stocks: number;
-}
-
-const investmentsMock: InvestmentType = {
+const investmentsMock: InvestmentEntity = {
   investmentFunds: 50,
   treasure: 90,
   privatePrevidence: 120,
@@ -22,10 +16,10 @@ const investmentsMock: InvestmentType = {
 
 const InvestmentContext = createContext<
   | {
-      investments: InvestmentType;
+      investments: InvestmentEntity;
       newInvestment: (type: string, newInvestment: number) => void;
       totalInvestment: number;
-      setInvestments: Dispatch<SetStateAction<InvestmentType>>;
+      setInvestments: Dispatch<SetStateAction<InvestmentEntity>>;
     }
   | undefined
 >(undefined);
