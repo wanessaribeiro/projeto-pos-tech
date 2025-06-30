@@ -1,6 +1,6 @@
 import React from 'react';
 import './EyeButton.css';
-import { EyeIcon } from '../../icons/EyeIcon';
+import { EyeIcon } from '../../../domain/icons/EyeIcon';
 
 type EyeButtonProps = {
   onClick: () => void;

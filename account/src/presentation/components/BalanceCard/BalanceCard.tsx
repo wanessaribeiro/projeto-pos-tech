@@ -4,9 +4,9 @@ import pixels1 from '../../images/Pixels1.png';
 import pixels2 from '../../images/Pixels2.png';
 import piggyBank from '../../images/PiggyBank.png';
 import './BalanceCard.css';
-import { AccountType } from '../../libs/types';
-import { formatDate } from '../../libs/shared-functions';
-import { daysOfTheWeek } from '../../libs/consts';
+import { AccountType } from '../../../domain/shared/types';
+import { formatDate } from '../../../domain/shared/functions';
+import { daysOfTheWeek } from '../../../domain/shared/constants';
 import { useState } from 'react';
 
 export type BalanceCardProps = {
