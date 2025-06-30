@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { HamburguerIcon } from '../../icons/HamburguerIcon';
-import { UserIcon } from '../../icons/UserIcon';
+import { HamburguerIcon } from '../../../domain/icons/HamburguerIcon';
+import { UserIcon } from '../../../domain/icons/UserIcon';
 import './Header.css';
 import { ContextualMenu } from '../ContextualMenu/ContextualMenu';
-import { AccountType } from '../../libs/types';
-import { LogoutIcon } from '../../icons/LogoutIcon';
+import { AccountType } from '../../../domain/shared/types';
+import { LogoutIcon } from '../../../domain/icons/LogoutIcon';
 
 type HeaderProps = {
   account: AccountType;

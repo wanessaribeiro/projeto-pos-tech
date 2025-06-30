@@ -8,8 +8,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 import pixels3 from '../../images/Pixels3.png';
 import pixels4 from '../../images/Pixels4.png';
-import { InvestmentType } from '../../lib/Types';
-import { percentageValue } from '../../lib/SharedFunctions';
+import { InvestmentType } from '../../../domain/shared/types';
+import { percentageValue } from '../../../domain/shared/functions';
 
 export type InvestmentMenuProps = {
   investments: InvestmentType;
