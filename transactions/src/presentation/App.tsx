@@ -4,7 +4,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="content">
-      <h1>Rsbuild with React</h1>
+      <h1>Transactions Micro frontend is now running</h1>
     </div>
   );
 };

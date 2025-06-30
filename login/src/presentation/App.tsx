@@ -1,11 +1,10 @@
+import React from 'react';
 import './App.css';
-import ErrorScreen from './presentation/pages/ErrorScreen/ErrorScreen';
-import Home from './presentation/pages/Home/Home';
 
 const App = () => {
   return (
-    <div>
-      <ErrorScreen />
+    <div className="content">
+      <h1>Login Micro frontend is now running</h1>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="content">
-      <p>running</p>
+      <h1>Investments Micro frontend is now running</h1>
     </div>
   );
 };
