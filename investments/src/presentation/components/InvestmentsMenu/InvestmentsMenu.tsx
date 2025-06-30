@@ -6,8 +6,8 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-import pixels3 from '../../images/Pixels3.png';
-import pixels4 from '../../images/Pixels4.png';
+import pixels3 from '../../../domain/images/Pixels3.png';
+import pixels4 from '../../../domain/images/Pixels4.png';
 import { InvestmentType } from '../../../domain/shared/types';
 import { percentageValue } from '../../../domain/shared/functions';
 

@@ -9,8 +9,9 @@ export default defineConfig({
       name: 'investments',
       exposes: {
         './investments-menu':
-          './src/components/InvestmentsMenu/InvestmentsMenu.tsx',
-        './new-investment': './src/components/NewInvestment/NewInvestment.tsx',
+          './src/presentation/components/InvestmentsMenu/InvestmentsMenu.tsx',
+        './new-investment':
+          './src/presentation/components/NewInvestment/NewInvestment.tsx',
       },
       shared: {
         react: { singleton: true },

@@ -1,9 +1,9 @@
 import React from 'react';
 import './NewInvestment.css';
 import { useNavigate } from 'react-router';
-import pixels3 from '../../images/Pixels3.png';
-import pixels4 from '../../images/Pixels4.png';
-import graphImg from '../../images/GraphImg.png';
+import pixels3 from '../../../domain/images/Pixels3.png';
+import pixels4 from '../../../domain/images/Pixels4.png';
+import graphImg from '../../../domain/images/GraphImg.png';
 import InvestmentDropdown from '../InvestmentDropdown/InvestmentDropdown';
 import { useState } from 'react';
 
