@@ -1,8 +1,8 @@
 import React from 'react';
 import EyeButton from '../EyeButton/EyeButton';
-import pixels1 from '../../images/Pixels1.png';
-import pixels2 from '../../images/Pixels2.png';
-import piggyBank from '../../images/PiggyBank.png';
+import pixels1 from '../../../domain/images/Pixels1.png';
+import pixels2 from '../../../domain/images/Pixels2.png';
+import piggyBank from '../../../domain/images/PiggyBank.png';
 import './BalanceCard.css';
 import { AccountType } from '../../../domain/shared/types';
 import { formatDate } from '../../../domain/shared/functions';

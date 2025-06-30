@@ -8,7 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'account',
       exposes: {
-        './balance-card': './src/components/BalanceCard/BalanceCard.tsx',
+        './balance-card':
+          './src/presentation/components/BalanceCard/BalanceCard.tsx',
       },
       shared: {
         react: { singleton: true },
