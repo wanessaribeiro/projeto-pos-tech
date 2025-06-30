@@ -1,13 +1,13 @@
 import React from 'react';
 import './ServicesMenu.css';
-import pixels3 from '../../images/Pixels3.png';
-import pixels4 from '../../images/Pixels4.png';
-import iconCard from '../../images/IconCard.png';
-import iconDonations from '../../images/IconDonations.png';
-import iconInsurance from '../../images/IconInsurance.png';
-import iconLoan from '../../images/IconLoan.png';
-import iconPhone from '../../images/IconPhone.png';
-import iconPix from '../../images/IconPix.png';
+import pixels3 from '../../../domain/images/Pixels3.png';
+import pixels4 from '../../../domain/images/Pixels4.png';
+import iconCard from '../../../domain/images/IconCard.png';
+import iconDonations from '../../../domain/images/IconDonations.png';
+import iconInsurance from '../../../domain/images/IconInsurance.png';
+import iconLoan from '../../../domain/images/IconLoan.png';
+import iconPhone from '../../../domain/images/IconPhone.png';
+import iconPix from '../../../domain/images/IconPix.png';
 import ServicesButton from '../ServicesButton/ServicesButton';
 
 export default function ServicesMenu() {

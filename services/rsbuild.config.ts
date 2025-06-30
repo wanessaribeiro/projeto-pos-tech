@@ -8,7 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'services',
       exposes: {
-        './services-menu': './src/components/ServicesMenu/ServicesMenu.tsx',
+        './services-menu':
+          './src/presentation/components/ServicesMenu/ServicesMenu.tsx',
       },
       shared: ['react', 'react-dom', 'react-router'],
     }),
