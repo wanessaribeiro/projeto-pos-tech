@@ -1,6 +1,6 @@
 import './App.css';
-import ErrorScreen from './pages/ErrorScreen/ErrorScreen';
-import Home from './pages/Home/Home';
+import ErrorScreen from './presentation/pages/ErrorScreen/ErrorScreen';
+import Home from './presentation/pages/Home/Home';
 
 const App = () => {
   return (
