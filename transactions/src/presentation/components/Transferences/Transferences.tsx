@@ -1,7 +1,7 @@
 import React from 'react';
 import './Transferences.css';
-import pixels3 from '../../images/Pixels3.png';
-import pixels4 from '../../images/Pixels4.png';
+import pixels3 from '../../../domain/images/Pixels3.png';
+import pixels4 from '../../../domain/images/Pixels4.png';
 import TransferenceItem from '../TransferenceItem/TransferenceItem';
 import { InvoiceType } from '../../../domain/shared/types';
 import InfiniteScroll from 'react-infinite-scroll-component';

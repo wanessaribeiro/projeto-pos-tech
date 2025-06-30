@@ -1,9 +1,9 @@
 import React from 'react';
 import './EditTransaction.css';
 import { useNavigate } from 'react-router';
-import pixels3 from '../../images/Pixels3.png';
-import pixels4 from '../../images/Pixels4.png';
-import personWithCard from '../../images/PersonWithCard.png';
+import pixels3 from '../../../domain/images/Pixels3.png';
+import pixels4 from '../../../domain/images/Pixels4.png';
+import personWithCard from '../../../domain/images/PersonWithCard.png';
 import TransactionDropdown from '../TransactionDropdown/TransactionDropdown';
 import { InvoiceType } from '../../../domain/shared/types';
 import { useEffect, useState } from 'react';

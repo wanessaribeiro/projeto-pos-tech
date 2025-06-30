@@ -8,12 +8,13 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'transactions',
       exposes: {
-        './invoice': './src/components/Invoice/Invoice.tsx',
+        './invoice': './src/presentation/components/Invoice/Invoice.tsx',
         './new-transaction':
-          './src/components/NewTransaction/NewTransaction.tsx',
+          './src/presentation/components/NewTransaction/NewTransaction.tsx',
         './edit-transaction':
-          './src/components/EditTransaction/EditTransaction.tsx',
-        './transferences': './src/components/Transferences/Transferences.tsx',
+          './src/presentation/components/EditTransaction/EditTransaction.tsx',
+        './transferences':
+          './src/presentation/components/Transferences/Transferences.tsx',
       },
       shared: ['react', 'react-dom', 'react-router'],
     }),

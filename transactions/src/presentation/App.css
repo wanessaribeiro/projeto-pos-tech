@@ -19,6 +19,20 @@ body {
   background-color: var(--secondary-200);
 }
 
+.content {
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
 .main-container {
   display: grid;
   height: 100%;
