@@ -1,4 +1,5 @@
-import { formatDate } from '../../libs/shared-functions';
+import React from 'react';
+import { formatDate } from '../../../domain/shared/functions';
 
 export type TransferenceItemProps = {
   transferenceType: string;

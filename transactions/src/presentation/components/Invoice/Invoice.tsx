@@ -1,6 +1,7 @@
+import React from 'react';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
-import { InvoiceType } from '../../libs/types';
+import { InvoiceType } from '../../../domain/shared/types';
 import InvoiceItem from '../InvoiceItem/InvoiceItem';
 import './Invoice.css';
 

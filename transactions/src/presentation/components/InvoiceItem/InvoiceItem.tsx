@@ -1,9 +1,11 @@
-import { EditIcon } from '../../icons/EditIcon';
-import { TrashIcon } from '../../icons/TrashIcon';
-import { months } from '../../libs/consts';
-import { formatDate } from '../../libs/shared-functions';
+import React from 'react';
+import { EditIcon } from '../../../domain/icons/EditIcon';
+import { TrashIcon } from '../../../domain/icons/TrashIcon';
+
+import { formatDate } from '../../../domain/shared/functions';
 import { ButtonIcon } from '../ButtonIcon/ButtonIcon';
 import './InvoiceItem.css';
+import { months } from '../../../domain/shared/constants';
 
 export type InvoiceItemProps = {
   type: string;

@@ -1,5 +1,6 @@
+import React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDownIcon } from '../../icons/ArrowDownIcon';
+import { ArrowDownIcon } from '../../../domain/icons/ArrowDownIcon';
 
 export type TransactionDropdownProps = {
   selected: string;
