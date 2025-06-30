@@ -1,6 +1,7 @@
+import React from 'react';
 import './LoginModal.css';
-import closeIcon from '../../images/CloseIcon.png';
-import loginImg from '../../images/LoginImg.png';
+import closeIcon from '../../../domain/images/CloseIcon.png';
+import loginImg from '../../../domain/images/LoginImg.png';
 
 type LoginModalProps = {
   isOpen: boolean;

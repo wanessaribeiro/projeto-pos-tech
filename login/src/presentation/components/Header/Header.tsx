@@ -1,6 +1,7 @@
+import React from 'react';
 import './Header.css';
-import imgLogo from '../../images/Logo.png';
-import hamburguerIcon from '../../images/HamburguerIcon.png';
+import imgLogo from '../../../domain/images/Logo.png';
+import hamburguerIcon from '../../../domain/images/HamburguerIcon.png';
 import { useEffect, useRef, useState } from 'react';
 import { ContextualMenu } from '../ContextualMenu/ContextualMenu';
 

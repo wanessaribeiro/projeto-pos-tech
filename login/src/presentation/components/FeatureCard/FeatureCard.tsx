@@ -1,3 +1,4 @@
+import React from 'react';
 import './FeatureCard.css';
 
 type FeatureCardProps = {

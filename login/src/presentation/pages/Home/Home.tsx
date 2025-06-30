@@ -1,9 +1,9 @@
 import './Home.css';
-import bannerImg from '../../images/BannerImg.png';
-import giftIcon from '../../images/GiftIcon.png';
-import moneyIcon from '../../images/MoneyIcon.png';
-import starIcon from '../../images/StarIcon.png';
-import techIcon from '../../images/TechIcon.png';
+import bannerImg from '../../../domain/images/BannerImg.png';
+import giftIcon from '../../../domain/images/GiftIcon.png';
+import moneyIcon from '../../../domain/images/MoneyIcon.png';
+import starIcon from '../../../domain/images/StarIcon.png';
+import techIcon from '../../../domain/images/TechIcon.png';
 import Header from '../../components/Header/Header';
 import FeatureCard from '../../components/FeatureCard/FeatureCard';
 import Footer from '../../components/Footer/Footer';

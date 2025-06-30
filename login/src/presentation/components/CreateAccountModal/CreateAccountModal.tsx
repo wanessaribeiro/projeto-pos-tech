@@ -1,6 +1,7 @@
+import React from 'react';
 import './CreateAccountModal.css';
-import closeIcon from '../../images/CloseIcon.png';
-import accountImg from '../../images/CreateAccountImg.png';
+import closeIcon from '../../../domain/images/CloseIcon.png';
+import accountImg from '../../../domain/images/CreateAccountImg.png';
 
 type CreateAccountModalProps = {
   isOpen: boolean;

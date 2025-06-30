@@ -1,7 +1,8 @@
+import React from 'react';
 import { useNavigate } from 'react-router';
 import './ErrorScreen.css';
 import { useEffect, useState } from 'react';
-import errorImg from '../../images/404Img.png';
+import errorImg from '../../../domain/images/404Img.png';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import CreateAccountModal from '../../components/CreateAccountModal/CreateAccountModal';
