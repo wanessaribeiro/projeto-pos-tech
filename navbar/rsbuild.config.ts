@@ -8,8 +8,8 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'navbar',
       exposes: {
-        './navbar': './src/components/NavBar/NavBar.tsx',
-        './header': './src/components/Header/Header.tsx',
+        './navbar': './src/presentation/components/NavBar/NavBar.tsx',
+        './header': './src/presentation/components/Header/Header.tsx',
       },
       shared: ['react', 'react-dom', 'react-router'],
     }),
