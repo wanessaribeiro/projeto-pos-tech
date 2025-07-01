@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createContext,
   Dispatch,
@@ -5,7 +6,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import { InvestmentEntity } from '../domain/entities/investment.entity';
+import { InvestmentEntity } from '../../domain/entities/investment.entity';
 
 const investmentsMock: InvestmentEntity = {
   investmentFunds: 50,

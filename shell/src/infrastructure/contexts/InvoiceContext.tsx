@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createContext,
   Dispatch,
@@ -5,7 +6,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import { InvoiceEntity } from '../domain/entities/invoice.entity';
+import { InvoiceEntity } from '../../domain/entities/invoice.entity';
 
 const invoicesMock: InvoiceEntity[] = [
   {

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createContext,
   Dispatch,
@@ -6,7 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { UserEntity } from '../domain/entities/user.entity';
+import { UserEntity } from '../../domain/entities/user.entity';
 
 export const accountMock: UserEntity = {
   id: '1010',
