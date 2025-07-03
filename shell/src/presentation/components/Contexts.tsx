@@ -3,7 +3,6 @@ import { AccountProvider } from '../../infrastructure/contexts/AccountContext';
 import { AuthProvider } from '../../infrastructure/contexts/AuthContext';
 import { InvestmentProvider } from '../../infrastructure/contexts/InvestmentContext';
 import { InvoiceProvider } from '../../infrastructure/contexts/InvoiceContext';
-import { TransferenceProvider } from '../../infrastructure/contexts/TransferencesContext';
 
 export default function Contexts({
   children,
@@ -12,9 +11,7 @@ export default function Contexts({
     <AuthProvider>
       <AccountProvider>
         <InvoiceProvider>
-          <TransferenceProvider>
-            <InvestmentProvider>{children}</InvestmentProvider>
-          </TransferenceProvider>
+          <InvestmentProvider>{children}</InvestmentProvider>
         </InvoiceProvider>
       </AccountProvider>
     </AuthProvider>

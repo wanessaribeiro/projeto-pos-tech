@@ -10,14 +10,12 @@ import { InvoiceType } from '../../../domain/shared/types';
 
 interface InvoiceProps {
   postInvoice: (invoice: InvoiceType) => void;
-  postTransference: (transference: InvoiceType) => void;
   balance: number;
   setBalance: (balance: number) => void;
 }
 
 export default function NewTransaction({
   postInvoice,
-  postTransference,
   balance,
   setBalance,
 }: InvoiceProps) {
@@ -56,9 +54,6 @@ export default function NewTransaction({
     if (!newInvoice.type || newInvoice.value === 0) {
       alert('Por favor, preencha todos os campos corretamente.');
       return;
-    }
-    if (newInvoice.type === 'DOC/TED' || newInvoice.type === 'Pix') {
-      postTransference(newInvoice);
     }
     postInvoice(newInvoice);
     setNewBalance(newInvoice);

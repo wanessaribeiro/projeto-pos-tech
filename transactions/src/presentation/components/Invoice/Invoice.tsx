@@ -9,7 +9,6 @@ interface InvoiceProps {
   invoices: InvoiceType[];
   setSelectedTransaction: (invoice: InvoiceType) => void;
   deleteTransaction: (id: string) => void;
-  deleteTransference: (id: string) => void;
   balance: number;
   setBalance: (balance: number) => void;
 }
@@ -18,13 +17,11 @@ export default function Invoice({
   invoices,
   setSelectedTransaction,
   deleteTransaction,
-  deleteTransference,
   balance,
   setBalance,
 }: InvoiceProps) {
   const navigate = useNavigate();
   const deleteInvoice = (id: string) => {
-    deleteTransference(id);
     deleteTransaction(id);
     setBalance(getTotalInvoices());
   };

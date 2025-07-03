@@ -7,7 +7,7 @@ import InvestmentsPage from './pages/Dashboard/Content/InvestmentsPage';
 import NewInvestmentPage from './pages/Dashboard/Content/NewInvestmentPage';
 import NewTransactionPage from './pages/Dashboard/Content/NewTransactionPage';
 import ServicesPage from './pages/Dashboard/Content/ServicesPage';
-import TransferencesPage from './pages/Dashboard/Content/TrasferencesPage';
+import TransferencesPage from './pages/Dashboard/Content/TransferencesPage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ErrorPage from './pages/Home/ErrorPage';
 import HomePage from './pages/Home/HomePage';

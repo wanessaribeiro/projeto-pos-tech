@@ -8,13 +8,11 @@ import { useEffect } from 'react';
 import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
 import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
-import { useTransferenceProvider } from '../../../infrastructure/contexts/TransferencesContext';
 
 export default function Dashboard() {
   const { account, balance, setBalance } = useAccountProvider();
   const { invoices, setSelectedInvoice, useDeleteInvoice } =
     useInvoiceProvider();
-  const { useDeleteTransference } = useTransferenceProvider();
   const { token } = useAuthProvider();
   const navigate = useNavigate();
 
@@ -35,7 +33,6 @@ export default function Dashboard() {
           invoices={invoices}
           setSelectedTransaction={setSelectedInvoice}
           deleteTransaction={useDeleteInvoice}
-          deleteTransference={useDeleteTransference}
           balance={balance}
           setBalance={setBalance}
         />

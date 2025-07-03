@@ -11,13 +11,11 @@ import { useEffect, useState } from 'react';
 export type EditTransactionProps = {
   selectedTransaction: InvoiceType;
   patchInvoice: (invoice: InvoiceType) => void;
-  patchTransference: (transference: InvoiceType) => void;
 };
 
 export default function EditTransaction({
   selectedTransaction,
   patchInvoice,
-  patchTransference,
 }: EditTransactionProps) {
   const navigate = useNavigate();
   const [editInvoice, setEditInvoice] = useState(selectedTransaction);
@@ -43,7 +41,6 @@ export default function EditTransaction({
       alert('Por favor, preencha todos os campos corretamente.');
       return;
     }
-    patchTransference(editInvoice);
     patchInvoice(editInvoice);
     navigate('/dashboard');
   };
