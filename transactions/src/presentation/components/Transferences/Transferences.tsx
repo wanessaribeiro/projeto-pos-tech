@@ -6,6 +6,7 @@ import TransferenceItem from '../TransferenceItem/TransferenceItem';
 import { InvoiceType } from '../../../domain/shared/types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useState } from 'react';
+import TransactionDropdown from '../TransactionDropdown/TransactionDropdown';
 
 interface TransferencesProps {
   transferences: InvoiceType[];
@@ -13,7 +14,14 @@ interface TransferencesProps {
 
 export default function Transferences({ transferences }: TransferencesProps) {
   const [page, setPage] = useState(0);
+  const [filter, setFilter] = useState('');
+  const [filteredTransferences, setFilteredTransferences] =
+    useState<InvoiceType[]>(transferences);
   const [currentContent, setCurrentContent] = useState<InvoiceType[]>([]);
+
+  useEffect(() => {
+    setFilteredTransferences(transferences);
+  }, [transferences]);
 
   useEffect(() => {
     setCurrentContent((prev) => {
@@ -21,10 +29,13 @@ export default function Transferences({ transferences }: TransferencesProps) {
       const initPosition = page * take;
       const endPosition = page * take + take;
 
-      const contentPiece = transferences.slice(initPosition, endPosition);
+      const contentPiece = filteredTransferences.slice(
+        initPosition,
+        endPosition,
+      );
       return [...prev, ...contentPiece];
     });
-  }, [page, transferences]);
+  }, [page, filteredTransferences]);
 
   const handleLoadMoreData = () => {
     setPage((prevPage) => {
@@ -33,29 +44,54 @@ export default function Transferences({ transferences }: TransferencesProps) {
     });
   };
 
+  const onChangeFilter = (value: string) => {
+    setFilter(value);
+  };
+
+  const onClickFilter = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const result = transferences.filter(
+      (transference) => transference.type === filter || !filter,
+    );
+    setFilteredTransferences(result);
+  };
+
+  const onClickClear = () => {
+    setFilter('');
+    setFilteredTransferences([...transferences]);
+  };
+
   return (
     <div className="transferences-body container border-round">
       <img src={pixels3} className="img-3" />
       <img src={pixels4} className="img-4" />
       <div className="inner-div">
         <h1>Transferências</h1>
-        <form>
-          <input
-            id="search-value"
-            name="search-value"
-            placeholder="Pesquise aqui"
-            value={''}
-            onChange={() => {}}
-            className="transferences-input"
-          />
-          <button type="submit" className="transferences-button">
-            Pesquisar
-          </button>
+        <form onSubmit={onClickFilter}>
+          <div className="transferences-input">
+            <TransactionDropdown
+              selected={filter}
+              setSelected={onChangeFilter}
+              options={['DOC/TED', 'Pix']}
+              placeholder="Selecione o tipo de transferência"
+            ></TransactionDropdown>
+
+            <button type="submit" className="transferences-button">
+              Filtrar
+            </button>
+            <button
+              type="button"
+              className="transferences-button"
+              onClick={() => onClickClear()}
+            >
+              Limpar
+            </button>
+          </div>
         </form>
         <InfiniteScroll
-          dataLength={transferences.length}
+          dataLength={filteredTransferences.length}
           next={handleLoadMoreData}
-          hasMore={currentContent.length < transferences.length}
+          hasMore={currentContent.length < filteredTransferences.length}
           loader={<p>Carregando...</p>}
           endMessage={<p>Sem mais transferências para mostrar.</p>}
         >
@@ -68,7 +104,7 @@ export default function Transferences({ transferences }: TransferencesProps) {
               </tr>
             </thead>
             <tbody>
-              {transferences?.map((transference) => (
+              {filteredTransferences?.map((transference) => (
                 <TransferenceItem
                   key={transference.id}
                   transferenceType={transference.type}

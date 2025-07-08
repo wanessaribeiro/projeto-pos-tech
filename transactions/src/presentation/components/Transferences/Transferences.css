@@ -11,17 +11,17 @@
 }
 
 .transferences-input {
-  width: 29rem;
-  text-align: left;
-  padding-left: 1rem;
+  display: grid;
+  grid-template-columns: 65% 18% 18%;
+  gap: 0.25rem;
+  width: 95%;
 }
 
 .transferences-button {
   color: white;
   border: none;
   background-color: var(--tertiary-400);
-  padding: 0 1rem 0;
-  margin: 0 1rem 0;
+  margin: 0.5rem 1rem 0 0;
 }
 
 .transferences-table {
