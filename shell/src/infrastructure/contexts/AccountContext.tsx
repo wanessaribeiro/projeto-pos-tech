@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { UserEntity } from '../../domain/entities/user.entity';
+import { InvoiceEntity } from '../../domain/entities/invoice.entity';
 
 export const accountMock: UserEntity = {
   id: '1010',
@@ -15,14 +9,14 @@ export const accountMock: UserEntity = {
   password: '3231rabanete',
   type: 'Conta Corrente',
   name: 'Joana Naves',
-  balance: 2500,
+  balance: 0,
 };
 
 const AccountContext = createContext<
   | {
       account: UserEntity;
       balance: number | undefined;
-      setBalance: Dispatch<SetStateAction<number>>;
+      setTotalBalance: (invoices: InvoiceEntity[]) => void;
     }
   | undefined
 >(undefined);
@@ -31,7 +25,24 @@ export function AccountProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [account, setUser] = useState(accountMock);
-  const [balance, setBalance] = useState(accountMock.balance);
+  const [balance, setBalance] = useState(0);
+
+  const setTotalBalance = (invoices: InvoiceEntity[]) => {
+    const total = invoices.reduce((acc, invoice) => {
+      if (invoice.type === 'Depósito') {
+        return acc + invoice.value;
+      } else if (
+        invoice.type === 'Saque' ||
+        invoice.type === 'DOC/TED' ||
+        invoice.type === 'Pix'
+      ) {
+        return acc - invoice.value;
+      }
+      return acc;
+    }, 0);
+
+    setBalance(total);
+  };
 
   useEffect(() => {
     setUser({ ...account, balance: balance });
@@ -42,7 +53,7 @@ export function AccountProvider({
       value={{
         account,
         balance,
-        setBalance,
+        setTotalBalance,
       }}
     >
       {children}

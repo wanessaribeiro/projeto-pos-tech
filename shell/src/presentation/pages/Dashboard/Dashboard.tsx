@@ -10,7 +10,7 @@ import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
 
 export default function Dashboard() {
-  const { account, balance, setBalance } = useAccountProvider();
+  const { account, balance, setTotalBalance } = useAccountProvider();
   const { invoices, setSelectedInvoice, useDeleteInvoice } =
     useInvoiceProvider();
   const { token } = useAuthProvider();
@@ -34,7 +34,7 @@ export default function Dashboard() {
           setSelectedTransaction={setSelectedInvoice}
           deleteTransaction={useDeleteInvoice}
           balance={balance}
-          setBalance={setBalance}
+          setTotalBalance={setTotalBalance}
         />
       </div>
     </div>

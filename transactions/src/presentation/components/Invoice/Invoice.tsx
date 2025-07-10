@@ -9,45 +9,29 @@ interface InvoiceProps {
   invoices: InvoiceType[];
   setSelectedTransaction: (invoice: InvoiceType) => void;
   deleteTransaction: (id: string) => void;
-  balance: number;
-  setBalance: (balance: number) => void;
+  setTotalBalance: (invoices: InvoiceType[]) => void;
 }
 
 export default function Invoice({
   invoices,
   setSelectedTransaction,
   deleteTransaction,
-  balance,
-  setBalance,
+  setTotalBalance,
 }: InvoiceProps) {
   const navigate = useNavigate();
   const deleteInvoice = (id: string) => {
     deleteTransaction(id);
-    setBalance(getTotalInvoices());
+    setTotalBalance(invoices);
   };
 
   const editInvoice = (invoice: InvoiceType) => {
     setSelectedTransaction(invoice);
-    setBalance(getTotalInvoices());
     navigate('/dashboard/edit');
   };
 
-  const getTotalInvoices = () => {
-    const total = invoices.reduce((acc, invoice) => {
-      if (invoice.type === 'Depósito') {
-        return acc + invoice.value;
-      } else if (invoice.type === 'Saque' || invoice.type === 'Transferência') {
-        return acc - invoice.value;
-      }
-      return acc;
-    }, 0);
-    const currentBalance = balance;
-    return currentBalance + total;
-  };
-
   useEffect(() => {
-    setBalance(getTotalInvoices());
-  }, []);
+    setTotalBalance(invoices);
+  }, [invoices]);
 
   return (
     <div className="border-round invoice-body">

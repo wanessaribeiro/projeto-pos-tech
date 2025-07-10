@@ -9,15 +9,15 @@ import TransactionDropdown from '../TransactionDropdown/TransactionDropdown';
 import { InvoiceType } from '../../../domain/shared/types';
 
 interface InvoiceProps {
+  invoices: InvoiceType[];
   postInvoice: (invoice: InvoiceType) => void;
-  balance: number;
-  setBalance: (balance: number) => void;
+  setTotalBalance: (invoices: InvoiceType[]) => void;
 }
 
 export default function NewTransaction({
+  invoices,
   postInvoice,
-  balance,
-  setBalance,
+  setTotalBalance,
 }: InvoiceProps) {
   const [newInvoice, setNewInvoice] = useState({
     id: uuidv4(),
@@ -37,18 +37,6 @@ export default function NewTransaction({
     }
   };
 
-  const setNewBalance = (invoice: InvoiceType) => {
-    const currentBalance = balance;
-
-    if (invoice.type === 'Depósito') setBalance(currentBalance + invoice.value);
-    else if (
-      invoice.type === 'Saque' ||
-      newInvoice.type === 'DOC/TED' ||
-      newInvoice.type === 'Pix'
-    )
-      setBalance(currentBalance - invoice.value);
-  };
-
   const createInvoice = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!newInvoice.type || newInvoice.value === 0) {
@@ -56,7 +44,7 @@ export default function NewTransaction({
       return;
     }
     postInvoice(newInvoice);
-    setNewBalance(newInvoice);
+    setTotalBalance(invoices);
     setNewInvoice({
       id: uuidv4(),
       type: '',

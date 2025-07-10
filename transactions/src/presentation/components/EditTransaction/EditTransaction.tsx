@@ -9,13 +9,17 @@ import { InvoiceType } from '../../../domain/shared/types';
 import { useEffect, useState } from 'react';
 
 export type EditTransactionProps = {
+  invoices: InvoiceType[];
   selectedTransaction: InvoiceType;
   patchInvoice: (invoice: InvoiceType) => void;
+  setTotalBalance: (invoices: InvoiceType[]) => void;
 };
 
 export default function EditTransaction({
+  invoices,
   selectedTransaction,
   patchInvoice,
+  setTotalBalance,
 }: EditTransactionProps) {
   const navigate = useNavigate();
   const [editInvoice, setEditInvoice] = useState(selectedTransaction);
@@ -42,6 +46,7 @@ export default function EditTransaction({
       return;
     }
     patchInvoice(editInvoice);
+    setTotalBalance(invoices);
     navigate('/dashboard');
   };
 

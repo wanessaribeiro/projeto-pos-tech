@@ -4,14 +4,14 @@ import { useAccountProvider } from '../../../../infrastructure/contexts/AccountC
 import { useInvoiceProvider } from '../../../../infrastructure/contexts/InvoiceContext';
 
 export default function NewTransactionPage() {
-  const { usePostInvoice } = useInvoiceProvider();
-  const { balance, setBalance } = useAccountProvider();
+  const { usePostInvoice, invoices } = useInvoiceProvider();
+  const { setTotalBalance } = useAccountProvider();
 
   return (
     <NewTransaction
       postInvoice={usePostInvoice}
-      balance={balance}
-      setBalance={setBalance}
+      invoices={invoices}
+      setTotalBalance={setTotalBalance}
     />
   );
 }
