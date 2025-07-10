@@ -35,7 +35,7 @@ export default function InvoiceItem({
         </div>
       </div>
       <div className="invoice-info invoice-p">
-        <p className="font-bold">R$ {value}</p>
+        <p className="font-bold">R$ {value.toFixed(2)}</p>
         <small className="invoice-date">{formatDate(date)}</small>
       </div>
     </div>

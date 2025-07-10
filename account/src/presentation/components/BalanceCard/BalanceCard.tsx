@@ -39,7 +39,9 @@ export default function BalanceCard({ account, balance }: BalanceCardProps) {
         </div>
         <div className="balance-line"></div>
         <p>{account.type}</p>
-        <p className="balance-text">R$ {isVisible ? balance : '******'}</p>
+        <p className="balance-text">
+          R$ {isVisible ? balance.toFixed(2) : '******'}
+        </p>
       </div>
     </div>
   );
