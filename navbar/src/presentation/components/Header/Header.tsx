@@ -9,10 +9,15 @@ import { LogoutIcon } from '../../../domain/icons/LogoutIcon';
 
 type HeaderProps = {
   account: AccountType;
-  logout: () => void;
+  onClickLogout: () => void;
+  onClickAccount: () => void;
 };
 
-export default function Header({ account, logout }: HeaderProps) {
+export default function Header({
+  account,
+  onClickLogout,
+  onClickAccount,
+}: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -51,10 +56,10 @@ export default function Header({ account, logout }: HeaderProps) {
       )}
       <small className="font-bold header-name">{account.name}</small>
       <div className="icons">
-        <div className="user-icon">
+        <button onClick={onClickAccount} className="user-icon">
           <UserIcon size={40} />{' '}
-        </div>
-        <button onClick={logout} className="logout-icon">
+        </button>
+        <button onClick={onClickLogout} className="logout-icon">
           <LogoutIcon size={40} />
         </button>
       </div>

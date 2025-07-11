@@ -10,6 +10,8 @@ export default defineConfig({
       exposes: {
         './balance-card':
           './src/presentation/components/BalanceCard/BalanceCard.tsx',
+        './account-card':
+          './src/presentation/components/AccountCard/AccountCard.tsx',
       },
       shared: {
         react: { singleton: true },

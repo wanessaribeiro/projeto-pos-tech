@@ -28,6 +28,15 @@ body {
   padding: 1.5rem 0rem 0rem 0rem;
 }
 
+.main-container-2-columns {
+  display: grid;
+  height: 100%;
+  grid-template-columns: auto auto;
+  column-gap: 1.5rem;
+  justify-content: center;
+  padding: 1.5rem 0rem 0rem 0rem;
+}
+
 .container {
   display: grid;
   width: 43.125rem;
@@ -205,6 +214,22 @@ input {
 .img-4 {
   width: 11.25rem;
   height: 11.125rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.img-3-big {
+  width: 16.25rem;
+  height: 16rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.img-4-big {
+  width: 16.25rem;
+  height: 26rem;
   position: absolute;
   bottom: 0;
   left: 0;

@@ -11,6 +11,7 @@ import TransferencesPage from './pages/Dashboard/Content/TransferencesPage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ErrorPage from './pages/Home/ErrorPage';
 import HomePage from './pages/Home/HomePage';
+import AccountPage from './pages/Account/AccountPage';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<HomePage />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="dashboard" element={<Dashboard />}>
             <Route index element={<NewTransactionPage />}></Route>
             <Route path="transactions" element={<TransferencesPage />} />

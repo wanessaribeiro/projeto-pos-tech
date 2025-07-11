@@ -1,18 +1,16 @@
 import React from 'react';
 import NavBar from 'navbar/navbar';
 import Header from 'navbar/header';
-import Invoice from 'transactions/invoice';
-import BalanceCard from 'account/balance-card';
-import { Outlet, useNavigate } from 'react-router';
+import AccountCard from 'account/account-card';
+import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
 import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
 
-export default function Dashboard() {
-  const { account, balance, setTotalBalance } = useAccountProvider();
-  const { invoices, setSelectedInvoice, useDeleteInvoice } =
-    useInvoiceProvider();
+export default function AccountPage() {
+  const { account, balance } = useAccountProvider();
+  useInvoiceProvider();
   const { token } = useAuthProvider();
   const navigate = useNavigate();
 
@@ -29,19 +27,9 @@ export default function Dashboard() {
         onClickAccount={() => navigate('/account')}
         onClickLogout={() => navigate('/account')}
       />
-      <div className="main-container">
+      <div className="main-container-2-columns">
         <NavBar />
-        <div className="items">
-          <BalanceCard account={account} balance={balance} />
-          <Outlet />
-        </div>
-        <Invoice
-          invoices={invoices}
-          setSelectedTransaction={setSelectedInvoice}
-          deleteTransaction={useDeleteInvoice}
-          balance={balance}
-          setTotalBalance={setTotalBalance}
-        />
+        <AccountCard account={account} />
       </div>
     </div>
   );
