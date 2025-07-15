@@ -1,13 +1,10 @@
 import React from 'react';
 import { createContext, useContext, useState } from 'react';
-import { accountMock } from './AccountContext';
-import { UserEntity } from '../../domain/entities/user.entity';
 
-//TODO: alterar
-export interface AuthType {
-  email: string;
-  password: string;
-}
+import { UserEntity } from '../../domain/entities/user.entity';
+import { accountMock } from '../mocks/AccountMock';
+
+//TODO: login em cache
 
 const AuthContext = createContext<
   | {

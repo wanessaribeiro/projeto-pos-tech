@@ -9,7 +9,7 @@ import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
 
 export default function AccountPage() {
-  const { account, balance } = useAccountProvider();
+  const { account } = useAccountProvider();
   useInvoiceProvider();
   const { token } = useAuthProvider();
   const navigate = useNavigate();

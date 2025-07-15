@@ -13,7 +13,7 @@ export default function Dashboard() {
   const { account, balance, setTotalBalance } = useAccountProvider();
   const { invoices, setSelectedInvoice, useDeleteInvoice } =
     useInvoiceProvider();
-  const { token } = useAuthProvider();
+  const { token, logOut } = useAuthProvider();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Dashboard() {
       <Header
         account={account}
         onClickAccount={() => navigate('/account')}
-        onClickLogout={() => navigate('/account')}
+        onClickLogout={logOut}
       />
       <div className="main-container">
         <NavBar />

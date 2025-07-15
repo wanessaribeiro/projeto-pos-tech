@@ -7,13 +7,7 @@ import {
   useState,
 } from 'react';
 import { InvestmentEntity } from '../../domain/entities/investment.entity';
-
-const investmentsMock: InvestmentEntity = {
-  investmentFunds: 50,
-  treasure: 90,
-  privatePrevidence: 120,
-  stocks: 60,
-};
+import { investmentsMock } from '../mocks/InvestmentsMock';
 
 const InvestmentContext = createContext<
   | {

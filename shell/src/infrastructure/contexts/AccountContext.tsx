@@ -2,15 +2,7 @@ import React from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { InvoiceEntity } from '../../domain/entities/invoice.entity';
-
-export const accountMock: UserEntity = {
-  id: '1010',
-  email: 'joananaves@email.com',
-  password: '3231rabanete',
-  type: 'Conta Corrente',
-  name: 'Joana Naves',
-  balance: 0,
-};
+import { accountMock } from '../mocks/AccountMock';
 
 const AccountContext = createContext<
   | {
