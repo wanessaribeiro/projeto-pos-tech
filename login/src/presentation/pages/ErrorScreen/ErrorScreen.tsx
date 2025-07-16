@@ -10,10 +10,15 @@ import LoginModal from '../../components/LoginModal/LoginModal';
 
 type ErrorScreenProps = {
   onLogin: () => void;
+  onCreateAccount: () => void;
   token: string;
 };
 
-export default function ErrorScreen({ onLogin, token }: ErrorScreenProps) {
+export default function ErrorScreen({
+  onLogin,
+  onCreateAccount,
+  token,
+}: ErrorScreenProps) {
   const navigate = useNavigate();
   const [loginOpen, setLoginOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -57,7 +62,7 @@ export default function ErrorScreen({ onLogin, token }: ErrorScreenProps) {
       />
       <CreateAccountModal
         isOpen={accountOpen}
-        onCreateAccount={onLogin}
+        onCreateAccount={onCreateAccount}
         onClose={() => setAccountOpen(false)}
       />
     </>

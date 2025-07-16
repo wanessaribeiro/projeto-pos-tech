@@ -1,3 +1,4 @@
+import React from 'react';
 import './Home.css';
 import bannerImg from '../../../domain/images/BannerImg.png';
 import giftIcon from '../../../domain/images/GiftIcon.png';
@@ -14,10 +15,11 @@ import CreateAccountModal from '../../components/CreateAccountModal/CreateAccoun
 
 type HomeProps = {
   onLogin: () => void;
+  onCreateAccount: () => void;
   token: string;
 };
 
-export default function Home({ onLogin, token }: HomeProps) {
+export default function Home({ onLogin, onCreateAccount, token }: HomeProps) {
   const navigate = useNavigate();
   const [loginOpen, setLoginOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -99,7 +101,7 @@ export default function Home({ onLogin, token }: HomeProps) {
       />
       <CreateAccountModal
         isOpen={accountOpen}
-        onCreateAccount={onLogin}
+        onCreateAccount={onCreateAccount}
         onClose={() => setAccountOpen(false)}
       />
     </>

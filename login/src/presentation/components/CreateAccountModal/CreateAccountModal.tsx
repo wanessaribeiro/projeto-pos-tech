@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CreateAccountModal.css';
 import closeIcon from '../../../domain/images/CloseIcon.png';
 import accountImg from '../../../domain/images/CreateAccountImg.png';
 
 type CreateAccountModalProps = {
   isOpen: boolean;
-  onCreateAccount: () => void;
+  onCreateAccount: (dto: any) => void;
   onClose: () => void;
 };
 
@@ -14,8 +14,21 @@ export default function CreateAccountModal({
   onCreateAccount,
   onClose,
 }: CreateAccountModalProps) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setEmail(value);
+  };
+
+  const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setPassword(value);
+  };
+
   const onSubmitCreateAccount = () => {
-    onCreateAccount();
+    onCreateAccount({ email, password });
   };
 
   return (
@@ -46,6 +59,8 @@ export default function CreateAccountModal({
           name="account-email"
           placeholder="Digite seu email"
           className="account-input"
+          value={email}
+          onChange={onChangeEmail}
         />
         <p className="font-bold">Senha</p>
         <input
@@ -53,9 +68,11 @@ export default function CreateAccountModal({
           name="account-senha"
           placeholder="Digite sua senha"
           className="account-input"
+          value={password}
+          onChange={onChangePassword}
         />
         <div className="account-terms">
-          <input type="checkbox" className="account-checkbox" />
+          <input type="checkbox" className="account-checkbox" required />
           <small>
             Li e estou ciente quanto às condições de tratamento dos meus dados
             conforme descrito na Política de Privacidade do banco.
