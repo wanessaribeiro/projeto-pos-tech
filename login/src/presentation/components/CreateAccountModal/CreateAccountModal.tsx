@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './CreateAccountModal.css';
 import closeIcon from '../../../domain/images/CloseIcon.png';
 import accountImg from '../../../domain/images/CreateAccountImg.png';
+import { UserDTO } from '../../../domain/dtos/User.dto';
 
 type CreateAccountModalProps = {
   isOpen: boolean;
-  onCreateAccount: (dto: any) => void;
+  onCreateAccount: (dto: UserDTO) => void;
   onClose: () => void;
 };
 

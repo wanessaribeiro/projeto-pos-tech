@@ -5,27 +5,23 @@ import AccountCard from 'account/account-card';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
-import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
 
 export default function AccountPage() {
-  const { account } = useAccountProvider();
+  const { account, token, logOut } = useAccountProvider();
   useInvoiceProvider();
-  const { token } = useAuthProvider();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) navigate('/login');
   }, [token, navigate]);
 
-  //TODO: logout funcional
-
   return (
     <div>
       <Header
         account={account}
         onClickAccount={() => navigate('/account')}
-        onClickLogout={() => navigate('/account')}
+        onClickLogout={logOut}
       />
       <div className="main-container-2-columns">
         <NavBar />

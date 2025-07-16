@@ -1,16 +1,16 @@
 import React from 'react';
 import Home from 'login/home';
-import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
-import CreateAccountService from '../../../infrastructure/services/Account/CreateAccountService';
+import PostCreateAccountService from '../../../infrastructure/services/Account/PostCreateAccountService';
+import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
 
 export default function HomePage() {
-  const { loginAction, token } = useAuthProvider();
+  const { loginAction, token } = useAccountProvider();
 
   return (
     <Home
       onLogin={loginAction}
       token={token}
-      onCreateAccount={CreateAccountService}
+      onCreateAccount={PostCreateAccountService}
     />
   );
 }

@@ -32,6 +32,11 @@ export default function Home({ onLogin, onCreateAccount, token }: HomeProps) {
     setAccountOpen(true);
   };
 
+  const onClickCreateAccountModal = () => {
+    onCreateAccount();
+    setAccountOpen(false);
+  };
+
   useEffect(() => {
     if (token) navigate('/dashboard');
   }, [token, navigate]);
@@ -101,7 +106,7 @@ export default function Home({ onLogin, onCreateAccount, token }: HomeProps) {
       />
       <CreateAccountModal
         isOpen={accountOpen}
-        onCreateAccount={onCreateAccount}
+        onCreateAccount={onClickCreateAccountModal}
         onClose={() => setAccountOpen(false)}
       />
     </>

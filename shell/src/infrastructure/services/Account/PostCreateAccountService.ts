@@ -5,7 +5,7 @@ interface CreateAccountDTO {
 }
 
 //TODO: hash da senha
-export default async function CreateAccountService({
+export default async function PostCreateAccountService({
   email,
   password,
 }: CreateAccountDTO) {

@@ -6,5 +6,4 @@ export const accountMock: UserEntity = {
   password: '3231rabanete',
   type: 'Conta Corrente',
   name: 'Joana Naves',
-  balance: 0,
 };

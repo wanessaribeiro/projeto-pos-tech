@@ -6,14 +6,13 @@ import BalanceCard from 'account/balance-card';
 import { Outlet, useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useAccountProvider } from '../../../infrastructure/contexts/AccountContext';
-import { useAuthProvider } from '../../../infrastructure/contexts/AuthContext';
 import { useInvoiceProvider } from '../../../infrastructure/contexts/InvoiceContext';
 
 export default function Dashboard() {
-  const { account, balance, setTotalBalance } = useAccountProvider();
+  const { account, balance, setTotalBalance, token, logOut } =
+    useAccountProvider();
   const { invoices, setSelectedInvoice, useDeleteInvoice } =
     useInvoiceProvider();
-  const { token, logOut } = useAuthProvider();
   const navigate = useNavigate();
 
   useEffect(() => {
