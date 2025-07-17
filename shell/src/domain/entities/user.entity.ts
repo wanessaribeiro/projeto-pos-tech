@@ -4,5 +4,4 @@ export interface UserEntity {
   password: string;
   type: string;
   name: string;
-  balance: number;
 }

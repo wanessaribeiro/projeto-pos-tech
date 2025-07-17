@@ -1,5 +1,5 @@
 import React from 'react';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { InvoiceEntity } from '../../domain/entities/invoice.entity';
 import { LoginAccountDTO } from '../../domain/dtos/account.dto';
@@ -27,7 +27,6 @@ export function AccountProvider({
     password: '',
     type: '',
     name: '',
-    balance: 0,
   });
   const [balance, setBalance] = useState(0);
   const [token, setToken] = useState('');
@@ -65,7 +64,6 @@ export function AccountProvider({
       password: responseUser.senha,
       type: responseUser.tipoConta,
       name: 'João',
-      balance: 0,
     });
     setToken(response.token);
     return;
@@ -78,15 +76,10 @@ export function AccountProvider({
       password: '',
       type: '',
       name: '',
-      balance: 0,
     });
     setToken('');
     localStorage.removeItem('biteBankId');
   };
-
-  useEffect(() => {
-    setUser({ ...account, balance: balance });
-  }, [balance]);
 
   return (
     <AccountContext.Provider
