@@ -1,10 +1,10 @@
-import { LoginAccountDTO } from '../../../domain/dtos/account.dto';
+import { PostLoginAccountDTO } from '../../../domain/dtos/account.dto';
 
 //TODO: hash da senha
 export default async function PostLoginAccountService({
   email,
   password,
-}: LoginAccountDTO) {
+}: PostLoginAccountDTO) {
   const url = 'http://localhost:3333/contas/login';
 
   const response = await fetch(url, {

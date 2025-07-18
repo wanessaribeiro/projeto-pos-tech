@@ -2,14 +2,14 @@ import React from 'react';
 import { createContext, useContext, useState } from 'react';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { InvoiceEntity } from '../../domain/entities/invoice.entity';
-import { LoginAccountDTO } from '../../domain/dtos/account.dto';
+import { PostLoginAccountDTO } from '../../domain/dtos/account.dto';
 import PostLoginAccountService from '../services/Account/PostLoginAccountService';
 import GetAccountService from '../services/Account/GetAccountService';
 
 const AccountContext = createContext<
   | {
       token: string;
-      loginAction: ({ email, password }: LoginAccountDTO) => void;
+      loginAction: ({ email, password }: PostLoginAccountDTO) => void;
       logOut: () => void;
       account: UserEntity;
       balance: number | undefined;
@@ -48,12 +48,12 @@ export function AccountProvider({
     setBalance(total);
   };
 
-  const loginAction = async ({ email, password }: LoginAccountDTO) => {
+  const loginAction = async ({ email, password }: PostLoginAccountDTO) => {
     const response = await PostLoginAccountService({ email, password });
     localStorage.setItem('biteBankId', response.token);
 
     const responseUser = await GetAccountService({
-      id: '28298e8e-9b9f-451d-aaba-f9ff5bbcfb75',
+      id: 'c01cc216-ec23-4f95-b6c9-3a1709102dcc',
       token: response.token,
     });
 
@@ -63,7 +63,7 @@ export function AccountProvider({
       email: responseUser.email,
       password: responseUser.senha,
       type: responseUser.tipoConta,
-      name: 'João',
+      name: responseUser.nome,
     });
     setToken(response.token);
     return;

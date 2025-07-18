@@ -15,8 +15,14 @@ export default function CreateAccountModal({
   onCreateAccount,
   onClose,
 }: CreateAccountModalProps) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const onChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setName(value);
+  };
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -29,7 +35,7 @@ export default function CreateAccountModal({
   };
 
   const onSubmitCreateAccount = () => {
-    onCreateAccount({ email, password });
+    onCreateAccount({ name, email, password });
   };
 
   return (
@@ -52,6 +58,8 @@ export default function CreateAccountModal({
           name="account-name"
           placeholder="Digite seu nome completo"
           className="account-input"
+          value={name}
+          onChange={onChangeName}
         />
 
         <p className="font-bold">Email</p>
