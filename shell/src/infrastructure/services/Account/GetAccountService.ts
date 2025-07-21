@@ -1,7 +1,7 @@
 import { GetAccountDTO } from '../../../domain/dtos/account.dto';
 
-export default async function GetAccountService({ id, token }: GetAccountDTO) {
-  const url = 'http://localhost:3333/contas/' + id;
+export default async function GetAccountService({ token }: GetAccountDTO) {
+  const url = 'http://localhost:3333/contas/';
 
   const response = await fetch(url, {
     method: 'GET',

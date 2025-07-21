@@ -4,7 +4,7 @@ import { formatDate } from '../../../domain/shared/functions';
 export type TransferenceItemProps = {
   transferenceType: string;
   value: number;
-  date: Date;
+  date: string;
 };
 
 export default function TransferenceItem({
@@ -16,7 +16,7 @@ export default function TransferenceItem({
     <tr>
       <td>{transferenceType}</td>
       <td>R${value}</td>
-      <td>{formatDate(date)}</td>
+      <td>{formatDate(new Date(date))}</td>
     </tr>
   );
 }

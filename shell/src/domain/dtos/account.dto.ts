@@ -10,6 +10,5 @@ export interface PostLoginAccountDTO {
 }
 
 export interface GetAccountDTO {
-  id: string;
   token: string;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createContext, useContext, useState } from 'react';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { InvoiceEntity } from '../../domain/entities/invoice.entity';
@@ -48,22 +48,30 @@ export function AccountProvider({
     setBalance(total);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('biteBankId');
+    if (token) setToken(token);
+  }, []);
+
   const loginAction = async ({ email, password }: PostLoginAccountDTO) => {
     const response = await PostLoginAccountService({ email, password });
     localStorage.setItem('biteBankId', response.token);
 
     const responseUser = await GetAccountService({
-      id: 'c01cc216-ec23-4f95-b6c9-3a1709102dcc',
       token: response.token,
     });
 
-    console.log('response do user:' + JSON.stringify(responseUser));
+    localStorage.setItem(
+      'transactions',
+      JSON.stringify(responseUser.transactions),
+    );
+
     setUser({
       id: responseUser.id,
       email: responseUser.email,
-      password: responseUser.senha,
-      type: responseUser.tipoConta,
-      name: responseUser.nome,
+      password: responseUser.password,
+      type: responseUser.type,
+      name: responseUser.name,
     });
     setToken(response.token);
     return;
@@ -79,6 +87,7 @@ export function AccountProvider({
     });
     setToken('');
     localStorage.removeItem('biteBankId');
+    localStorage.removeItem('transactions');
   };
 
   return (

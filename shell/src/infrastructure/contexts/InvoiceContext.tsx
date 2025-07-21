@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   createContext,
   Dispatch,
@@ -8,6 +8,8 @@ import {
 } from 'react';
 import { InvoiceEntity } from '../../domain/entities/invoice.entity';
 import { invoicesMock } from '../mocks/InvoiceMock';
+import PostCreateTransactionService from '../services/Transactions/PostCreateTransactionService';
+import { useAccountProvider } from './AccountContext';
 
 const InvoiceContext = createContext<
   | {
@@ -25,13 +27,23 @@ const InvoiceContext = createContext<
 export function InvoiceProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [invoices, setInvoices] = useState([...invoicesMock]);
+  const { account } = useAccountProvider();
+
+  const [invoices, setInvoices] = useState<InvoiceEntity[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState({
     id: '',
     type: 'Saque',
     value: 0,
-    date: new Date(),
+    date: '',
   });
+
+  useEffect(() => {
+    const storedInvoices = localStorage.getItem('transactions');
+    console.log('Busquei storedInvoices', storedInvoices);
+
+    if (storedInvoices)
+      setInvoices(JSON.parse(storedInvoices) as InvoiceEntity[]);
+  }, []);
 
   const useGetInvoice = (id: string) => {
     const invoice = invoicesMock.find((i) => i.id === id);
@@ -39,7 +51,17 @@ export function InvoiceProvider({
   };
 
   const usePostInvoice = (invoice: InvoiceEntity) => {
-    setInvoices((prev) => [invoice, ...prev]);
+    setInvoices((prev) => {
+      localStorage.setItem('transactions', JSON.stringify([invoice, ...prev]));
+      return [invoice, ...prev];
+    });
+
+    PostCreateTransactionService({
+      token: localStorage.getItem('biteBankId') ?? '',
+      userId: account.id,
+      type: invoice.type,
+      value: invoice.value,
+    });
   };
 
   const usePatchInvoice = (invoice: InvoiceEntity) => {

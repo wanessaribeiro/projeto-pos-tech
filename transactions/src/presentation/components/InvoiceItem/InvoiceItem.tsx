@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { EditIcon } from '../../../domain/icons/EditIcon';
 import { TrashIcon } from '../../../domain/icons/TrashIcon';
 
@@ -10,7 +10,7 @@ import { months } from '../../../domain/shared/constants';
 export type InvoiceItemProps = {
   type: string;
   value: number;
-  date: Date;
+  date: string;
   onClickEdit: () => void;
   onClickDelete: () => void;
 };
@@ -22,10 +22,13 @@ export default function InvoiceItem({
   onClickEdit,
   onClickDelete,
 }: InvoiceItemProps) {
+  useEffect(() => {
+    console.log('Recebi um values', value);
+  }, []);
   return (
     <div>
       <small className="invoice-month font-bold">
-        {months[date.getMonth()]}
+        {months[new Date(date).getMonth()]}
       </small>
       <div className="invoice-info">
         <p className="invoice-p">{type}</p>
@@ -35,8 +38,8 @@ export default function InvoiceItem({
         </div>
       </div>
       <div className="invoice-info invoice-p">
-        <p className="font-bold">R$ {value.toFixed(2)}</p>
-        <small className="invoice-date">{formatDate(date)}</small>
+        <p className="font-bold">{value.toFixed(2)}</p>
+        <small className="invoice-date">{formatDate(new Date(date))}</small>
       </div>
     </div>
   );

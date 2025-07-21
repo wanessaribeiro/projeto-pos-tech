@@ -10,7 +10,7 @@ export default async function PostLoginAccountService({
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, senha: password }),
+    body: JSON.stringify({ email, password }),
   });
 
   return await response.json();

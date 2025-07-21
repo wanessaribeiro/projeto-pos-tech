@@ -10,6 +10,6 @@ export default async function PostCreateAccountService({
   await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome: name, email, senha: password }),
+    body: JSON.stringify({ name, email, password }),
   });
 }
