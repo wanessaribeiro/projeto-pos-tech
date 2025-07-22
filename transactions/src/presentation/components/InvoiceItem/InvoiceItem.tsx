@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { EditIcon } from '../../../domain/icons/EditIcon';
 import { TrashIcon } from '../../../domain/icons/TrashIcon';
 
@@ -22,9 +22,6 @@ export default function InvoiceItem({
   onClickEdit,
   onClickDelete,
 }: InvoiceItemProps) {
-  useEffect(() => {
-    console.log('Recebi um values', value);
-  }, []);
   return (
     <div>
       <small className="invoice-month font-bold">

@@ -39,7 +39,6 @@ export function InvoiceProvider({
 
   useEffect(() => {
     const storedInvoices = localStorage.getItem('transactions');
-    console.log('Busquei storedInvoices', storedInvoices);
 
     if (storedInvoices)
       setInvoices(JSON.parse(storedInvoices) as InvoiceEntity[]);
