@@ -21,7 +21,8 @@ const AccountContext = createContext<
 export function AccountProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [account, setUser] = useState({
+  //TODO: remover senha
+  const [account, setAccount] = useState({
     id: '0',
     email: '',
     password: '',
@@ -30,6 +31,21 @@ export function AccountProvider({
   });
   const [balance, setBalance] = useState(0);
   const [token, setToken] = useState('');
+
+  useEffect(() => {
+    const storedAccount = localStorage.getItem('user');
+
+    if (storedAccount) {
+      const parsedAccount = JSON.parse(storedAccount);
+      setAccount({
+        id: parsedAccount.id,
+        email: parsedAccount.email,
+        password: '**********',
+        type: parsedAccount.type,
+        name: parsedAccount.name,
+      });
+    }
+  }, []);
 
   const setTotalBalance = (invoices: InvoiceEntity[]) => {
     const total = invoices.reduce((acc, invoice) => {
@@ -66,7 +82,7 @@ export function AccountProvider({
       JSON.stringify(responseUser.transactions),
     );
 
-    setUser({
+    setAccount({
       id: responseUser.id,
       email: responseUser.email,
       password: responseUser.password,
@@ -74,11 +90,12 @@ export function AccountProvider({
       name: responseUser.name,
     });
     setToken(response.token);
+    localStorage.setItem('user', JSON.stringify(responseUser));
     return;
   };
 
   const logOut = () => {
-    setUser({
+    setAccount({
       id: '0',
       email: '',
       password: '',
@@ -88,6 +105,7 @@ export function AccountProvider({
     setToken('');
     localStorage.removeItem('biteBankId');
     localStorage.removeItem('transactions');
+    localStorage.removeItem('user');
   };
 
   return (
