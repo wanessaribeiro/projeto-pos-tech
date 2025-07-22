@@ -36,6 +36,7 @@ export default function CreateAccountModal({
 
   const onSubmitCreateAccount = () => {
     onCreateAccount({ name, email, password });
+    onClose();
   };
 
   return (
@@ -64,6 +65,7 @@ export default function CreateAccountModal({
 
         <p className="font-bold">Email</p>
         <input
+          type="email"
           id="account-email"
           name="account-email"
           placeholder="Digite seu email"

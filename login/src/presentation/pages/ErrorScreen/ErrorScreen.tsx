@@ -31,11 +31,6 @@ export default function ErrorScreen({
     setAccountOpen(true);
   };
 
-  const onClickCreateAccountModal = () => {
-    onCreateAccount();
-    setAccountOpen(false);
-  };
-
   useEffect(() => {
     if (token) navigate('/dashboard');
   }, [token, navigate]);
@@ -67,7 +62,7 @@ export default function ErrorScreen({
       />
       <CreateAccountModal
         isOpen={accountOpen}
-        onCreateAccount={onClickCreateAccountModal}
+        onCreateAccount={onCreateAccount}
         onClose={() => setAccountOpen(false)}
       />
     </>

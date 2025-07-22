@@ -7,9 +7,11 @@ export default async function PostCreateAccountService({
 }: PostCreateAccountDTO) {
   const url = 'http://localhost:3333/contas';
 
-  await fetch(url, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
   });
+
+  return response;
 }

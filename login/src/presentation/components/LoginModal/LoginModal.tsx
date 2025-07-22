@@ -30,6 +30,7 @@ export default function LoginModal({
 
   const onSubmitLogin = () => {
     onLogin({ email, password });
+    onClose();
   };
 
   return (

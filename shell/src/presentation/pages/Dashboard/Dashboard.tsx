@@ -19,8 +19,6 @@ export default function Dashboard() {
     if (!token) navigate('/login');
   }, [token, navigate]);
 
-  //TODO: logout funcional
-
   return (
     <div>
       <Header
