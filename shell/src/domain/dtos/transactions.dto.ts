@@ -1,16 +1,21 @@
 export interface PostCreateTransactionDTO {
   token: string;
   userId: string;
+  transactionId: string;
   value: number;
   type: string;
 }
 
 export interface PutEditTransactionDTO {
-  id: string;
+  token: string;
+  userId: string;
+  transactionId: string;
   value: number;
   type: string;
 }
 
 export interface DeleteTransactionDTO {
-  id: string;
+  token: string;
+  userId: string;
+  transactionId: string;
 }

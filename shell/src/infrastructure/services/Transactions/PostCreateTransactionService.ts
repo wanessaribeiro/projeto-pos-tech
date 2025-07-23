@@ -3,6 +3,7 @@ import { PostCreateTransactionDTO } from '../../../domain/dtos/transactions.dto'
 export default async function PostCreateTransactionService({
   token,
   userId,
+  transactionId,
   value,
   type,
 }: PostCreateTransactionDTO) {
@@ -14,6 +15,6 @@ export default async function PostCreateTransactionService({
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + token,
     },
-    body: JSON.stringify({ value, type }),
+    body: JSON.stringify({ id: transactionId, value, type }),
   });
 }

@@ -13,5 +13,6 @@ export default async function PostLoginAccountService({
     body: JSON.stringify({ email, password }),
   });
 
+  //TODO: tratamento de erro
   return await response.json();
 }

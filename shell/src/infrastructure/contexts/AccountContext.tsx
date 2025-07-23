@@ -28,24 +28,33 @@ export function AccountProvider({
     password: '',
     type: '',
     name: '',
+    transactions: [],
+    investments: {
+      investmentFunds: 0,
+      treasure: 0,
+      privatePrevidence: 0,
+      stocks: 0,
+    },
   });
   const [balance, setBalance] = useState(0);
   const [token, setToken] = useState('');
 
-  useEffect(() => {
-    const storedAccount = localStorage.getItem('user');
+  const fetchAccount = async (token: string) => {
+    const responseUser = await GetAccountService({
+      token: token,
+    });
 
-    if (storedAccount) {
-      const parsedAccount = JSON.parse(storedAccount);
-      setAccount({
-        id: parsedAccount.id,
-        email: parsedAccount.email,
-        password: '**********',
-        type: parsedAccount.type,
-        name: parsedAccount.name,
-      });
-    }
-  }, []);
+    setAccount({
+      id: responseUser.id,
+      email: responseUser.email,
+      password: '********',
+      type: responseUser.type,
+      name: responseUser.name,
+      transactions: responseUser.transactions,
+      investments: responseUser.investments,
+    });
+    setToken(token);
+  };
 
   const setTotalBalance = (invoices: InvoiceEntity[]) => {
     const total = invoices.reduce((acc, invoice) => {
@@ -65,32 +74,16 @@ export function AccountProvider({
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('biteBankId');
-    if (token) setToken(token);
+    const token = localStorage.getItem('biteBankToken');
+
+    if (token) fetchAccount(token);
   }, []);
 
   const loginAction = async ({ email, password }: PostLoginAccountDTO) => {
     const response = await PostLoginAccountService({ email, password });
-    localStorage.setItem('biteBankId', response.token);
+    localStorage.setItem('biteBankToken', response.token);
 
-    const responseUser = await GetAccountService({
-      token: response.token,
-    });
-
-    localStorage.setItem(
-      'transactions',
-      JSON.stringify(responseUser.transactions),
-    );
-
-    setAccount({
-      id: responseUser.id,
-      email: responseUser.email,
-      password: responseUser.password,
-      type: responseUser.type,
-      name: responseUser.name,
-    });
-    setToken(response.token);
-    localStorage.setItem('user', JSON.stringify(responseUser));
+    fetchAccount(response.token);
     return;
   };
 
@@ -101,11 +94,16 @@ export function AccountProvider({
       password: '',
       type: '',
       name: '',
+      transactions: [],
+      investments: {
+        investmentFunds: 0,
+        treasure: 0,
+        privatePrevidence: 0,
+        stocks: 0,
+      },
     });
     setToken('');
-    localStorage.removeItem('biteBankId');
-    localStorage.removeItem('transactions');
-    localStorage.removeItem('user');
+    localStorage.removeItem('biteBankToken');
   };
 
   return (

@@ -10,6 +10,7 @@ import { InvoiceEntity } from '../../domain/entities/invoice.entity';
 import { invoicesMock } from '../mocks/InvoiceMock';
 import PostCreateTransactionService from '../services/Transactions/PostCreateTransactionService';
 import { useAccountProvider } from './AccountContext';
+import PutEditTransactionService from '../services/Transactions/PutEditTransactionService';
 
 const InvoiceContext = createContext<
   | {
@@ -38,11 +39,10 @@ export function InvoiceProvider({
   });
 
   useEffect(() => {
-    const storedInvoices = localStorage.getItem('transactions');
+    const token = localStorage.getItem('biteBankToken');
 
-    if (storedInvoices)
-      setInvoices(JSON.parse(storedInvoices) as InvoiceEntity[]);
-  }, []);
+    if (token) setInvoices(account.transactions);
+  }, [account]);
 
   const useGetInvoice = (id: string) => {
     const invoice = invoicesMock.find((i) => i.id === id);
@@ -51,12 +51,12 @@ export function InvoiceProvider({
 
   const usePostInvoice = (invoice: InvoiceEntity) => {
     setInvoices((prev) => {
-      localStorage.setItem('transactions', JSON.stringify([invoice, ...prev]));
       return [invoice, ...prev];
     });
 
     PostCreateTransactionService({
-      token: localStorage.getItem('biteBankId') ?? '',
+      token: localStorage.getItem('biteBankToken') ?? '',
+      transactionId: invoice.id,
       userId: account.id,
       type: invoice.type,
       value: invoice.value,
@@ -68,6 +68,14 @@ export function InvoiceProvider({
       const editInvoice = prev.find((i) => i.id === invoice.id);
       if (editInvoice) Object.assign(editInvoice, invoice);
       return prev;
+    });
+
+    PutEditTransactionService({
+      token: localStorage.getItem('biteBankToken') ?? '',
+      userId: account.id,
+      transactionId: invoice.id,
+      type: invoice.type,
+      value: invoice.value,
     });
   };
 

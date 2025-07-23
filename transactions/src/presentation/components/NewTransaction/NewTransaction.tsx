@@ -23,7 +23,7 @@ export default function NewTransaction({
     id: uuidv4(),
     type: '',
     value: 0,
-    date: new Date(),
+    date: new Date() + '',
   });
 
   const onChangeType = (value: string) => {
@@ -49,7 +49,7 @@ export default function NewTransaction({
       id: uuidv4(),
       type: '',
       value: 0,
-      date: new Date(),
+      date: new Date() + '',
     });
   };
 
