@@ -21,11 +21,9 @@ const AccountContext = createContext<
 export function AccountProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  //TODO: remover senha
   const [account, setAccount] = useState({
     id: '0',
     email: '',
-    password: '',
     type: '',
     name: '',
     transactions: [],
@@ -47,7 +45,6 @@ export function AccountProvider({
     setAccount({
       id: responseUser.id,
       email: responseUser.email,
-      password: '********',
       type: responseUser.type,
       name: responseUser.name,
       transactions: responseUser.transactions,
@@ -91,7 +88,6 @@ export function AccountProvider({
     setAccount({
       id: '0',
       email: '',
-      password: '',
       type: '',
       name: '',
       transactions: [],
