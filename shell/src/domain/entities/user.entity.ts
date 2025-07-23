@@ -7,5 +7,5 @@ export interface UserEntity {
   type: string;
   name: string;
   transactions: InvoiceEntity[];
-  investments: InvestmentEntity;
+  investment: InvestmentEntity;
 }

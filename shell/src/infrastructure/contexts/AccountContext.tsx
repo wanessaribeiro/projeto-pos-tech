@@ -27,7 +27,7 @@ export function AccountProvider({
     type: '',
     name: '',
     transactions: [],
-    investments: {
+    investment: {
       investmentFunds: 0,
       treasure: 0,
       privatePrevidence: 0,
@@ -48,7 +48,12 @@ export function AccountProvider({
       type: responseUser.type,
       name: responseUser.name,
       transactions: responseUser.transactions,
-      investments: responseUser.investments,
+      investment: {
+        investmentFunds: responseUser.investment.investmentFunds,
+        treasure: responseUser.investment.treasure,
+        privatePrevidence: responseUser.investment.privatePrevidence,
+        stocks: responseUser.investment.stocks,
+      },
     });
     setToken(token);
   };
@@ -91,7 +96,7 @@ export function AccountProvider({
       type: '',
       name: '',
       transactions: [],
-      investments: {
+      investment: {
         investmentFunds: 0,
         treasure: 0,
         privatePrevidence: 0,

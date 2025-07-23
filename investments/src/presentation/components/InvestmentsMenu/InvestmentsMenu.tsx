@@ -26,7 +26,7 @@ export default function InvestmentsMenu({
     labels: [
       'Fundos de investimento',
       'Tesouro direto',
-      'Previdêndia privada',
+      'Previdência privada',
       'Bolsa de valores',
     ],
     datasets: [

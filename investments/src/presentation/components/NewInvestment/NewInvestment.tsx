@@ -53,7 +53,7 @@ export default function NewInvestment({ newInvestments }: NewInvestmentProps) {
             options={[
               'Fundos de investimento',
               'Tesouro direto',
-              'Previdêndia privada',
+              'Previdência privada',
               'Bolsa de valores',
             ]}
             placeholder="Selecione o tipo de investimento"
