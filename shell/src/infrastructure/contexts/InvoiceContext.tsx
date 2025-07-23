@@ -11,6 +11,7 @@ import { invoicesMock } from '../mocks/InvoiceMock';
 import PostCreateTransactionService from '../services/Transactions/PostCreateTransactionService';
 import { useAccountProvider } from './AccountContext';
 import PutEditTransactionService from '../services/Transactions/PutEditTransactionService';
+import DeleteTransactionService from '../services/Transactions/DeleteTransactionService';
 
 const InvoiceContext = createContext<
   | {
@@ -85,6 +86,12 @@ export function InvoiceProvider({
       const deleteInvoice = updatedInvoices.findIndex((i) => i.id === id);
       if (deleteInvoice >= 0) updatedInvoices.splice(deleteInvoice, 1);
       return updatedInvoices;
+    });
+
+    DeleteTransactionService({
+      token: localStorage.getItem('biteBankToken') ?? '',
+      userId: account.id,
+      transactionId: id,
     });
   };
 
