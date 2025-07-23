@@ -83,7 +83,6 @@ export function AccountProvider({
 
   const loginAction = async ({ email, password }: PostLoginAccountDTO) => {
     const response = await PostLoginAccountService({ email, password });
-    console.log(response.message);
     if (response.message === 'Credenciais inválidas') {
       alert('Email ou senha incorretos, tente novamente.');
       return;
