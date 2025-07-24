@@ -53,7 +53,7 @@ export default function InvestmentsMenu({
         <h1>Investimentos</h1>
         <div className="invest-section">
           <p className="investments-text font-bold">
-            Total: R$ {percentageValue(153, total)}
+            Total: R$ {total + percentageValue(12, total)}
           </p>
           <button
             className="invest-button"
@@ -64,13 +64,13 @@ export default function InvestmentsMenu({
         </div>
         <div className="income-section">
           <div className="investments-section mini-section border-round">
-            <p>Renda Fixa</p>
-            <p>R$ {percentageValue(132, total)}</p>
+            <p>Renda Fixa (102% do CDI)</p>
+            <p>R$ {total + percentageValue(2, total)}</p>
           </div>
 
           <div className="investments-section mini-section border-round">
-            <p>Renda Variável</p>
-            <p>R$ {percentageValue(21, total)}</p>
+            <p>Renda Variável (10%+)</p>
+            <p>R$ {percentageValue(10, total)}</p>
           </div>
         </div>
         <h2>Estatísticas</h2>
