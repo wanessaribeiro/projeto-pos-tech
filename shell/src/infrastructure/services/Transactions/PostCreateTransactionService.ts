@@ -7,7 +7,7 @@ export default async function PostCreateTransactionService({
   value,
   type,
 }: PostCreateTransactionDTO) {
-  const url = 'http://localhost:3333/contas/' + userId + '/transacao';
+  const url = 'http://localhost:3333/accounts/' + userId + '/transaction';
 
   await fetch(url, {
     method: 'POST',

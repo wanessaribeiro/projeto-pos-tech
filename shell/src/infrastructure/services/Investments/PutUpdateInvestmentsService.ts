@@ -5,7 +5,7 @@ export default async function PutUpdateInvestmentsService({
   userId,
   data,
 }: PutUpdateInvestmentsDTO) {
-  const url = 'http://localhost:3333/contas/' + userId + '/investment';
+  const url = 'http://localhost:3333/accounts/' + userId + '/investment';
 
   await fetch(url, {
     method: 'PUT',

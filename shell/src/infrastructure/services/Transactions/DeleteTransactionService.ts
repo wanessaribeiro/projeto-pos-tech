@@ -6,7 +6,10 @@ export default async function DeleteTransactionService({
   userId,
 }: DeleteTransactionDTO) {
   const url =
-    'http://localhost:3333/contas/' + userId + '/transacao/' + transactionId;
+    'http://localhost:3333/accounts/' +
+    userId +
+    '/transaction/' +
+    transactionId;
 
   await fetch(url, {
     method: 'DELETE',

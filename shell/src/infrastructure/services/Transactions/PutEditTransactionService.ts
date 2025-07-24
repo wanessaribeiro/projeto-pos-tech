@@ -8,7 +8,10 @@ export default async function PutEditTransactionService({
   type,
 }: PutEditTransactionDTO) {
   const url =
-    'http://localhost:3333/contas/' + userId + '/transacao/' + transactionId;
+    'http://localhost:3333/accounts/' +
+    userId +
+    '/transaction/' +
+    transactionId;
 
   await fetch(url, {
     method: 'PUT',
