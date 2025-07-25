@@ -14,4 +14,4 @@ Em seguida, acesse o endereço [http://localhost:2000](http://localhost:2000) em
 
 ## Como rodar o backend
 
-Para rodar o projeto corretamente, é necessário rodar o backend, para isso, acesse o repositório [Backend - Projeto de sistema financeiro](https://github.com/wanessaribeiro/projeto-pos-tech-backend?tab=readme-ov-file) e siga as instruções do ReadMe.
+Para rodar o projeto corretamente, é necessário rodar o backend, para isso, acesse o repositório [Backend - Projeto de sistema financeiro](https://github.com/wanessaribeiro/projeto-pos-tech-backend) e siga as instruções do ReadMe.
