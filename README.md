@@ -1,4 +1,4 @@
-## Tech Challenge II - Projeto de sistema financeiro
+## Tech Challenge IV - Projeto de sistema financeiro
 
 Aplicação desenvolvida em modulos microfrontend em React, usando Module Federation, feito por Wanessa Ribeiro.
 
@@ -11,3 +11,7 @@ docker-compose up --build
 ```
 
 Em seguida, acesse o endereço [http://localhost:2000](http://localhost:2000) em seu navegador para acessar a aplicação.
+
+## Como rodar o backend
+
+Para rodar o backend, acesse o repositório [Backend - Projeto de sistema financeiro](https://github.com/wanessaribeiro/projeto-pos-tech-backend?tab=readme-ov-file) e siga as instruções do ReadMe.
