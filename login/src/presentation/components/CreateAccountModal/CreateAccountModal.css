@@ -5,6 +5,7 @@
   top: 0rem;
   left: 0;
   justify-items: center;
+  text-align: center;
   border: none;
 }
 
@@ -23,12 +24,14 @@
   width: 22rem;
   height: 17rem;
   margin-top: 1.5rem;
+  justify-self: center;
 }
 
 .account-form {
   display: flex;
   flex-direction: column;
   justify-items: left;
+  text-align: left;
 }
 
 .account-input {

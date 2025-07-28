@@ -79,6 +79,7 @@ export default function CreateAccountModal({
           name="account-senha"
           placeholder="Digite sua senha"
           className="account-input"
+          type="password"
           value={password}
           onChange={onChangePassword}
         />
